@@ -15,7 +15,8 @@ LangGraph 主流程定义。
 from langgraph.graph import END, StateGraph
 
 from app.config import settings
-from app.core.state import AgentState, ParsedLog
+from app.core.parsers import parse_crash_report
+from app.core.state import AgentState
 
 
 # ---------------------------------------------------------------------------
@@ -48,9 +49,10 @@ def create_initial_state(raw_log_path: str) -> AgentState:
 # ---------------------------------------------------------------------------
 
 def parse_log(state: AgentState) -> dict:
-    """【stub】读取原始日志并解析为 ParsedLog 结构。
+    """读取原始崩溃日志并解析为 ParsedLog 结构。
 
-    后续替换为真实日志解析逻辑，从 state["raw_log_path"] 读取文件。
+    当前支持 Paper/Spigot/Purpur 的 crash report 格式。
+    从 state["raw_log_path"] 读取文件，调用解析器提取结构化字段。
 
     Args:
         state: 当前图状态。
@@ -58,23 +60,8 @@ def parse_log(state: AgentState) -> dict:
     Returns:
         包含 parsed_log 的部分状态更新。
     """
-    mock_log: ParsedLog = {
-        "server_type": "paper",
-        "server_version": "1.20.1",
-        "java_version": "17.0.1",
-        "exception_type": "java.lang.NullPointerException",
-        "exception_message": "Cannot invoke \"String.length()\" because \"name\" is null",
-        "crash_thread": "Server thread",
-        "caused_by_chain": [],
-        "key_stack_frames": [
-            "com.example.plugin.ExamplePlugin.onEnable(ExamplePlugin.java:42)",
-        ],
-        "plugins": [{"name": "ExamplePlugin", "version": "1.0.0", "author": "test"}],
-        "suspected_plugin": "ExamplePlugin",
-        "crash_time": "2026-08-26T10:00:00",
-        "raw_log_path": state["raw_log_path"],
-    }
-    return {"parsed_log": mock_log}
+    parsed = parse_crash_report(state["raw_log_path"])
+    return {"parsed_log": parsed}
 
 
 def classify(state: AgentState) -> dict:
