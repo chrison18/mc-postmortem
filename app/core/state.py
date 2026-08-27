@@ -48,6 +48,8 @@ class AgentState(TypedDict):
     parsed_log: ParsedLog | None
     # 故障分类结果，如 plugin_conflict / version_mismatch 等
     fault_category: str | None
+    # 故障分类的判断理由（LLM 给出的 reason，用于可解释性和调试）
+    classify_reason: str | None
     # ReAct 消息列表，使用 add_messages reducer 自动合并  即上下文窗口 context window
     messages: Annotated[list, add_messages]
     # 从向量库检索到的历史相似案例
