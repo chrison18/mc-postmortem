@@ -27,7 +27,7 @@ class ParsedLog(TypedDict):
     crash_thread: str
     # caused by 链，从外到内逐层记录
     caused_by_chain: list[str]
-    # 关键堆栈帧（过滤掉 JDK 内部帧后的业务相关帧）
+    # 全量堆栈帧（保留所有 at 行，不过滤 JDK 内部帧，为后续分析留全量信息）
     key_stack_frames: list[str]
     # 崩溃时加载的插件列表，每项含 name / version / author
     plugins: list[dict]
