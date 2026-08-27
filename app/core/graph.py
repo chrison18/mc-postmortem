@@ -16,6 +16,7 @@ from langgraph.graph import END, StateGraph
 
 from app.config import settings
 from app.core.nodes.classify import classify
+from app.core.nodes.retrieve import retrieve_cases as retrieve_cases_impl
 from app.core.parsers import parse_crash_report
 from app.core.state import AgentState
 
@@ -80,13 +81,10 @@ def classify_node(state: AgentState) -> dict:
     return classify(state)
 
 
-def retrieve_cases(state: AgentState) -> dict:
-    """【stub】强制预检索：从向量库检索相似历史案例。
+def retrieve_cases_node(state: AgentState) -> dict:
+    """相似案例检索节点：从向量库检索相似历史案例。
 
-    此节点在 react 循环之前强制执行，保证 LLM 至少获得一次 RAG 上下文，
-    避免 LLM 跳过检索直接判断。后续 react 循环内还会提供 RAG tool 支持追加检索。
-
-    后续替换为真实 Chroma 检索逻辑，基于 parsed_log 做 embedding 相似度查询。
+    真实实现见 app.core.nodes.retrieve.retrieve_cases，此处为薄包装。
 
     Args:
         state: 当前图状态。
@@ -94,7 +92,7 @@ def retrieve_cases(state: AgentState) -> dict:
     Returns:
         包含 retrieved_cases 的部分状态更新。
     """
-    return {"retrieved_cases": []}
+    return retrieve_cases_impl(state)
 
 
 def react_agent(state: AgentState) -> dict:
@@ -148,7 +146,7 @@ builder = StateGraph(AgentState)
 # 注册节点
 builder.add_node("parse_log", parse_log)
 builder.add_node("classify", classify_node)
-builder.add_node("retrieve_cases", retrieve_cases)
+builder.add_node("retrieve_cases", retrieve_cases_node)
 builder.add_node("react_agent", react_agent)
 
 # 入口与线性边
