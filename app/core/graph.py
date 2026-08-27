@@ -15,6 +15,7 @@ LangGraph 主流程定义。
 from langgraph.graph import END, StateGraph
 
 from app.config import settings
+from app.core.nodes.classify import classify
 from app.core.parsers import parse_crash_report
 from app.core.state import AgentState
 
@@ -36,6 +37,7 @@ def create_initial_state(raw_log_path: str) -> AgentState:
         "raw_log_path": raw_log_path,
         "parsed_log": None,
         "fault_category": None,
+        "classify_reason": None,
         "messages": [],
         "retrieved_cases": [],
         "root_cause": None,
@@ -64,18 +66,18 @@ def parse_log(state: AgentState) -> dict:
     return {"parsed_log": parsed}
 
 
-def classify(state: AgentState) -> dict:
-    """【stub】调用 LLM 对崩溃日志进行故障分类。
+def classify_node(state: AgentState) -> dict:
+    """故障分类节点：调用 LLM 判断崩溃日志所属类别。
 
-    后续替换为真实 LLM 调用，使用 app.prompts.build_classify_prompt()。
+    真实实现见 app.core.nodes.classify.classify，此处为薄包装。
 
     Args:
         state: 当前图状态。
 
     Returns:
-        包含 fault_category 的部分状态更新。
+        包含 fault_category 和 classify_reason 的部分状态更新。
     """
-    return {"fault_category": "unknown"}
+    return classify(state)
 
 
 def retrieve_cases(state: AgentState) -> dict:
@@ -145,7 +147,7 @@ builder = StateGraph(AgentState)
 
 # 注册节点
 builder.add_node("parse_log", parse_log)
-builder.add_node("classify", classify)
+builder.add_node("classify", classify_node)
 builder.add_node("retrieve_cases", retrieve_cases)
 builder.add_node("react_agent", react_agent)
 
