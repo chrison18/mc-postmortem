@@ -37,6 +37,8 @@ class ParsedLog(TypedDict):
     crash_time: str
     # 原始日志文件路径（只存路径，不存全文）
     raw_log_path: str
+    # 原始日志全文（解析失败或字段缺失时，LLM 仍可从原文提取信息）
+    raw_content: str
 
 
 class AgentState(TypedDict):

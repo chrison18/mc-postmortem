@@ -1,8 +1,13 @@
 """
-Paper / Spigot / Purpur 崩溃报告解析器。
+Paper / Spigot / Purpur 崩溃日志解析器。
 
-解析 crash-reports/crash-*.txt 格式的崩溃报告，提取结构化字段填充 ParsedLog。
-MVP 阶段仅支持 Bukkit 系服务端（Paper/Spigot/Purpur），不支持 Forge/Fabric。
+支持多种输入格式：
+- 完整 crash report（crash-reports/crash-*.txt）
+- crash report 片段（issue 中粘贴的部分日志）
+- latest.log 格式片段（带 [时间 线程/级别] 前缀）
+
+解析策略：全文特征搜索，能提取多少提取多少，缺失字段留空，绝不瞎填默认值。
+无法识别为日志的文本也返回结构，原始全文存入 raw_content 供后续 LLM 提取。
 """
 
 import re
@@ -10,35 +15,36 @@ from pathlib import Path
 
 from app.core.state import ParsedLog
 
-# crash report 文件头标记
-_CRASH_REPORT_HEADER = "---- Minecraft Crash Report ----"
+# latest.log 行前缀：[HH:MM:SS] [ThreadName/LEVEL]:
+_LOG_PREFIX_RE = re.compile(r"^\[\d{2}:\d{2}:\d{2}\]\s+\[[^\]]+\]:\s*")
 
-# 分隔线：详细堆栈从此开始，之前的是主异常信息
-_DETAILED_WALKTHROUGH = "A detailed walkthrough of the error"
+# crash report 分隔线
+_SYSTEM_DETAILS_MARKER = "-- System Details --"
 
 
 def parse_crash_report(file_path: str) -> ParsedLog:
-    """解析崩溃报告文件为 ParsedLog 结构。
+    """解析崩溃日志文件为 ParsedLog 结构。
+
+    不严格要求文件格式，尽力提取各字段。缺失字段留空字符串/空列表，
+    原始全文存入 raw_content，确保后续 LLM 不会因字段缺失而瞎编。
 
     Args:
-        file_path: 崩溃报告文件的绝对或相对路径。
+        file_path: 崩溃日志文件的绝对或相对路径。
 
     Returns:
         结构化的 ParsedLog 字典。
 
     Raises:
         FileNotFoundError: 文件不存在。
-        ValueError: 文件不是有效的崩溃报告格式。
     """
     path = Path(file_path)
     if not path.exists():
-        raise FileNotFoundError(f"崩溃报告不存在: {file_path}")
+        raise FileNotFoundError(f"崩溃日志不存在: {file_path}")
 
     content = _read_file(path)
-    lines = content.splitlines()
-
-    if not _is_crash_report(lines):
-        raise ValueError(f"文件不是有效的崩溃报告格式（缺少文件头标记）: {file_path}")
+    raw_lines = content.splitlines()
+    # 逐行剥离 latest.log 前缀，得到统一格式的行
+    lines = [_strip_log_prefix(line) for line in raw_lines]
 
     return {
         "server_type": _extract_server_type(lines),
@@ -54,17 +60,16 @@ def parse_crash_report(file_path: str) -> ParsedLog:
         "suspected_plugin": None,
         "crash_time": _extract_crash_time(lines),
         "raw_log_path": str(path.resolve()),
+        "raw_content": content,
     }
 
 
 # ---------------------------------------------------------------------------
-# 文件读取与格式判断
+# 文件读取与行预处理
 # ---------------------------------------------------------------------------
 
 def _read_file(path: Path) -> str:
     """读取文件内容，自动尝试多种编码。
-
-    crash report 在不同系统上编码可能不同，优先 utf-8，回退 gbk / latin-1。
 
     Args:
         path: 文件路径。
@@ -77,120 +82,118 @@ def _read_file(path: Path) -> str:
             return path.read_text(encoding=encoding)
         except (UnicodeDecodeError, LookupError):
             continue
-    # latin-1 不会失败，理论上到不了这里
     return path.read_text(encoding="latin-1")
 
 
-def _is_crash_report(lines: list[str]) -> bool:
-    """判断文件内容是否为崩溃报告格式。
+def _strip_log_prefix(line: str) -> str:
+    """剥离 latest.log 格式的行前缀 [时间 线程/级别]: 。
+
+    非 latest.log 格式的行原样返回。
 
     Args:
-        lines: 文件行列表。
+        line: 原始行。
 
     Returns:
-        前 5 行内包含文件头标记则返回 True。
+        剥离前缀后的行。
     """
-    return any(_CRASH_REPORT_HEADER in line for line in lines[:5])
+    return _LOG_PREFIX_RE.sub("", line)
 
 
 # ---------------------------------------------------------------------------
-# 主异常信息提取（Description 段，分隔线之前）
+# 异常信息提取（全文特征搜索）
 # ---------------------------------------------------------------------------
-
-def _get_main_section(lines: list[str]) -> list[str]:
-    """获取主异常段（从 Description 到详细堆栈分隔线之间的行）。
-
-    Args:
-        lines: 全文行列表。
-
-    Returns:
-        主异常段的行列表，找不到时返回空列表。
-    """
-    start = None
-    for i, line in enumerate(lines):
-        if line.strip().startswith("Description:"):
-            start = i
-            break
-    if start is None:
-        return []
-
-    end = len(lines)
-    for i in range(start, len(lines)):
-        if _DETAILED_WALKTHROUGH in lines[i]:
-            end = i
-            break
-    return lines[start:end]
-
 
 def _extract_exception_type(lines: list[str]) -> str:
     """提取异常类型（如 java.lang.NullPointerException）。
 
+    优先从非 Caused by 行提取（支持行首和行内匹配），
+    找不到时退化到从第一条 Caused by 行提取。
+
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
         异常类型全限定名，提取失败返回空字符串。
     """
-    section = _get_main_section(lines)
-    for line in section:
+    # 第一轮：非 Caused by 行，行内搜索异常类型
+    for line in lines:
         stripped = line.strip()
-        # 匹配 "java.lang.XxxException: message" 或 "java.lang.XxxError: message"
-        m = re.match(r"^(\S+(?:Exception|Error|Throwable))\s*:", stripped)
+        if stripped.startswith("Caused by"):
+            continue
+        m = re.search(r"(\S+(?:Exception|Error|Throwable))\s*:", stripped)
         if m:
             return m.group(1)
+    # 第二轮：退化到 Caused by 行
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("Caused by:"):
+            m = re.search(r"Caused by:\s*(\S+(?:Exception|Error|Throwable))\s*:", stripped)
+            if m:
+                return m.group(1)
     return ""
 
 
 def _extract_exception_message(lines: list[str]) -> str:
-    """提取异常消息（冒号后的部分）。
+    """提取异常消息（异常类型冒号后的部分）。
+
+    与 exception_type 采用相同的搜索策略。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
         异常消息文本，提取失败返回空字符串。
     """
-    section = _get_main_section(lines)
-    for line in section:
+    for line in lines:
         stripped = line.strip()
-        m = re.match(r"^\S+(?:Exception|Error|Throwable)\s*:\s*(.*)$", stripped)
+        if stripped.startswith("Caused by"):
+            continue
+        m = re.search(r"\S+(?:Exception|Error|Throwable)\s*:\s*(.+)$", stripped)
         if m:
             return m.group(1).strip()
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("Caused by:"):
+            m = re.search(
+                r"Caused by:\s*\S+(?:Exception|Error|Throwable)\s*:\s*(.+)$",
+                stripped,
+            )
+            if m:
+                return m.group(1).strip()
     return ""
 
 
 def _extract_stack_frames(lines: list[str]) -> list[str]:
-    """提取全量堆栈帧（主异常段内所有 at 行）。
+    """提取全量堆栈帧（全文所有 at 开头的行）。
 
     保留所有 at 行，不过滤 JDK 内部帧，为后续分析保留完整信息。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
-        堆栈帧字符串列表，每项为 "at 类名.方法(源文件:行号)" 格式。
+        堆栈帧字符串列表。
     """
-    section = _get_main_section(lines)
     frames = []
-    for line in section:
+    for line in lines:
         stripped = line.strip()
-        if stripped.startswith("at "):
+        # 堆栈帧特征：以 at 开头，且包含括号（源文件:行号）
+        if stripped.startswith("at ") and "(" in stripped and ")" in stripped:
             frames.append(stripped)
     return frames
 
 
 def _extract_caused_by_chain(lines: list[str]) -> list[str]:
-    """提取 Caused by 链（从外到内）。
+    """提取 Caused by 链（全文所有 Caused by: 行）。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
-        Caused by 行列表，每项为 "Caused by: 异常类型: 消息" 格式。
+        Caused by 行列表，从外到内。
     """
-    section = _get_main_section(lines)
     chain = []
-    for line in section:
+    for line in lines:
         stripped = line.strip()
         if stripped.startswith("Caused by:"):
             chain.append(stripped)
@@ -198,27 +201,25 @@ def _extract_caused_by_chain(lines: list[str]) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
-# System Details 段提取
+# System Details 段提取（有则提取，无则留空）
 # ---------------------------------------------------------------------------
 
 def _get_system_details(lines: list[str]) -> list[str]:
     """获取 -- System Details -- 段的内容行。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
         System Details 段的行列表，找不到返回空列表。
     """
     start = None
     for i, line in enumerate(lines):
-        if line.strip().startswith("-- System Details --"):
+        if line.strip().startswith(_SYSTEM_DETAILS_MARKER):
             start = i + 1
             break
     if start is None:
         return []
-
-    # System Details 通常是最后一段，取到文件末尾
     return lines[start:]
 
 
@@ -226,13 +227,12 @@ def _extract_minecraft_version(lines: list[str]) -> str:
     """提取 Minecraft 版本号。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
-        版本号如 "1.20.4"，提取失败返回空字符串。
+        版本号，提取失败返回空字符串。
     """
-    details = _get_system_details(lines)
-    for line in details:
+    for line in _get_system_details(lines):
         m = re.match(r"\s*Minecraft Version:\s*(.+)", line)
         if m:
             return m.group(1).strip()
@@ -243,13 +243,12 @@ def _extract_java_version(lines: list[str]) -> str:
     """提取 Java 版本。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
-        Java 版本如 "17.0.1"，提取失败返回空字符串。
+        Java 版本，提取失败返回空字符串。
     """
-    details = _get_system_details(lines)
-    for line in details:
+    for line in _get_system_details(lines):
         m = re.match(r"\s*Java Version:\s*([^,]+)", line)
         if m:
             return m.group(1).strip()
@@ -259,33 +258,31 @@ def _extract_java_version(lines: list[str]) -> str:
 def _extract_server_type(lines: list[str]) -> str:
     """提取服务端类型（Paper / Spigot / Purpur）。
 
-    优先从 "Server Running:" 行提取（Paper/Purpur 特有），
-    缺失时默认 "spigot"（Spigot 无此字段）。
+    从 "Server Running:" 行提取，缺失时返回 "unknown"（不瞎猜）。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
-        服务端类型小写字符串，如 "paper" / "spigot" / "purpur"。
+        服务端类型小写字符串，或 "unknown"。
     """
-    details = _get_system_details(lines)
-    for line in details:
+    for line in _get_system_details(lines):
         m = re.match(r"\s*Server Running:\s*(\w+)", line)
         if m:
             return m.group(1).lower()
-    return "spigot"
+    return "unknown"
 
 
 def _extract_crash_time(lines: list[str]) -> str:
     """提取崩溃时间。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
-        时间字符串如 "2024-01-15 10:30:45"，提取失败返回空字符串。
+        时间字符串，提取失败返回空字符串。
     """
-    for line in lines[:20]:
+    for line in lines[:30]:
         m = re.match(r"\s*Time:\s*(.+)", line)
         if m:
             return m.group(1).strip()
@@ -295,13 +292,11 @@ def _extract_crash_time(lines: list[str]) -> str:
 def _extract_crash_thread(lines: list[str]) -> str:
     """提取崩溃发生的线程名。
 
-    优先从 -- Head -- 段的 "Thread:" 行提取。
-
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
-        线程名如 "Server thread"，提取失败返回空字符串。
+        线程名，提取失败返回空字符串。
     """
     for line in lines:
         m = re.match(r"\s*Thread:\s*(.+)", line)
@@ -316,21 +311,19 @@ def _extract_plugins(lines: list[str]) -> list[dict]:
     解析 "Plugins: {EssentialsX v2.20.1 (https://...), Vault v1.7.3, ...}" 格式。
 
     Args:
-        lines: 全文行列表。
+        lines: 预处理后的行列表。
 
     Returns:
         插件字典列表，每项含 name / version / url 字段。
     """
-    details = _get_system_details(lines)
     plugins_line = None
-    for line in details:
+    for line in _get_system_details(lines):
         if line.strip().startswith("Plugins:"):
             plugins_line = line
             break
     if not plugins_line:
         return []
 
-    # 去掉 "Plugins:" 前缀和外层大括号
     inner = plugins_line.split(":", 1)[1].strip().strip("{}")
     if not inner:
         return []
@@ -340,7 +333,6 @@ def _extract_plugins(lines: list[str]) -> list[dict]:
         part = part.strip()
         if not part:
             continue
-        # 匹配 "Name vVersion (url)" 或 "Name vVersion" 或 "Name version"
         m = re.match(r"^(\S+)\s+v?(\S+?)(?:\s+\(([^)]+)\))?$", part)
         if m:
             plugins.append({
