@@ -24,6 +24,9 @@ class Settings(BaseSettings):
     # 本地 embedding 模型名称（sentence-transformers 加载）
     EMBEDDING_MODEL: str = "BAAI/bge-m3"
 
+    # HuggingFace 镜像地址，国内网络无法直连时使用，留空则用官方地址
+    HF_ENDPOINT: str = "https://hf-mirror.com"
+
     # ReAct 循环最大迭代次数，防止无限循环
     MAX_REACT_LOOPS: int = 5
 
