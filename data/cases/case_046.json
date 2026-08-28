@@ -1,0 +1,18 @@
+{
+  "id": "case_046",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PlaceholderAPI/PlaceholderAPI/issues/1132",
+  "source_title": "If the plugin not able to mkdir for the LocalExpansionManager, plugin fails to load (instead of logging it)",
+  "server_type": "paper",
+  "mc_version": "1.21.8",
+  "java_version": "unknown",
+  "exception_type": "org.bukkit.plugin.InvalidPluginException",
+  "plugins": [
+    "PlaceholderAPI v2.11.6"
+  ],
+  "raw_log": "[09:54:19 ERROR]: [ModernPluginLoadingStrategy] Could not load plugin 'PlaceholderAPI-2.11.6.jar' in folder 'plugins/.paper-remapped'\norg.bukkit.plugin.InvalidPluginException: Exception initializing main class `me.clip.placeholderapi.PlaceholderAPIPlugin'\n        at org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:114) ~[paper-api-1.21.8-R0.1-SNAPSHOT.jar:?]\n        at io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:125) ~[paper-1.21.8.jar:1.21.8-40-f866a5f]",
+  "fix_solution": "待补充",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:loadfail; raw_log 逐字摘自 issue 正文;PlaceholderAPI 主类初始化失败(paper-api-1.21.8);.paper-remapped 目录异常;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

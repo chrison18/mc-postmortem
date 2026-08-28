@@ -1,0 +1,16 @@
+{
+  "id": "case_017",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PaperMC/Paper/issues/11072",
+  "source_title": "watchdog server kill froze server because of exception",
+  "server_type": "paper",
+  "mc_version": "1.21",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "[17:42:30] [Paper Watchdog Thread/INFO]: Stopping main thread (Ignore any thread death message you see! - DO NOT REPORT THREAD DEATH TO PAPER)\n\n[17:42:30] [Paper Watchdog Thread/INFO]: Stopping server\n\n[17:42:30] [Paper Watchdog Thread/INFO]: Saving players\n\n[17:42:30] [Paper Watchdog Thread/WARN]: Asynchronous Save Players! Blocking thread until it returns \n\njava.lang.IllegalStateException: null\n\n\tat io.papermc.paper.util.MCUtil.ensureMain(MCUtil.java:350) [?:1.21-DEV-0e02aa5]\n\n\tat net.minecraft.server.players.PlayerList.h(PlayerList.java:1185) [?:1.21-DEV-0e02aa5]\n\n\tat net.minecraft.server.MinecraftServer.v(MinecraftServer.java:1060) [?:1.21-DEV-0e02aa5]\n\n\tat net.minecraft.server.dedicated.DedicatedServer.v(DedicatedServer.java:845) [?:1.21-DEV-0e02aa5]\n\n\tat net.minecraft.server.MinecraftServer.close(MinecraftServer.java:1006) [?:1.21-DEV-0e02aa5]\n\n\tat org.spigotmc.WatchdogThread.run(WatchdogThread.java:231) [?:1.21-DEV-0e02aa5]\n",
+  "fix_solution": "【已证实】已由 commit 1595e4afc097ad595cf10106044774170f779701 修复，升级 Paper 到含该提交的版本（依据：lynxplay 确认 Resolved by commit）",
+  "quality": "medium",
+  "collected_at": "2026-08-27",
+  "notes": "场景:watchdog; 提取:inline:fence;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

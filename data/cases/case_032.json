@@ -1,0 +1,27 @@
+{
+  "id": "case_032",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5410",
+  "source_title": "Error reading vanilla model",
+  "server_type": "purpur",
+  "mc_version": "1.21.4",
+  "java_version": "21",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [
+    "AxiomPaper v5.0.4+1.21.4",
+    "ItemsAdder v4.0.17",
+    "MMOCore v1.13.1-SNAPSHOT",
+    "MMOItems v6.10.1-SNAPSHOT",
+    "MythicLib v1.7.1-SNAPSHOT",
+    "MythicMobs v5.11.0-SNAPSHOT-b95565d9",
+    "PlaceholderAPI v2.11.7",
+    "ProtocolLib v5.4.0",
+    "zEssentials v**.**.**.**",
+    "zMenu v**.**.**.**"
+  ],
+  "raw_log": "[13:56:55] [ServerMain/INFO]: [bootstrap] Running Java 21 (Java HotSpot(TM) 64-Bit Server VM 21.0.9+7-LTS-338; Oracle Corporation null) on Windows 10 10.0 (amd64)\n[13:56:55] [ServerMain/INFO]: [bootstrap] Loading Purpur 1.21.4-2416-HEAD@51aafbc (2025-04-12T23:37:33Z) for Minecraft 1.21.4\n[13:56:58] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (10):\n - AxiomPaper (5.0.4+1.21.4), ItemsAdder (4.0.17), MMOCore (1.13.1-SNAPSHOT), MMOItems (6.10.1-SNAPSHOT), MythicLib (1.7.1-SNAPSHOT), MythicMobs (5.11.0-SNAPSHOT-b95565d9), PlaceholderAPI (2.11.7), ProtocolLib (5.4.0), zEssentials (**.**.**.**), zMenu (**.**.**.**)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: java.lang.NullPointerException: Cannot invoke \"com.alibaba.fastjson2.JSONObject.getJSONArray(String)\" because \"<parameter1>\" is null\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat ItemsAdder_4.0.17.jar//itemsadder.m.awe.i(SourceFile:369)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat ItemsAdder_4.0.17.jar//itemsadder.m.awe.j(SourceFile:397)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat ItemsAdder_4.0.17.jar//itemsadder.m.auw.vu(SourceFile:2196)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat ItemsAdder_4.0.17.jar//itemsadder.m.a.a(SourceFile:1490)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat ItemsAdder_4.0.17.jar//itemsadder.m.a.F(SourceFile:335)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat ItemsAdder_4.0.17.jar//itemsadder.m.a.b(SourceFile:713)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat ItemsAdder_4.0.17.jar//itemsadder.m.a.a(SourceFile:1140)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat org.bukkit.craftbukkit.scheduler.CraftAsyncTask.run(CraftAsyncTask.java:57)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat com.destroystokyo.paper.ServerSchedulerReportingWrapper.run(ServerSchedulerReportingWrapper.java:22)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)\n[13:57:26] [Craft Scheduler Thread - 7 - ItemsAdder/WARN]: \tat java.base/java.lang.Thread.run(Thread.java:1583)",
+  "fix_solution": "待补充",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:npe; 日志来自 issue 附件 mclo.gs/O0nBFTb;服务端 purpur;清洗2026-08-28:fix=已补;quality=high→medium"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "case_022",
+  "source_type": "hosting_kb",
+  "source_url": "https://nodecraft.com/support/games/minecraft/troubleshooting/diagnosing-outofmemoryerrors-for-minecraft",
+  "source_title": "Diagnosing \"OutOfMemory\" Errors for Minecraft",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.OutOfMemoryError",
+  "plugins": [],
+  "raw_log": "Caused by: java.lang.OutOfMemoryError: Java heap space\n",
+  "fix_solution": "If you have a Metaspace error, you'll need to increase the \"Metaspace Heap Size\" field on the \"Java Settings\" page of your NodePanel. It's also the -XX:MaxMetaspaceSize parameter if you don't have access to our NodePanel.\n\nIf you have either a Java heap space or GC overhead limit exceeded error, you'll need to increase the \"Maximum Ram\" field in your Java Settings. This is the -Xmx parameter typically.",
+  "quality": "low",
+  "collected_at": "2026-08-27",
+  "notes": "场景:oom; 文章另引用 Caused by: java.lang.OutOfMemorryError: Metaspace(原文拼写如此)。托管商知识库教学文章:raw_log 为该文引用的报错特征原文(非某台真实服务器的完整崩溃报告,通常无插件列表/系统信息),fix_solution 为该文修复步骤原文;故质量不评 high。;清洗2026-08-28:fix=保留KB原文;quality=low→low"
+}

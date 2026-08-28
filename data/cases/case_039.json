@@ -1,0 +1,18 @@
+{
+  "id": "case_039",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/nulli0n/SunLight-spigot/issues/127",
+  "source_title": "could not load plugin",
+  "server_type": "unknown",
+  "mc_version": "1.21.11",
+  "java_version": "unknown",
+  "exception_type": "java.lang.UnsupportedClassVersionError",
+  "plugins": [
+    "SunLight v3.17.1"
+  ],
+  "raw_log": "[22:27:39 ERROR]: [ModernPluginLoadingStrategy] Could not load plugin 'SunLight-3.17.1.jar' in folder 'plugins/.paper-remapped'\norg.bukkit.plugin.InvalidPluginException: java.lang.UnsupportedClassVersionError: su/nightexpress/sunlight/SunLightPlugin has been compiled by a more recent version of the Java Runtime (class file version 69.0), this version of the Java Runtime only recognizes class file versions up to 65.0\n        at io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:129) ~[leaf-1.21.11.jar:1.21.11-175-3606c2f]",
+  "fix_solution": "【推断】UnsupportedClassVersionError 由 Java 版本低于插件编译版本导致，升级 JDK 到插件所需版本（用户反馈 Java 25 可解决）（依据：异常类型 + 用户评论）",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:version; raw_log 逐字摘自 issue 正文代码块;class file 69.0(Java25 编译)运行时只支持到 65.0(Java21);Leaf 为 Paper 分支;正文仅 1 帧;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

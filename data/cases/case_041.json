@@ -1,0 +1,21 @@
+{
+  "id": "case_041",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PlayPro/CoreProtect/issues/831",
+  "source_title": "java.lang.IllegalStateException: Circular plugin loading from plugins CoreProtect",
+  "server_type": "unknown",
+  "mc_version": "1.21.10",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [
+    "CoreProtect",
+    "AdvancedChests",
+    "Nexo",
+    "AxiomPaper"
+  ],
+  "raw_log": "[19:31:51] [Server thread/ERROR]: [LoadOrderTree] =================================\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree] Circular plugin loading detected:\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree] 1) CoreProtect -> AdvancedChests -> Nexo -> AxiomPaper -> CoreProtect\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree]    CoreProtect depend/softdepend: [WorldEdit, AdvancedChests]\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree]    AdvancedChests depend/softdepend: [Multiverse-Core, Vault, CMI, HolographicDisplays, ShopGUIPlus, Essentials, zShop, WildTools, WildStacker, Insights, RoyaleEconomy, BossShopPro, ItemShops, Slimefun, SuperiorSkyblock2, IridiumSkyblock, BentoBox, FabledSkyblock, InteractionVisualizer, ProtocolLib, IslandShop, OneStopShop, PlotSquared, TransportPipes, EconomyShopGUI, EconomyShopGUI-Premium, DeluxeBazaar, QuickShop, DecentHolograms, DynamicShop, ExcellentShop, UltraEconomy, AreaShop, NextGens, FancyHolograms, RoseStacker, Nexo]\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree]    Nexo loadafter: [AxiomPaper, BentoBox, Factions, HuskClaims, HuskTowns, Lands, MMOItems, ModelEngine, MythicCrucible, MythicMobs, PlaceholderAPI, PlotSquared, Spartan, TAB, Towny, Vacan, Vulcan, WorldEdit, WorldGuard]\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree]    AxiomPaper depend/softdepend: [CoreProtect, ViaVersion, WorldGuard, PlotSquared]\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree] Please report this to the plugin authors of the first plugin of each loop or join the PaperMC Discord server for further help.\n[19:31:51] [Server thread/ERROR]: [LoadOrderTree] =================================\n[19:31:51] [Server thread/ERROR]: [SimpleProviderStorage] Circular plugin loading detected!\n[19:31:51] [Server thread/ERROR]: [SimpleProviderStorage] Circular load order:\n[19:31:51] [Server thread/ERROR]: [SimpleProviderStorage]   CoreProtect -> AdvancedChests -> Nexo -> AxiomPaper -> CoreProtect\n[19:31:51] [Server thread/ERROR]: [SimpleProviderStorage] Please report this to the plugin authors of the first plugin of each loop or join the PaperMC Discord server for further help.\n[19:31:51] [Server thread/ERROR]: [SimpleProviderStorage] If you would like to still load these plugins, acknowledging that there may be unexpected plugin loading issues, run the server with -Dpaper.useLegacyPluginLoading=true\n[19:31:51] [Server thread/ERROR]: Encountered an unexpected exception\njava.lang.IllegalStateException: Circular plugin loading from plugins CoreProtect\n\tat io.papermc.paper.plugin.storage.SimpleProviderStorage.handleCycle(SimpleProviderStorage.java:78) ~[universe-1.21.10.jar:1.21.10-d4ab34b]\n\tat io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:42) ~[universe-1.21.10.jar:1.21.10-d4ab34b]\n\tat io.papermc.paper.plugin.entrypoint.LaunchEntryPointHandler.enter(LaunchEntryPointHandler.java:39) ~[universe-1.21.10.jar:1.21.10-d4ab34b]\n\tat org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:556) ~[universe-1.21.10.jar:1.21.10-d4ab34b]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:333) ~[universe-1.21.10.jar:1.21.10-d4ab34b]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1241) ~[universe-1.21.10.jar:1.21.10-d4ab34b]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:387) ~[universe-1.21.10.jar:1.21.10-d4ab34b]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "待补充",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:conflict; raw_log 逐字摘自 issue 正文代码块;CoreProtect->AdvancedChests->Nexo->AxiomPaper->CoreProtect 循环依赖;universe-1.21.10 为 Paper 分支;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

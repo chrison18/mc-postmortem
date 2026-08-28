@@ -1,0 +1,18 @@
+{
+  "id": "case_044",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/prism/prism/issues/389",
+  "source_title": "Config error",
+  "server_type": "unknown",
+  "mc_version": "26.1.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [
+    "prism v4.4"
+  ],
+  "raw_log": "java.lang.NullPointerException: Cannot invoke \"org.prism_mc.prism.loader.services.configuration.PrismConfiguration.actions()\" because the return value of \"org.prism_mc.prism.loader.services.configuration.ConfigurationService.prismConfig()\" is null\n\tat org.prism_mc.prism.paper.listeners.block.BlockFromToListener.onBlockFromTo(BlockFromToListener.java:89) ~[?:?]\n\tat co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[luminol-api-26.1.2.build.660-stable.jar:?]\n\tat org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:71) ~[luminol-api-26.1.2.build.660-stable.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:56) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:630) ~[luminol-api-26.1.2.build.660-stable.jar:?]\n\tat net.minecraft.world.level.material.FlowingFluid.spread(FlowingFluid.java:169) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.world.level.material.FlowingFluid.tick(FlowingFluid.java:527) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.world.level.material.FluidState.tick(FluidState.java:100) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.server.level.ServerLevel.tickFluid(ServerLevel.java:1472) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.world.ticks.LevelTicks.runCollectedTicks(LevelTicks.java:264) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.world.ticks.LevelTicks.tick(LevelTicks.java:155) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:878) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:2003) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1792) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:452) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat io.papermc.paper.threadedregions.TickRegions$ConcreteRegionTickHandle.tickRegion(TickRegions.java:487) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat io.papermc.paper.threadedregions.TickRegionScheduler$RegionScheduleHandle.runTick(TickRegionScheduler.java:577) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat me.earthme.luminol.utils.thread.LevelAwareRegionScheduler$WrappedTask.runTick(LevelAwareRegionScheduler.java:98) ~[luminol-26.1.2.jar:26.1.2-660-363c197]\n\tat ca.spottedleaf.concurrentutil.scheduler.EDFSchedulerThreadPool$TickThreadRunner.run(EDFSchedulerThreadPool.java:528) ~[concurrentutil-0.0.10.jar:?]\n\tat ca.spottedleaf.concurrentutil.util.LazyRunnable.run(LazyRunnable.java:25) ~[concurrentutil-0.0.10.jar:?]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【已证实】配置库（configurate）解析 config.yml 失败导致 NPE，维护者将改进异常处理回退默认配置；临时方案检查并修复 config.yml 语法错误（依据：viveleroi 确认）",
+  "quality": "high",
+  "collected_at": "2026-08-28",
+  "notes": "场景:config; 日志来自 issue 附件 mclo.gs/44oBCgt;服务端 luminol;prism 配置服务未加载完成即处理事件(issue 标题即 Config error);Luminol 26.1.2(Folia 分支);日志为报错片段;清洗2026-08-28:fix=已补;quality=medium→high"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "case_025",
+  "source_type": "hosting_kb",
+  "source_url": "https://nodecraft.com/support/games/minecraft/troubleshooting/resolving-the-failed-to-start-the-minecraft-server-error",
+  "source_title": "Resolving the \"Failed to start the minecraft server\" error",
+  "server_type": "unknown",
+  "mc_version": "1.12.2",
+  "java_version": "8",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $\nat com.google.gson.stream.JsonReader.beginArray(JsonReader.java:350) ~[JsonReader.class:?]\nat com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:80) ~[CollectionTypeAdapterFactory$Adapter.class:?]\nat com.google.gson.internal.bind.CollectionTypeAdapterFactory$Adapter.read(CollectionTypeAdapterFactory.java:61) ~[CollectionTypeAdapterFactory$Adapter.class:?]\nat net.minecraft.util.JsonUtils.func_193838_a(SourceFile:504) ~[rc.class:?]\nat net.minecraft.util.JsonUtils.func_193841_a(SourceFile:522) ~[rc.class:?]\nat net.minecraft.server.management.PlayerProfileCache.func_152657_b(SourceFile:177) ~[ph.class:?]\nat net.minecraft.server.management.PlayerProfileCache.<init>(SourceFile:63) ~[ph.class:?]\nat net.minecraft.server.MinecraftServer.main(MinecraftServer.java:1541) [MinecraftServer.class:?]\nat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_265]\nat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_265]\nat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_265]\nat java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_265]\nat net.minecraft.launchwrapper.Launch.launch(Launch.java:135) [launchwrapper-1.12.jar:?]\nat net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.12.jar:?]\nat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_265]\nat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_265]\nat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_265]\nat java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_265]\nat net.minecraftforge.fml.relauncher.ServerLaunchWrapper.run(ServerLaunchWrapper.java:70) [sevtech-3.1.5.jar:?]\nat net.minecraftforge.fml.relauncher.ServerLaunchWrapper.main(ServerLaunchWrapper.java:34) [sevtech-3.1.5.jar:?]\n",
+  "fix_solution": "Double check the JSON syntax in any and all of your configuration files, including ops.json and whitelist.json\n\nClear/delete the usercache.json and usernamecache.json files if they exist on your server. These are cache files the game generates for UUID and username tracking, but can sometimes become corrupt. Deleting them will have no noticeable negative effects on your server and these files will be regenerated as they are needed.",
+  "quality": "medium",
+  "collected_at": "2026-08-27",
+  "notes": "场景:config; JSON 配置文件语法错误(gson 解析,堆栈显示 1.8.0_265/sevtech-3.1.5/Forge 1.12.2)。托管商知识库教学文章:raw_log 为该文引用的报错特征原文(非某台真实服务器的完整崩溃报告,通常无插件列表/系统信息),fix_solution 为该文修复步骤原文;故质量不评 high。;清洗2026-08-28:fix=保留KB原文;quality=medium→medium"
+}

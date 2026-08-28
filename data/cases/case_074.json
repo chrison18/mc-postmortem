@@ -1,0 +1,16 @@
+{
+  "id": "case_074",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/ViaVersion/ViaVersion/issues/5008",
+  "source_title": "Custom equipment causes clientbound/minecraft:set_equipment on 1.21.11 -> 26.x",
+  "server_type": "purpur",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.util.NoSuchElementException",
+  "plugins": [],
+  "raw_log": "Caused by: java.util.NoSuchElementException: No value present\n\tat java.base/java.util.Optional.orElseThrow(Optional.java:377)\n\tat net.minecraft.network.codec.ByteBufCodecs$31.decode(ByteBufCodecs.java:669)\n\tat net.minecraft.network.codec.ByteBufCodecs$31.decode(ByteBufCodecs.java:659)\n\tat net.minecraft.network.codec.StreamCodec$7.decode(StreamCodec.java:134)\n\tat net.minecraft.core.component.DataComponentPatch$3.decode(DataComponentPatch.java:96)\n\tat net.minecraft.core.component.DataComponentPatch$3.decode(DataComponentPatch.java:83)\n\tat net.minecraft.world.item.ItemStack$1.decode(ItemStack.java:152)\n\tat net.minecraft.world.item.ItemStack$1.decode(ItemStack.java:143)\n\tat net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket.<init>(ClientboundSetEquipmentPacket.java:33)\n\tat net.minecraft.network.codec.StreamCodec$2.decode(StreamCodec.java:41)\n\tat net.minecraft.network.codec.StreamCodec$5.decode(StreamCodec.java:95)\n\tat net.minecraft.network.codec.StreamCodec$5.decode(StreamCodec.java:91)\n\tat net.minecraft.network.codec.IdDispatchCodec.decode(IdDispatchCodec.java:36)\n\t... 34 more\n\n\nA detailed walkthrough of the error, its code path and all known details is as follows:",
+  "fix_solution": "待补充",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:other; 日志来自 mclo.gs/7f0B6E4;第三批采集"
+}

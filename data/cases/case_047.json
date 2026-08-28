@@ -1,0 +1,19 @@
+{
+  "id": "case_047",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5507",
+  "source_title": "/iazip does not complete with many items on ItemsAdder 4.0.18",
+  "server_type": "paper",
+  "mc_version": "1.21.10",
+  "java_version": "25",
+  "exception_type": "java.lang.OutOfMemoryError",
+  "plugins": [
+    "ItemsAdder v4.0.18",
+    "ProtocolLib v5.4.1-SNAPSHOT-5773bcb"
+  ],
+  "raw_log": "[14:14:23] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.3+9-LTS; Eclipse Adoptium Temurin-25.0.3+9) on Linux 6.1.0-15-amd64 (amd64)\n[14:14:23] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.10-105-main@1f31ee5 (2025-11-04T19:32:20Z) for Minecraft 1.21.10\n[14:14:24] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (2):\n - ItemsAdder (4.0.18), ProtocolLib (5.4.1-SNAPSHOT-5773bcb)\n[14:17:52] [Paper Watchdog Thread/WARN]: Exception in thread \"Paper Watchdog Thread\" java.lang.OutOfMemoryError: Java heap space\n[14:17:52] [Server thread/WARN]: [ItemsAdder] Resource-pack generation failed. Check the console for details.\n[14:17:52] [Server thread/WARN]: [ItemsAdder] Task #1513 for ItemsAdder v4.0.18 generated an exception\njava.lang.OutOfMemoryError: Java heap space\n[14:17:52] [Server console handler/ERROR]: Caught previously unhandled exception :\njava.lang.OutOfMemoryError: Java heap space",
+  "fix_solution": "【推断】OutOfMemoryError 由 ItemsAdder 4.0.18 正式版引入的回归导致（4.0.18-beta-12 正常），临时方案回退到 4.0.18-beta-12，等待官方修复（依据：用户对比验证 beta 版正常）",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:oom; 日志来自 issue 附件 mclo.gs/jn3OrTc;服务端 paper;OOM 发生在 ItemsAdder 资源包生成期间;JVM 无法为 OOM 输出堆栈,仅签名;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

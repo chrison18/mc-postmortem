@@ -1,0 +1,16 @@
+{
+  "id": "case_023",
+  "source_type": "hosting_kb",
+  "source_url": "https://nodecraft.com/support/games/minecraft/troubleshooting/how-to-disable-minecraft-watchdog",
+  "source_title": "How to Disable Minecraft Watchdog",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "ServerWatchdog forced shutdown: A single server tick took 60.00 seconds",
+  "plugins": [],
+  "raw_log": "[minecraft/ServerWatchdog]: A single server tick took 60.00 seconds (should be max 0.05)\n[minecraft/ServerWatchdog]: Considering it to be crashed, server will forcibly shutdown.\n",
+  "fix_solution": "In the file browser, click on the server.properties file.\n\nClick Edit at the top.\n\nScroll down and locate the max-tick-time option.\n\nChange the option after the = to -1\nmax-tick-time=-1\n\nClick the Save button at the top of the editor to save your changes.\n\nStart your server.",
+  "quality": "low",
+  "collected_at": "2026-08-27",
+  "notes": "场景:watchdog; Watchdog 超时报错信息本身不含 Java 异常类名,exception_type 按原文消息填写。托管商知识库教学文章:raw_log 为该文引用的报错特征原文(非某台真实服务器的完整崩溃报告,通常无插件列表/系统信息),fix_solution 为该文修复步骤原文;故质量不评 high。;清洗2026-08-28:fix=保留KB原文;quality=low→low"
+}

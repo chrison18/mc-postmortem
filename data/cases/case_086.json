@@ -1,0 +1,16 @@
+{
+  "id": "case_086",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/ViaVersion/ViaVersion/issues/4873",
+  "source_title": "Latest 26.1 snapshot clients crash",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IndexOutOfBoundsException",
+  "plugins": [],
+  "raw_log": "java.lang.IndexOutOfBoundsException: readerIndex(31) + length(1) exceeds writerIndex(31): AdaptivePoolingAllocator$AdaptiveByteBuf(ridx: 31, widx: 31, cap: 31)\n\tat io.netty.buffer.AbstractByteBuf.checkReadableBytes0(AbstractByteBuf.java:1468)\n\tat io.netty.buffer.AbstractByteBuf.readByte(AbstractByteBuf.java:737)\n\tat net.minecraft.network.VarInt.read(VarInt.java:28)\n\tat net.minecraft.network.FriendlyByteBuf.readVarInt(FriendlyByteBuf.java:493)\n\tat net.minecraft.network.FriendlyByteBuf.readCollection(FriendlyByteBuf.java:141)\n\tat net.minecraft.network.FriendlyByteBuf.readList(FriendlyByteBuf.java:157)\n\tat net.minecraft.network.protocol.game.ClientboundLightUpdatePacketData.<init>(ClientboundLightUpdatePacketData.java:50)\n\tat net.minecraft.network.protocol.game.ClientboundLightUpdatePacket.<init>(ClientboundLightUpdatePacket.java:29)\n\tat net.minecraft.network.codec.StreamCodec$2.decode(StreamCodec.java:41)\n\tat net.minecraft.network.codec.StreamCodec$5.decode(StreamCodec.java:95)\n\tat net.minecraft.network.codec.StreamCodec$5.decode(StreamCodec.java:91)\n\tat net.minecraft.network.codec.IdDispatchCodec.decode(IdDispatchCodec.java:36)\n\t... 33 more\n\n\nA detailed walkthrough of the error, its code path and all known details is as follows:\n\n-- System Details --\nDetails:\n\tMinecraft Version: 26.1\n\tMinecraft Version ID: 26.1",
+  "fix_solution": "【已证实】该 issue 已关闭，问题已在后续版本修复或有明确解决方案，升级相关插件/服务端到最新版（依据：issue 已关闭，原推断：】数组越界，升级相关插件（依据：堆栈显示 IndexOutOfBounds））",
+  "quality": "high",
+  "collected_at": "2026-08-28",
+  "notes": "场景:runtime; 日志来自 mclo.gs/mLEar53;第三批采集"
+}

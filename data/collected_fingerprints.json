@@ -1,0 +1,782 @@
+[
+  {
+    "id": "case_001",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/PaperMC/Paper/issues/8814",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.19.3",
+    "head": "Description: Exception in server tick loop",
+    "biz": "io.papermc.paper.chunk.system.entity.EntityLookup.getEntityStatus",
+    "fp": "71eed47ef1"
+  },
+  {
+    "id": "case_002",
+    "scene": "conflict",
+    "src": "github_issue",
+    "url": "https://github.com/EngineHub/WorldEdit/issues/2823",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21.8",
+    "head": "java.lang.NullPointerException: null",
+    "biz": "com.google.common.base.Preconditions.checkNotNull",
+    "fp": "3186ea70c6"
+  },
+  {
+    "id": "case_003",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/dmulloy2/ProtocolLib/issues/3591",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21.8",
+    "head": "java.lang.NullPointerException: Cannot invoke \"com.comphenix.protocol.reflect.accessors.FieldAccessor.get(Object)\" becau",
+    "biz": "",
+    "fp": "4752b6cb59"
+  },
+  {
+    "id": "case_004",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/dmulloy2/ProtocolLib/issues/3531",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21.6",
+    "head": "java.lang.NullPointerException: Cannot invoke \"com.comphenix.protocol.wrappers.WrappedGameProfile.getName()\" because \"ga",
+    "biz": "io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead",
+    "fp": "9dc61f010f"
+  },
+  {
+    "id": "case_005",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/EssentialsX/Essentials/issues/6066",
+    "exc": "java.lang.NullPointerException",
+    "mc": "unknown",
+    "head": "java.lang.NullPointerException: Cannot invoke \"String.length()\" because \"input\" is null",
+    "biz": "net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializerImpl.deserialize",
+    "fp": "7919586a1f"
+  },
+  {
+    "id": "case_006",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/EssentialsX/Essentials/issues/6546",
+    "exc": "java.lang.ExceptionInInitializerError",
+    "mc": "26.1.2",
+    "head": "[21:42:48 ERROR]: [Essentials] java.lang.ExceptionInInitializerError",
+    "biz": "org.bukkit.plugin.java.JavaPlugin.setEnabled",
+    "fp": "0b3e7526ad"
+  },
+  {
+    "id": "case_007",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/EssentialsX/Essentials/issues/6459",
+    "exc": "java.lang.NoSuchMethodError",
+    "mc": "1.16",
+    "head": "java.lang.NoSuchMethodError: 'org.bukkit.Location org.bukkit.entity.Player.getRespawnLocation()'",
+    "biz": "com.earth2me.essentials.spawn.EssentialsSpawnPlayerListener.onPlayerRespawn",
+    "fp": "420f6eea59"
+  },
+  {
+    "id": "case_008",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/PaperMC/Paper/issues/14030",
+    "exc": "java.lang.NoSuchMethodError",
+    "mc": "26.2",
+    "head": "java.lang.NoSuchMethodError: 'net.kyori.adventure.inventory.Book org.bukkit.inventory.meta.BookMeta.pages(net.kyori.adve",
+    "biz": "io.papermc.paper.command.brigadier.bukkit.BukkitCommandNode$BukkitBrigCommand.run",
+    "fp": "82de0843fe"
+  },
+  {
+    "id": "case_009",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/dmulloy2/ProtocolLib/issues/3654",
+    "exc": "java.lang.IllegalArgumentException",
+    "mc": "unknown",
+    "head": "java.lang.IllegalArgumentException: Unsupported class file major version 70",
+    "biz": "io.papermc.paper.pluginremap.reflect.ReflectionRemapper.processClass",
+    "fp": "7a1e8f73cf"
+  },
+  {
+    "id": "case_010",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/EngineHub/WorldGuard/issues/2114",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21",
+    "head": "java.lang.NullPointerException: null",
+    "biz": "com.google.common.base.Preconditions.checkNotNull",
+    "fp": "cfc6089ef2"
+  },
+  {
+    "id": "case_011",
+    "scene": "conflict",
+    "src": "github_issue",
+    "url": "https://github.com/LuckPerms/LuckPerms/issues/4048",
+    "exc": "java.lang.IllegalStateException",
+    "mc": "1.21.1",
+    "head": "java.lang.IllegalStateException: Capability has not been initialised",
+    "biz": "me.lucko.luckperms.neoforge.capabilities.UserCapabilityImpl.assertInitialised",
+    "fp": "21dbefba97"
+  },
+  {
+    "id": "case_012",
+    "scene": "conflict",
+    "src": "github_issue",
+    "url": "https://github.com/EngineHub/WorldEdit/issues/2690",
+    "exc": "java.lang.NoSuchMethodError",
+    "mc": "unknown",
+    "head": "Description: Exception in server tick loop",
+    "biz": "",
+    "fp": "9261d1e14f"
+  },
+  {
+    "id": "case_013",
+    "scene": "loadfail",
+    "src": "github_issue",
+    "url": "https://github.com/LuckPerms/LuckPerms/issues/4186",
+    "exc": "java.lang.NoClassDefFoundError",
+    "mc": "1.21.10",
+    "head": "java.lang.NoClassDefFoundError: me/lucko/luckperms/lib/bytebuddy/dynamic/scaffold/subclass/ConstructorStrategy",
+    "biz": "me.lucko.luckperms.common.plugin.AbstractLuckPermsPlugin.enable",
+    "fp": "725537da32"
+  },
+  {
+    "id": "case_014",
+    "scene": "loadfail",
+    "src": "github_issue",
+    "url": "https://github.com/EngineHub/WorldEdit/issues/2663",
+    "exc": "java.lang.NoSuchMethodError",
+    "mc": "unknown",
+    "head": "java.lang.NoSuchMethodError: 'net.minecraft.class_2168 net.minecraft.class_1297.method_5671()'",
+    "biz": "",
+    "fp": "125fedd703"
+  },
+  {
+    "id": "case_015",
+    "scene": "loadfail",
+    "src": "github_issue",
+    "url": "https://github.com/EngineHub/WorldEdit/issues/2865",
+    "exc": "com.sk89q.worldedit.extension.platform.NoCapablePlatformException",
+    "mc": "1.21.11",
+    "head": "com.sk89q.worldedit.extension.platform.NoCapablePlatformException: Not all platforms have been registered yet! Please wa",
+    "biz": "",
+    "fp": "933c590ad1"
+  },
+  {
+    "id": "case_016",
+    "scene": "oom",
+    "src": "github_issue",
+    "url": "https://github.com/PaperMC/Paper/issues/7442",
+    "exc": "java.lang.OutOfMemoryError",
+    "mc": "1.18.1",
+    "head": "java.util.concurrent.CompletionException: java.lang.OutOfMemoryError: Java heap space",
+    "biz": "ca.spottedleaf.starlight.common.light.StarLightInterface.propagateChanges",
+    "fp": "bc02f35234"
+  },
+  {
+    "id": "case_017",
+    "scene": "watchdog",
+    "src": "github_issue",
+    "url": "https://github.com/PaperMC/Paper/issues/11072",
+    "exc": "java.lang.IllegalStateException",
+    "mc": "1.21",
+    "head": "java.lang.IllegalStateException: null",
+    "biz": "io.papermc.paper.util.MCUtil.ensureMain",
+    "fp": "a604130e1e"
+  },
+  {
+    "id": "case_018",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/EssentialsX/Essentials/issues/6608",
+    "exc": "java.lang.IndexOutOfBoundsException",
+    "mc": "26.2",
+    "head": "java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0",
+    "biz": "org.bukkit.plugin.RegisteredListener.callEvent",
+    "fp": "3e2120b927"
+  },
+  {
+    "id": "case_019",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/PaperMC/Paper/issues/13630",
+    "exc": "java.util.ConcurrentModificationException",
+    "mc": "1.21.11",
+    "head": "java.util.ConcurrentModificationException",
+    "biz": "co.aikar.timings.TimedEventExecutor.execute",
+    "fp": "9f1c65ba9d"
+  },
+  {
+    "id": "case_020",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/PaperMC/Paper/issues/12836",
+    "exc": "org.bukkit.command.CommandException",
+    "mc": "1.21.7",
+    "head": "org.bukkit.command.CommandException: Unhandled exception executing 'kick FrostyNuggies &cUnfair Advantage &7(Incorrect M",
+    "biz": "org.bukkit.Bukkit.dispatchCommand",
+    "fp": "3810d93992"
+  },
+  {
+    "id": "case_021",
+    "scene": "config",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/2362",
+    "exc": "org.bukkit.configuration.InvalidConfigurationException",
+    "mc": "1.16.5",
+    "head": "org.bukkit.configuration.InvalidConfigurationException: could not determine a constructor for the tag !@UTF8",
+    "biz": "org.bukkit.configuration.file.YamlConfiguration.loadFromString",
+    "fp": "e352c1df34"
+  },
+  {
+    "id": "case_022",
+    "scene": "oom",
+    "src": "hosting_kb",
+    "url": "https://nodecraft.com/support/games/minecraft/troubleshooting/diagnosing-outofmemoryerrors-for-minecraft",
+    "exc": "java.lang.OutOfMemoryError",
+    "mc": "unknown",
+    "head": "Caused by: java.lang.OutOfMemoryError: Java heap space",
+    "biz": "",
+    "fp": "aa8e282e04"
+  },
+  {
+    "id": "case_023",
+    "scene": "watchdog",
+    "src": "hosting_kb",
+    "url": "https://nodecraft.com/support/games/minecraft/troubleshooting/how-to-disable-minecraft-watchdog",
+    "exc": "ServerWatchdog forced shutdown: A single server tick took 60.00 seconds",
+    "mc": "unknown",
+    "head": "[minecraft/ServerWatchdog]: A single server tick took 60.00 seconds (should be max 0.05)",
+    "biz": "",
+    "fp": "64d87394db"
+  },
+  {
+    "id": "case_024",
+    "scene": "other",
+    "src": "github_issue",
+    "url": "https://github.com/EngineHub/WorldGuard/issues/2223",
+    "exc": "java.lang.reflect.InvocationTargetException",
+    "mc": "1.21.1",
+    "head": "java.lang.reflect.InvocationTargetException: null",
+    "biz": "com.destroystokyo.paper.event.executor.asm.generated.GeneratedEventExecutor20.execute",
+    "fp": "b9753ef5ad"
+  },
+  {
+    "id": "case_025",
+    "scene": "config",
+    "src": "hosting_kb",
+    "url": "https://nodecraft.com/support/games/minecraft/troubleshooting/resolving-the-failed-to-start-the-minecraft-server-error",
+    "exc": "java.lang.IllegalStateException",
+    "mc": "1.12.2",
+    "head": "java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at line 1 column 2 path $",
+    "biz": "com.google.gson.stream.JsonReader.beginArray",
+    "fp": "92af372a1b"
+  },
+  {
+    "id": "case_026",
+    "scene": "other",
+    "src": "hosting_kb",
+    "url": "https://nodecraft.com/support/games/minecraft/mods/fml-security-error",
+    "exc": "java.lang.SecurityException",
+    "mc": "1.12.2",
+    "head": "[main/ERROR] [LaunchWrapper]: Unable to launch java.lang.RuntimeException: FML was unable to install the security manage",
+    "biz": "",
+    "fp": "d6b4b38ee6"
+  },
+  {
+    "id": "case_027",
+    "scene": "other",
+    "src": "hosting_kb",
+    "url": "https://wisehosting.com/help/how-to-debug-and-fix-ticking-entity-errors",
+    "exc": "Ticking entity crash (-- Entity being ticked --)",
+    "mc": "unknown",
+    "head": "",
+    "biz": "",
+    "fp": "a30ea398c6"
+  },
+  {
+    "id": "case_028",
+    "scene": "other",
+    "src": "hosting_kb",
+    "url": "https://wisehosting.com/help/top-3-mods-modpack-startup-crashes-and-how-to-fix-them",
+    "exc": "Mod startup: missing dependency / invalid dist DEDICATED_SERVER / MixinApplyError",
+    "mc": "unknown",
+    "head": "Common errors include: MixinTransformerError, MixinApplyError, InjectionError, and InvalidMixinException",
+    "biz": "",
+    "fp": "8bca56d91f"
+  },
+  {
+    "id": "case_029",
+    "scene": "other",
+    "src": "hosting_kb",
+    "url": "https://serverheron.com/knowledge-base/minecraft/minecraft-server-keeps-crashing",
+    "exc": "Multiple signatures (OutOfMemoryError/UnsupportedClassVersionError/Watchdog/BindException)",
+    "mc": "unknown",
+    "head": "java.lang.OutOfMemoryError: Java heap space",
+    "biz": "",
+    "fp": "ac8b539c32"
+  },
+  {
+    "id": "case_030",
+    "scene": "config",
+    "src": "hosting_kb",
+    "url": "https://wisehosting.com/help/how-to-diagnose-minecraft-server-crashes",
+    "exc": "org.bukkit.plugin.InvalidPluginException",
+    "mc": "unknown",
+    "head": "Config errors (ParsingException: Not a key...). A config file got corrupted (often after a hard crash). The error names ",
+    "biz": "",
+    "fp": "c5e935e933"
+  },
+  {
+    "id": "case_031",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5292",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21.10",
+    "head": "java.lang.NullPointerException: Cannot read field \"ag\" because the return value of \"itemsadder.m.a.d()\" is nul",
+    "biz": "itemsadder.m.vk.replaceFontImages",
+    "fp": "faadd2b6c9"
+  },
+  {
+    "id": "case_032",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5410",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21.4",
+    "head": "java.lang.NullPointerException: Cannot invoke \"com.alibaba.fastjson2.JSONObject.getJSONArray(String)\" because ",
+    "biz": "itemsadder.m.awe.i",
+    "fp": "7138024188"
+  },
+  {
+    "id": "case_033",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5370",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21.11",
+    "head": "java.lang.NullPointerException: Cannot read field \"A\" because the return value of \"itemsadder.m.a.d()\" is null",
+    "biz": "dev.lone.itemsadder.api.CustomStack.isInRegistry",
+    "fp": "50e3968927"
+  },
+  {
+    "id": "case_034",
+    "scene": "npe",
+    "src": "github_issue",
+    "url": "https://github.com/CitizensDev/Citizens2/issues/3308",
+    "exc": "java.lang.NullPointerException",
+    "mc": "1.21.11",
+    "head": "java.lang.NullPointerException: Cannot read field \"captureTreeGeneration\" because the return value of \"net.min",
+    "biz": "net.citizensnpcs.util.Util.inBlock",
+    "fp": "84a78e4a65"
+  },
+  {
+    "id": "case_035",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5339",
+    "exc": "java.lang.NoSuchMethodError",
+    "mc": "1.21.11",
+    "head": "java.lang.NoSuchMethodError: 'org.bukkit.NamespacedKey org.bukkit.damage.DamageType.getKeyOrNull()'",
+    "biz": "me.athlaeos.valhallammo.nms.NMS_v1_21_R7.getDamageTypeFromEvent",
+    "fp": "b0ba568147"
+  },
+  {
+    "id": "case_036",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5486",
+    "exc": "java.lang.NoSuchMethodError",
+    "mc": "26.2",
+    "head": "java.lang.NoSuchMethodError: 'net.kyori.adventure.text.serializer.gson.GsonComponentSerializer$Builder net.kyo",
+    "biz": "itemsadder.m.axy.<clinit>",
+    "fp": "c200b5d242"
+  },
+  {
+    "id": "case_037",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5473",
+    "exc": "java.lang.NoClassDefFoundError",
+    "mc": "26.1.2",
+    "head": "java.lang.NoClassDefFoundError: net/minecraft/server/level/EntityPlayer",
+    "biz": "io.lumine.mythic.lib.version.ServerVersion.<init>",
+    "fp": "0b003ab833"
+  },
+  {
+    "id": "case_038",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/Xiao-MoMi/craft-engine/issues/784",
+    "exc": "java.lang.NoSuchFieldError",
+    "mc": "26.2",
+    "head": "java.lang.NoSuchFieldError: Class ca.spottedleaf.moonrise.patches.chunk_system.level.entity.server.ServerEntit",
+    "biz": "net.momirealms.craftengine.bukkit.nms.v26_2.entity.InjectedPaperLevelCallback.onTrackingStart",
+    "fp": "71c0f48413"
+  },
+  {
+    "id": "case_039",
+    "scene": "version",
+    "src": "github_issue",
+    "url": "https://github.com/nulli0n/SunLight-spigot/issues/127",
+    "exc": "java.lang.UnsupportedClassVersionError",
+    "mc": "1.21.11",
+    "head": "org.bukkit.plugin.InvalidPluginException: java.lang.UnsupportedClassVersionError: su/nightexpress/sunlight/Sun",
+    "biz": "",
+    "fp": "f80a6e02fa"
+  },
+  {
+    "id": "case_040",
+    "scene": "conflict",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5443",
+    "exc": "java.lang.ClassCastException",
+    "mc": "26.1.2",
+    "head": "java.lang.ClassCastException: class com.comphenix.protocol.wrappers.Pair cannot be cast to class com.comphenix",
+    "biz": "cz.gennario.gennarioframework.utils.packet.entity.PacketEntity.updateEntity",
+    "fp": "484a686fa7"
+  },
+  {
+    "id": "case_041",
+    "scene": "conflict",
+    "src": "github_issue",
+    "url": "https://github.com/PlayPro/CoreProtect/issues/831",
+    "exc": "java.lang.IllegalStateException",
+    "mc": "1.21.10",
+    "head": "java.lang.IllegalStateException: Circular plugin loading from plugins CoreProtect",
+    "biz": "",
+    "fp": "2a131365af"
+  },
+  {
+    "id": "case_042",
+    "scene": "conflict",
+    "src": "github_issue",
+    "url": "https://github.com/AuthMe/AuthMeReloaded/issues/3102",
+    "exc": "java.lang.IllegalArgumentException",
+    "mc": "1.21.11",
+    "head": "java.lang.IllegalArgumentException: group name is invalid",
+    "biz": "me.lucko.luckperms.common.node.types.Inheritance$Builder.group",
+    "fp": "502345835d"
+  },
+  {
+    "id": "case_043",
+    "scene": "config",
+    "src": "github_issue",
+    "url": "https://github.com/CitizensDev/Citizens2/issues/2898",
+    "exc": "org.bukkit.configuration.InvalidConfigurationException",
+    "mc": "1.19.2",
+    "head": "org.bukkit.configuration.InvalidConfigurationException: org.yaml.snakeyaml.error.YAMLException: The incoming Y",
+    "biz": "net.citizensnpcs.api.util.YamlStorage.load",
+    "fp": "234f66a8f1"
+  },
+  {
+    "id": "case_044",
+    "scene": "config",
+    "src": "github_issue",
+    "url": "https://github.com/prism/prism/issues/389",
+    "exc": "java.lang.NullPointerException",
+    "mc": "26.1.2",
+    "head": "java.lang.NullPointerException: Cannot invoke \"org.prism_mc.prism.loader.services.configuration.PrismConfigura",
+    "biz": "org.prism_mc.prism.paper.listeners.block.BlockFromToListener.onBlockFromTo",
+    "fp": "ee854e79b6"
+  },
+  {
+    "id": "case_045",
+    "scene": "loadfail",
+    "src": "github_issue",
+    "url": "https://github.com/PuppyTransGirl/ItemsAdderAdditions/issues/8",
+    "exc": "java.lang.RuntimeException",
+    "mc": "1.21.11",
+    "head": "java.lang.RuntimeException: Plugin used Maven Central for library resolution (central (https://repo.maven.apac",
+    "biz": "toutouchien.itemsadderadditions.plugin.ItemsAdderAdditionsLoader.classloader",
+    "fp": "a6e8cb7f85"
+  },
+  {
+    "id": "case_046",
+    "scene": "loadfail",
+    "src": "github_issue",
+    "url": "https://github.com/PlaceholderAPI/PlaceholderAPI/issues/1132",
+    "exc": "org.bukkit.plugin.InvalidPluginException",
+    "mc": "1.21.8",
+    "head": "org.bukkit.plugin.InvalidPluginException: Exception initializing main class `me.clip.placeholderapi.Placeholde",
+    "biz": "",
+    "fp": "f156e11f69"
+  },
+  {
+    "id": "case_047",
+    "scene": "oom",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5507",
+    "exc": "java.lang.OutOfMemoryError",
+    "mc": "1.21.10",
+    "head": "Exception in thread \"Paper Watchdog Thread\" java.lang.OutOfMemoryError: Java heap space",
+    "biz": "",
+    "fp": "9040e6f5fe"
+  },
+  {
+    "id": "case_048",
+    "scene": "watchdog",
+    "src": "github_issue",
+    "url": "https://github.com/ryanhcode/sable/issues/491",
+    "exc": "java.lang.Error",
+    "mc": "1.21.1",
+    "head": "java.lang.Error: ServerHangWatchdog detected that a single server tick took 60051176.00 seconds (should be max",
+    "biz": "",
+    "fp": "70ea81a79b"
+  },
+  {
+    "id": "case_049",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5491",
+    "exc": "java.util.ConcurrentModificationException",
+    "mc": "1.21.11",
+    "head": "java.util.ConcurrentModificationException",
+    "biz": "itemsadder.m.vd.a",
+    "fp": "4270abd50a"
+  },
+  {
+    "id": "case_050",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5459",
+    "exc": "java.util.ConcurrentModificationException",
+    "mc": "26.2",
+    "head": "java.util.ConcurrentModificationException",
+    "biz": "itemsadder.m.vb.a",
+    "fp": "1a72748030"
+  },
+  {
+    "id": "case_051",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5271",
+    "exc": "java.lang.IllegalArgumentException",
+    "mc": "1.21.11",
+    "head": "java.lang.IllegalArgumentException: Enchantment level is either too low or too high (given 10, bounds are 1 to",
+    "biz": "itemsadder.m.jq.c",
+    "fp": "2521c4247e"
+  },
+  {
+    "id": "case_052",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5494",
+    "exc": "java.lang.ArrayIndexOutOfBoundsException",
+    "mc": "1.21.8",
+    "head": "java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3",
+    "biz": "com.rylinaux.plugman.util.BukkitCommandWrap.<init>",
+    "fp": "7f4d574f44"
+  },
+  {
+    "id": "case_053",
+    "scene": "runtime",
+    "src": "github_issue",
+    "url": "https://github.com/nulli0n/nightcore-spigot/issues/87",
+    "exc": "java.util.NoSuchElementException",
+    "mc": "26.1.2",
+    "head": "java.util.NoSuchElementException: No value present",
+    "biz": "su.nightexpress.nightcore.db.column.Column.readOrThrow",
+    "fp": "5ba4106331"
+  },
+  {
+    "id": "case_054",
+    "scene": "other",
+    "src": "github_issue",
+    "url": "https://github.com/PlayPro/CoreProtect/issues/906",
+    "exc": "java.lang.IllegalStateException",
+    "mc": "26.1.2",
+    "head": "java.lang.IllegalStateException: Thread failed main thread check: Accessing entity state off owning region's t",
+    "biz": "net.coreprotect.listener.entity.EntityChangeBlockListener.handleFallingBlock",
+    "fp": "34d46f4e7b"
+  },
+  {
+    "id": "case_055",
+    "scene": "other",
+    "src": "github_issue",
+    "url": "https://github.com/LuckPerms/LuckPerms/issues/4268",
+    "exc": "me.lucko.luckperms.bukkit.vault.ServerThreadLookupException",
+    "mc": "unknown",
+    "head": "com.google.common.util.concurrent.UncheckedExecutionException: me.lucko.luckperms.bukkit.vault.ServerThreadLoo",
+    "biz": "com.sk89q.worldguard.session.AbstractSessionManager.hasBypass",
+    "fp": "c1c8ae856b"
+  },
+  {
+    "id": "case_056",
+    "scene": "other",
+    "src": "github_issue",
+    "url": "https://github.com/pylonmc/rebar/issues/627",
+    "exc": "java.util.NoSuchElementException",
+    "mc": "1.21.11",
+    "head": "java.util.NoSuchElementException: invui_packet_handler_Rebar",
+    "biz": "xyz.xenondevs.invui.internal.network.PacketListener.removeChannelHandler",
+    "fp": "48d5184340"
+  },
+  {
+    "id": "case_057",
+    "scene": "other",
+    "src": "github_issue",
+    "url": "https://github.com/MARVserver/pasta/issues/46",
+    "exc": "java.lang.ExceptionInInitializerError",
+    "mc": "1.21.11",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "com.willfp.libreforge.effects.impl.EffectGlowNearbyBlocks.onTrigger",
+    "fp": "22b85a1cee"
+  },
+  {
+    "id": "case_058",
+    "scene": "other",
+    "src": "github_issue",
+    "url": "https://github.com/NiFeather/FeatherMorph/issues/57",
+    "exc": "java.lang.StackOverflowError",
+    "mc": "1.21.8",
+    "head": "java.lang.StackOverflowError: null",
+    "biz": "xyz.nifeather.morph.messages.vanilla.VanillaMessageStore.getOrCreateSubStore",
+    "fp": "df107ced91"
+  },
+  {
+    "id": "case_059",
+    "scene": "other",
+    "src": "github_issue",
+    "url": "https://github.com/Mars-The-Planet/server-side-horror/issues/8",
+    "exc": "net.minecraft.ReportedException",
+    "mc": "1.20.1",
+    "head": "java.net.UnknownHostException: api.mojang.com",
+    "biz": "com.mars.serversidehorror.CommonClass.getSkin",
+    "fp": "d76899ad07"
+  },
+  {
+    "id": "case_060",
+    "scene": "other",
+    "src": "hosting_kb",
+    "url": "https://nodecraft.com/support/games/minecraft/troubleshooting/fixing-unable-to-access-jar-file-for-minecraft",
+    "exc": "Startup error: Unable to access jarfile",
+    "mc": "unknown",
+    "head": "Startup error: Unable to access jarfile",
+    "biz": "",
+    "fp": "177a859ac3"
+  },
+  {
+    "id": "case_061",
+    "fp": "d5b3d54730"
+  },
+  {
+    "id": "case_062",
+    "fp": "779ca325f3"
+  },
+  {
+    "id": "case_063",
+    "fp": "d87308596b"
+  },
+  {
+    "id": "case_064",
+    "fp": "eadeebbec1"
+  },
+  {
+    "id": "case_065",
+    "fp": "6424619baf"
+  },
+  {
+    "id": "case_066",
+    "fp": "e244207204"
+  },
+  {
+    "id": "case_067",
+    "fp": "e30a72f3fc"
+  },
+  {
+    "id": "case_068",
+    "fp": "875ced92d4"
+  },
+  {
+    "id": "case_069",
+    "fp": "6a7c2faaed"
+  },
+  {
+    "id": "case_070",
+    "fp": "097e064df2"
+  },
+  {
+    "id": "case_071",
+    "fp": "b2a5082794"
+  },
+  {
+    "id": "case_072",
+    "fp": "e28be9f826"
+  },
+  {
+    "id": "case_073",
+    "fp": "de07ba3d8a"
+  },
+  {
+    "id": "case_074",
+    "fp": "1becbc4fb1"
+  },
+  {
+    "id": "case_075",
+    "fp": "a07d561c01"
+  },
+  {
+    "id": "case_076",
+    "fp": "45084216e9"
+  },
+  {
+    "id": "case_077",
+    "fp": "c9b3022f9c"
+  },
+  {
+    "id": "case_078",
+    "fp": "207aed0d8b"
+  },
+  {
+    "id": "case_079",
+    "fp": "5621e82032"
+  },
+  {
+    "id": "case_080",
+    "fp": "fe92a792cd"
+  },
+  {
+    "id": "case_081",
+    "fp": "742ce54eb7"
+  },
+  {
+    "id": "case_082",
+    "fp": "6c45206d4e"
+  },
+  {
+    "id": "case_083",
+    "fp": "d3894a7a5e"
+  },
+  {
+    "id": "case_084",
+    "fp": "089a13b255"
+  },
+  {
+    "id": "case_085",
+    "fp": "97b0fe5b1b"
+  },
+  {
+    "id": "case_086",
+    "fp": "63f66450d1"
+  },
+  {
+    "id": "case_087",
+    "fp": "14d0966df1"
+  },
+  {
+    "id": "case_088",
+    "fp": "cd241bf62e"
+  },
+  {
+    "id": "case_089",
+    "fp": "f62f2bd04e"
+  },
+  {
+    "id": "case_090",
+    "fp": "1c95f03820"
+  }
+]

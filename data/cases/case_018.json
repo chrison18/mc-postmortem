@@ -1,0 +1,18 @@
+{
+  "id": "case_018",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/EssentialsX/Essentials/issues/6608",
+  "source_title": "IndexOutOfBoundsException on player join",
+  "server_type": "paper",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IndexOutOfBoundsException",
+  "plugins": [
+    "EssentialsX v2.22.1-dev+17-382de4f"
+  ],
+  "raw_log": "[14:15:22 ERROR]: Could not pass event AsyncPlayerSendCommandsEvent to Essentials v2.22.1-dev+17-382de4f\njava.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0\n        at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100) ~[?:?]\n        at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106) ~[?:?]\n        at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302) ~[?:?]\n        at java.base/java.util.Objects.checkIndex(Objects.java:365) ~[?:?]\n        at java.base/java.util.ArrayList.get(ArrayList.java:428) ~[?:?]\n        at EssentialsX.jar//com.earth2me.essentials.AlternativeCommandsHandler.getAlternative(AlternativeCommandsHandler.java:133) ~[?:?]\n        at EssentialsX.jar//com.earth2me.essentials.EssentialsPlayerListener$CommandSendFilter.isEssentialsCommand(EssentialsPlayerListener.java:1279) ~[?:?]\n        at EssentialsX.jar//com.earth2me.essentials.EssentialsPlayerListener$CommandSendFilter.lambda$apply$0(EssentialsPlayerListener.java:1254) ~[?:?]\n        at EssentialsX.jar//net.ess3.provider.providers.PaperCommandSendListenerProvider.lambda$onAsyncCommandSend$0(PaperCommandSendListenerProvider.java:28) ~[?:?]\n        at java.base/java.util.Collection.removeIf(Collection.java:581) ~[?:?]\n        at EssentialsX.jar//net.ess3.provider.providers.PaperCommandSendListenerProvider.onAsyncCommandSend(PaperCommandSendListenerProvider.java:28) ~[?:?]\n        at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:71) ~[paper-api-26.2.build.112-stable.jar:?]\n        at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-26.2.jar:26.2-112-c9e894d]\n        at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-26.2.jar:26.2-112-c9e894d]\n        at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:627) ~[paper-api-26.2.build.112-stable.jar:?]\n        at org.bukkit.event.Event.callEvent(Event.java:46) ~[paper-api-26.2.build.112-stable.jar:?]\n        at net.minecraft.commands.Commands.sendAsync(Commands.java:517) ~[paper-26.2.jar:26.2-112-c9e894d]\n        at net.minecraft.commands.Commands.lambda$sendCommands$0(Commands.java:491) ~[paper-26.2.jar:26.2-112-c9e894d]\n        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]\n        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\n",
+  "fix_solution": "待补充",
+  "quality": "medium",
+  "collected_at": "2026-08-27",
+  "notes": "场景:runtime; 提取:inline:fence;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

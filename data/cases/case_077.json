@@ -1,0 +1,16 @@
+{
+  "id": "case_077",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PaperMC/Paper/issues/14178",
+  "source_title": "Crash on worker thread: Unexpected palette resize in Anti-Xray",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalArgumentException",
+  "plugins": [],
+  "raw_log": "java.lang.IllegalArgumentException: Unexpected palette resize, bits = 5, added value = Block{minecraft:stone}\n\tat net.minecraft.world.level.chunk.PaletteResize.lambda$noResizeExpected$0(PaletteResize.java:8)\n\tat net.minecraft.world.level.chunk.LinearPalette.idFor(LinearPalette.java:60)\n\tat io.papermc.paper.antixray.ChunkPacketBlockControllerAntiXray.obfuscate(ChunkPacketBlockControllerAntiXray.java:297)\n\tat io.papermc.paper.antixray.ChunkPacketInfoAntiXray.run(ChunkPacketInfoAntiXray.java:27)\n\tat java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1750)\n\tat java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.compute(ForkJoinTask.java:1742)\n\tat java.base/java.util.concurrent.ForkJoinTask$InterruptibleTask.exec(ForkJoinTask.java:1659)\n\tat java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511)\n\tat java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450)\n\tat java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019)\n\tat java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187)\n\n\nA detailed walkthrough of the error, its code path and all known details is as follows:",
+  "fix_solution": "【已证实】该 issue 已关闭，问题已修复或有明确解决方案，升级相关插件/服务端到最新版（依据：issue 已关闭；】IllegalArgumentException 由参数不合法导致，检查插件配置输入（依据：堆栈显示 IllegalArgumentException））",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:runtime; 日志来自 mclo.gs/Y1hxdd9;第三批采集"
+}

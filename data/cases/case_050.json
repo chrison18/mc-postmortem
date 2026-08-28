@@ -1,0 +1,23 @@
+{
+  "id": "case_050",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5459",
+  "source_title": "CustomNote impossible to place on short grass",
+  "server_type": "purpur",
+  "mc_version": "26.2",
+  "java_version": "26",
+  "exception_type": "java.util.ConcurrentModificationException",
+  "plugins": [
+    "FastAsyncWorldEdit v2.15.3-SNAPSHOT-1347+6584546",
+    "ItemsAdder v4.0.18-beta-12",
+    "LuckPerms v5.5.59",
+    "PlaceholderAPI v2.12.3",
+    "ProtocolLib v5.5.0-SNAPSHOT-5a9afed",
+    "WorldGuard v7.0.17+2370-e42d8bc"
+  ],
+  "raw_log": "[13:23:48] [ServerMain/INFO]: [bootstrap] Running Java 26 (OpenJDK 64-Bit Server VM 26.0.1+8; Eclipse Adoptium Temurin-26.0.1+8) on Linux 6.8.0-134-generic (amd64)\n[13:23:48] [ServerMain/INFO]: [bootstrap] Loading Purpur 26.2-2608-HEAD@ed29e99 (2026-07-13T02:04:00Z) for Minecraft 26.2\n[13:23:49] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (6):\n - FastAsyncWorldEdit (2.15.3-SNAPSHOT-1347+6584546), ItemsAdder (4.0.18-beta-12), LuckPerms (5.5.59), PlaceholderAPI (2.12.3), ProtocolLib (5.5.0-SNAPSHOT-5a9afed), WorldGuard (7.0.17+2370-e42d8bc)\n[13:24:07] [Server thread/WARN]: java.util.ConcurrentModificationException\n[13:24:07] [Server thread/WARN]: \tat java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1730)\n[13:24:07] [Server thread/WARN]: \tat java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)\n[13:24:07] [Server thread/WARN]: \tat java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)\n[13:24:07] [Server thread/WARN]: \tat java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)\n[13:24:07] [Server thread/WARN]: \tat java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)\n[13:24:07] [Server thread/WARN]: \tat java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:723)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.vb.a(SourceFile:382)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.rx.az(SourceFile:125)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.d.b(SourceFile:828)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.d.c(SourceFile:653)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.bbz.i(SourceFile:147)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.d.a(SourceFile:650)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.d.f(SourceFile:354)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//dev.lone.itemsadder.Main.qw(SourceFile:603)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//dev.lone.itemsadder.Main.a(SourceFile:597)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.an.a(SourceFile:133)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//itemsadder.m.an.at(SourceFile:72)\n[13:24:07] [Server thread/WARN]: \tat ItemsAdder_4.0.18-beta-12.jar//dev.lone.itemsadder.Main.onEnable(SourceFile:437)\n[13:24:07] [Server thread/WARN]: \tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279)\n[13:24:07] [Server thread/WARN]: \tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201)\n[13:24:07] [Server thread/WARN]: \tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109)\n[13:24:07] [Server thread/WARN]: \tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519)\n[13:24:07] [Server thread/WARN]: \tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:647)\n[13:24:07] [Server thread/WARN]: \tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:604)\n[13:24:07] [Server thread/WARN]: \tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:652)\n[13:24:07] [Server thread/WARN]: \tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:386)\n[13:24:07] [Server thread/WARN]: \tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1282)\n[13:24:07] [Server thread/WARN]: \tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303)\n[13:24:07] [Server thread/WARN]: \tat java.base/java.lang.Thread.run(Thread.java:1516)",
+  "fix_solution": "待补充",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:runtime; 日志来自 issue 附件 mclo.gs/falrdqm;服务端 purpur;清洗2026-08-28:fix=已补;quality=high→medium"
+}

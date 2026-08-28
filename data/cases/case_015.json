@@ -1,0 +1,16 @@
+{
+  "id": "case_015",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/EngineHub/WorldEdit/issues/2865",
+  "source_title": "Plugin crashes server on startup",
+  "server_type": "unknown",
+  "mc_version": "1.21.11",
+  "java_version": "unknown",
+  "exception_type": "com.sk89q.worldedit.extension.platform.NoCapablePlatformException",
+  "plugins": [],
+  "raw_log": "[00:51:12] [Server thread/ERROR]: Encountered an unexpected exception\ncom.sk89q.worldedit.extension.platform.NoCapablePlatformException: Not all platforms have been registered yet! Please wait until WorldEdit is initialized.\n\tat worldedit-bukkit-7.3.18-beta-01.jar//com.sk89q.worldedit.extension.platform.PlatformManager.queryCapability(PlatformManager.java:177) ~[?:?]\n\tat worldedit-bukkit-7.3.18-beta-01.jar//com.sk89q.worldedit.extension.platform.PlatformManager.getConfiguration(PlatformManager.java:318) ~[?:?]\n\tat worldedit-bukkit-7.3.18-beta-01.jar//com.sk89q.worldedit.WorldEdit.getConfiguration(WorldEdit.java:795) ~[?:?]\n\tat worldedit-bukkit-7.3.18-beta-01.jar//com.sk89q.worldedit.bukkit.BukkitCommandInspector.getShortText(BukkitCommandInspector.java:56) ~[?:?]\n\tat worldedit-bukkit-7.3.18-beta-01.jar//com.sk89q.bukkit.util.DynamicPluginCommandHelpTopic.<init>(DynamicPluginCommandHelpTopic.java:44) ~[?:?]\n\tat worldedit-bukkit-7.3.18-beta-01.jar//com.sk89q.bukkit.util.DynamicPluginCommandHelpTopic$Factory.createTopic(DynamicPluginCommandHelpTopic.java:144) ~[?:?]\n\tat worldedit-bukkit-7.3.18-beta-01.jar//com.sk89q.bukkit.util.DynamicPluginCommandHelpTopic$Factory.createTopic(DynamicPluginCommandHelpTopic.java:141) ~[?:?]\n\tat org.bukkit.craftbukkit.help.SimpleHelpMap.initializeCommands(SimpleHelpMap.java:135) ~[paper-1.21.11.jar:1.21.11-54-6da8af7]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:643) ~[paper-1.21.11.jar:1.21.11-54-6da8af7]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:365) ~[paper-1.21.11.jar:1.21.11-54-6da8af7]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1260) ~[paper-1.21.11.jar:1.21.11-54-6da8af7]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:388) ~[paper-1.21.11.jar:1.21.11-54-6da8af7]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\n",
+  "fix_solution": "【推断】NoCapablePlatformException 表示 WorldEdit 未找到兼容的服务端平台，通常因服务端版本不兼容或加载顺序异常，检查服务端类型/版本并确保 WorldEdit 为对应平台版本（依据：异常类型，维护者要求补充完整日志）",
+  "quality": "medium",
+  "collected_at": "2026-08-27",
+  "notes": "场景:loadfail; 提取:inline:unfenced;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

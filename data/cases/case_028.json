@@ -1,0 +1,16 @@
+{
+  "id": "case_028",
+  "source_type": "hosting_kb",
+  "source_url": "https://wisehosting.com/help/top-3-mods-modpack-startup-crashes-and-how-to-fix-them",
+  "source_title": "Top 3 Minecraft Mod Startup Crashes & How to Fix Them",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "Mod startup: missing dependency / invalid dist DEDICATED_SERVER / MixinApplyError",
+  "plugins": [],
+  "raw_log": "Example: NetherPortalFix requires balm-fabric, but the dependency isn't installed\nA related error may contain “net/minecraft/client or DEDICATED_SERVER”.\nCommon errors include: MixinTransformerError, MixinApplyError, InjectionError, and InvalidMixinException\n",
+  "fix_solution": "Missing dependency: Check the crash message for the missing dependency, find it on CurseForge/Modrinth matching your MC version and loader, upload to Files -> mods, restart.\nClient-only mod: find the mod named in the error, confirm it is client-only, open Files -> mods and remove it, start again.\nMixin/conflict: open newest crash report, search for 'Caused by:', temporarily remove the recently added/updated mod and restart; use binary search (remove half the mods) if unclear.",
+  "quality": "low",
+  "collected_at": "2026-08-27",
+  "notes": "场景:other(mod 启动崩溃三类:缺依赖/client-only mod/Mixin 冲突);教学文仅列错误特征,无单一完整堆栈,quality=low。托管商知识库教学文章:raw_log 为该文引用的报错特征原文(非某台真实服务器的完整崩溃报告,通常无插件列表/系统信息),fix_solution 为该文修复步骤原文;故质量不评 high。;清洗2026-08-28:fix=保留KB原文;quality=low→low"
+}

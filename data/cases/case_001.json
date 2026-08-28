@@ -1,0 +1,16 @@
+{
+  "id": "case_001",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PaperMC/Paper/issues/8814",
+  "source_title": "Crashes after 1.19.3 Paper version (Cannot invoke \"net.minecraft.world.entity.Entity.dC()\" because \"entity\" is null)",
+  "server_type": "paper",
+  "mc_version": "1.19.3",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [],
+  "raw_log": "Description: Exception in server tick loop\n\n\n\njava.lang.NullPointerException: Cannot invoke \"net.minecraft.world.entity.Entity.dC()\" because \"entity\" is null\n\n\tat io.papermc.paper.chunk.system.entity.EntityLookup.getEntityStatus(EntityLookup.java:330)\n\n\tat io.papermc.paper.world.ChunkEntitySlices.updateStatus(ChunkEntitySlices.java:190)\n\n\tat io.papermc.paper.chunk.system.entity.EntityLookup.chunkStatusChange(EntityLookup.java:304)\n\n\tat io.papermc.paper.chunk.system.scheduling.NewChunkHolder.changeEntityChunkStatus(NewChunkHolder.java:1240)\n\n\tat io.papermc.paper.chunk.system.scheduling.NewChunkHolder.handleFullStatusChange(NewChunkHolder.java:1344)\n\n\tat io.papermc.paper.chunk.system.scheduling.ChunkHolderManager.processPendingFullUpdate(ChunkHolderManager.java:1050)\n\n\tat io.papermc.paper.chunk.system.scheduling.ChunkHolderManager.processTicketUpdates(ChunkHolderManager.java:1034)\n\n\tat io.papermc.paper.chunk.system.scheduling.ChunkHolderManager.processTicketUpdates(ChunkHolderManager.java:919)\n\n\tat net.minecraft.server.level.ServerChunkCache.runDistanceManagerUpdates(ServerChunkCache.java:583)\n\n\tat net.minecraft.server.level.ServerChunkCache.saveIncrementally(ServerChunkCache.java:608)\n\n\tat net.minecraft.server.level.ServerLevel.saveIncrementally(ServerLevel.java:1295)\n\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1434)\n\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1173)\n\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:316)\n\n\tat java.base/java.lang.Thread.run(Thread.java:833)\n",
+  "fix_solution": "【已证实】维护者关闭结论：插件非法修改服务端内部状态（TickThread/isTickThread）导致 NPE，需排查并移除违规插件（依据：lynxplay 在 issue 评论确认并关闭）",
+  "quality": "medium",
+  "collected_at": "2026-08-27",
+  "notes": "场景:npe; 提取:inline:unfenced;清洗2026-08-28:fix=已补;quality=medium→medium"
+}

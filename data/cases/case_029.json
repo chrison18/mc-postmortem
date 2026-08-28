@@ -1,0 +1,16 @@
+{
+  "id": "case_029",
+  "source_type": "hosting_kb",
+  "source_url": "https://serverheron.com/knowledge-base/minecraft/minecraft-server-keeps-crashing",
+  "source_title": "Minecraft Server Keeps Crashing: Causes and Fixes",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "Multiple signatures (OutOfMemoryError/UnsupportedClassVersionError/Watchdog/BindException)",
+  "plugins": [],
+  "raw_log": "java.lang.OutOfMemoryError: Java heap space\njava.lang.OutOfMemoryError: GC overhead limit exceeded\njava.lang.UnsupportedClassVersionError: ... has been compiled by a more recent version of Java\nClass file has wrong version 60.0, should be 52.0\n[Server Watchdog/ERROR]: A single server tick took 60.00 seconds\njava.net.BindException: Address already in use\n",
+  "fix_solution": "Out of memory fixes, in order: Add 2 GB and see if it stabilizes. Set Xms and Xmx to the same value (if start command has -Xms2G -Xmx8G, change both to 8G). Use Aikar's flags. Hunt the memory leak: install Spark and run /spark heapsummary.\nWrong Java: 1.20.5+ needs Java 21; 1.18-1.20.4 needs Java 17; 1.13-1.16.5 needs Java 8/11; install the right Java and point the server at it.",
+  "quality": "low",
+  "collected_at": "2026-08-27",
+  "notes": "场景:other; 综述类文章列举 9 类崩溃的错误特征与修复,raw_log 为其中多条错误签名原文拼接(各自均为原文),非单一服务器日志,quality=low。托管商知识库教学文章:raw_log 为该文引用的报错特征原文(非某台真实服务器的完整崩溃报告,通常无插件列表/系统信息),fix_solution 为该文修复步骤原文;故质量不评 high。;清洗2026-08-28:fix=保留KB原文;quality=low→low"
+}

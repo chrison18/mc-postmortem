@@ -1,0 +1,16 @@
+{
+  "id": "case_082",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/cTux/ae2-crafting-time/issues/24",
+  "source_title": "[1.20.1 Forge]game wont load",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "17",
+  "exception_type": "java.lang.NoSuchMethodError",
+  "plugins": [],
+  "raw_log": "java.lang.NoSuchMethodError: 'net.minecraft.resources.ResourceLocation net.minecraft.resources.ResourceLocation.tryBuild(java.lang.String, java.lang.String)'\n\tMod Version: 1.0.7\n\tMod Issue URL: NOT PROVIDED\n\tException message: java.lang.NoSuchMethodError: 'net.minecraft.resources.ResourceLocation net.minecraft.resources.ResourceLocation.tryBuild(java.lang.String, java.lang.String)'\nStacktrace:\n\tat com.ctux.ae2craftingtime.mc1201.StatsNetwork.<clinit>(StatsNetwork.java:15) ~[ae2-crafting-time-1.0.7-forge-1.20.1.jar%23528!/:1.0.7] {re:classloading}\n\tat com.ctux.ae2craftingtime.mc1201.Ae2CraftingTime.<init>(Ae2CraftingTime.java:16) ~[ae2-crafting-time-1.0.7-forge-1.20.1.jar%23528!/:1.0.7] {re:classloading}\n\tat jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?] {}\n\tat jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:?] {}\n\tat jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:?] {}\n\tat java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source) ~[?:?] {}\n\tat java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:?] {}\n\tat net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:77) ~[javafmllanguage-1.20.1-47.4.20.jar%23888!/:?] {}\n\tat net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$5(ModContainer.java:126) ~[fmlcore-1.20.1-47.4.20.jar%23887!/:?] {re:mixin}\n\tat java.util.concurrent.CompletableFuture$AsyncRun.run(Unknown Source) ~[?:?] {}\n\tat java.util.concurrent.CompletableFuture$AsyncRun.exec(Unknown Source) ~[?:?] {}\n\tat java.util.concurrent.ForkJoinTask.doExec(Unknown Source) ~[?:?] {}\n\tat java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source) ~[?:?] {}\n\tat java.util.concurrent.ForkJoinPool.scan(Unknown Source) ~[?:?] {re:mixin,re:computing_frames}\n\tat java.util.concurrent.ForkJoinPool.runWorker(Unknown Source) ~[?:?] {re:mixin,re:computing_frames}\n\tat java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source) ~[?:?] {re:mixin}\n\n\n-- System Details --",
+  "fix_solution": "【已证实】该 issue 已关闭，问题已在后续版本修复或有明确解决方案，升级相关插件/服务端到最新版（依据：issue 已关闭，原推断：】NoSuchMethodError 由版本不匹配导致，升级或回退相关插件（依据：堆栈显示 NoSuchMethodError））",
+  "quality": "high",
+  "collected_at": "2026-08-28",
+  "notes": "场景:version; 日志来自 mclo.gs/r6obmMw;第三批采集"
+}

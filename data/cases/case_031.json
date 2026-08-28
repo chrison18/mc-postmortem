@@ -1,0 +1,29 @@
+{
+  "id": "case_031",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5292",
+  "source_title": "Cannot read field \"ag\" because the return value of \"itemsadder.m.a.d()\" is null",
+  "server_type": "paper",
+  "mc_version": "1.21.10",
+  "java_version": "21",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [
+    "Chunky v1.4.40",
+    "CoreProtect v23.0",
+    "EntityDetection v1.3.0 (build #27)",
+    "FastAsyncWorldEdit v2.15.1-SNAPSHOT-1283+4ed147a",
+    "GrimAC v2.3.74-bf10e23",
+    "ImageFrame v**.**.**.**",
+    "ItemsAdder v4.0.16",
+    "LuckPerms v5.5.36",
+    "Multiverse-Core v5.3.3",
+    "PlaceholderAPI v2.12.2",
+    "ProtocolLib v5.4.1-SNAPSHOT-aa4fab1",
+    "WorldGuard v7.0.14+2339-43997ec"
+  ],
+  "raw_log": "[10:15:19] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.10+7-LTS; Eclipse Adoptium Temurin-21.0.10+7) on Linux 6.8.0-79-generic (amd64)\n[10:15:19] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.10-91-main@9934c17 (2025-10-27T18:27:20Z) for Minecraft 1.21.10\n[10:15:21] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (12):\n - Chunky (1.4.40), CoreProtect (23.0), EntityDetection (1.3.0 (build #27)), FastAsyncWorldEdit (2.15.1-SNAPSHOT-1283+4ed147a), GrimAC (2.3.74-bf10e23), ImageFrame (**.**.**.**), ItemsAdder (4.0.16), LuckPerms (5.5.36), Multiverse-Core (5.3.3), PlaceholderAPI (2.12.2), ProtocolLib (5.4.1-SNAPSHOT-aa4fab1), WorldGuard (7.0.14+2339-43997ec)\njava.lang.NullPointerException: Cannot read field \"ag\" because the return value of \"itemsadder.m.a.d()\" is null\n\tat ItemsAdder_4.0.16.jar/itemsadder.m.vk.replaceFontImages(SourceFile:162) ~[ItemsAdder_4.0.16.jar:?]\n\tat ItemsAdder_4.0.16.jar/dev.lone.itemsadder.api.FontImages.FontImageWrapper.replaceFontImages(SourceFile:61) ~[ItemsAdder_4.0.16.jar:?]\n\tat OpenMC.jar/fr.openmc.api.hooks.LuckPermsHook.getFormattedPAPIPrefix(LuckPermsHook.java:61) ~[OpenMC.jar:?]\n\tat OpenMC.jar/fr.openmc.core.features.displays.scoreboards.GlobalTeamManager.initSortedGroups(GlobalTeamManager.java:42) ~[OpenMC.jar:?]\n\tat OpenMC.jar/fr.openmc.core.features.displays.scoreboards.GlobalTeamManager.<init>(GlobalTeamManager.java:29) ~[OpenMC.jar:?]\n\tat OpenMC.jar/fr.openmc.core.features.displays.scoreboards.ScoreboardManager.init(ScoreboardManager.java:43) ~[OpenMC.jar:?]\n\tat OpenMC.jar/fr.openmc.core.OMCPlugin.onEnable(OMCPlugin.java:129) ~[OpenMC.jar:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-1.21.10-R0.1-SNAPSHOT.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520) ~[paper-api-1.21.10-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:640) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:596) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:636) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:368) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1262) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:383) ~[paper-1.21.10.jar:1.21.10-91-9934c17]\n\tat java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]",
+  "fix_solution": "【已证实】ItemsAdder 异步加载内容，声明 load:BEFORE 不保证 API 数据在 onEnable 时就绪；依赖插件应监听 ItemsAdderFirstLoadEvent 后再调用 API（依据：LoneDev6 确认）",
+  "quality": "high",
+  "collected_at": "2026-08-28",
+  "notes": "场景:npe; 日志来自 issue 附件 mclo.gs/2Gt813y;服务端 paper;清洗2026-08-28:fix=已补;quality=high→high"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "case_036",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5486",
+  "source_title": "Error while enabling the plugin.",
+  "server_type": "paper",
+  "mc_version": "26.2",
+  "java_version": "26",
+  "exception_type": "java.lang.NoSuchMethodError",
+  "plugins": [
+    "ItemsAdder v4.0.17",
+    "ProtocolLib v5.5.0-SNAPSHOT-589ee12"
+  ],
+  "raw_log": "[14:09:28] [ServerMain/INFO]: [bootstrap] Running Java 26 (OpenJDK 64-Bit Server VM 26.0.2+10-55; Oracle Corporation null) on Linux 6.12.100+deb13-amd64 (amd64)\n[14:09:28] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-87-main@a95ae8d (2026-07-28T22:11:27Z) for Minecraft 26.2\n[14:09:28] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (2):\n - ItemsAdder (4.0.17), ProtocolLib (5.5.0-SNAPSHOT-589ee12)\njava.lang.NoSuchMethodError: 'net.kyori.adventure.text.serializer.gson.GsonComponentSerializer$Builder net.kyori.adventure.text.serializer.gson.GsonComponentSerializer$Builder.legacyHoverEventSerializer(net.kyori.adventure.text.serializer.gson.LegacyHoverEventSerializer)'\n\tat ItemsAdder_4.0.17.jar//itemsadder.m.axy.<clinit>(SourceFile:69) ~[?:?]\n\tat ItemsAdder_4.0.17.jar//itemsadder.m.ayr.<clinit>(SourceFile:17) ~[?:?]\n\tat ItemsAdder_4.0.17.jar//itemsadder.m.ya.qW(SourceFile:104) ~[?:?]\n\tat ItemsAdder_4.0.17.jar//dev.lone.itemsadder.Main.onEnable(SourceFile:185) ~[?:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.2.build.87-stable.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[paper-api-26.2.build.87-stable.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:633) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:648) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:343) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1267) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-26.2.jar:26.2-87-a95ae8d]\n\tat java.base/java.lang.Thread.run(Thread.java:1516) ~[?:?]",
+  "fix_solution": "【已证实】ItemsAdder 4.0.17 不支持 Paper 26.2，需使用 Discord 上提供的 Beta 版或等待正式适配版本（依据：Andre601 确认）",
+  "quality": "high",
+  "collected_at": "2026-08-28",
+  "notes": "场景:version; 日志来自 issue 附件 mclo.gs/v41I2rH;服务端 paper;清洗2026-08-28:fix=已补;quality=high→high"
+}

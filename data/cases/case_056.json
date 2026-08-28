@@ -1,0 +1,21 @@
+{
+  "id": "case_056",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/pylonmc/rebar/issues/627",
+  "source_title": "Could not pass event PluginDisableEvent to Rebar v1.0.0-SNAPSHOT",
+  "server_type": "paper",
+  "mc_version": "1.21.11",
+  "java_version": "23",
+  "exception_type": "java.util.NoSuchElementException",
+  "plugins": [
+    "ConstructionWand v0.6.0",
+    "MSUA vAlpha4",
+    "Pylon v1.0.0-SNAPSHOT",
+    "RebarCustomizer v1.0.16"
+  ],
+  "raw_log": "[21:05:12] [ServerMain/INFO]: [bootstrap] Running Java 23 (Java HotSpot(TM) 64-Bit Server VM 23.0.2+7-58; Oracle Corporation null) on Windows 11 10.0 (amd64)\n[21:05:12] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.11-99-main@81b9122 (2026-01-20T19:08:30Z) for Minecraft 1.21.11\n[21:05:20] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (4):\n - ConstructionWand (0.6.0), MSUA (Alpha4), Pylon (1.0.0-SNAPSHOT), RebarCustomizer (1.0.16)\njava.util.NoSuchElementException: invui_packet_handler_Rebar\n\tat io.netty.channel.DefaultChannelPipeline.getContextOrDie(DefaultChannelPipeline.java:1094) ~[netty-transport-4.2.7.Final.jar:4.2.7.Final]\n\tat io.netty.channel.DefaultChannelPipeline.remove(DefaultChannelPipeline.java:372) ~[netty-transport-4.2.7.Final.jar:4.2.7.Final]\n\tat xyz.xenondevs.invui.internal.network.PacketListener.removeChannelHandler(PacketListener.java:112) ~[?:?]\n\tat java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]\n\tat java.base/java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1117) ~[?:?]\n\tat xyz.xenondevs.invui.internal.network.PacketListener.lambda$new$0(PacketListener.java:39) ~[?:?]\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[?:?]\n\tat xyz.xenondevs.invui.InvUI.handlePluginDisable(InvUI.java:165) ~[?:?]\n\tat co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:71) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.disablePlugin(PaperPluginInstanceManager.java:235) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.disablePlugins(PaperPluginInstanceManager.java:161) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.disablePlugins(PaperPluginManagerImpl.java:97) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat org.bukkit.plugin.SimplePluginManager.disablePlugins(SimplePluginManager.java:541) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.disablePlugins(CraftServer.java:612) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.MinecraftServer.stopServer(MinecraftServer.java:1020) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.dedicated.DedicatedServer.stopServer(DedicatedServer.java:908) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1376) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:388) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat java.base/java.lang.Thread.run(Thread.java:1575) ~[?:?]",
+  "fix_solution": "【已证实】维护者标记为已知问题且 wontfix：服务器在线时打开 guide 偶发不影响功能的异常，可忽略（依据：Seggan 确认）",
+  "quality": "high",
+  "collected_at": "2026-08-28",
+  "notes": "场景:other; 日志来自 issue 附件 mclo.gs/Xq5NKXM;服务端 paper;InvUI 关服时移除 netty channel handler 找不到 pipeline 节点;清洗2026-08-28:fix=已补;quality=high→high"
+}

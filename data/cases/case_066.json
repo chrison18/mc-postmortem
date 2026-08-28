@@ -1,0 +1,16 @@
+{
+  "id": "case_066",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PaperMC/Paper/issues/13752",
+  "source_title": "Launching a 26.1 server with the management server enabled causes a crash",
+  "server_type": "paper",
+  "mc_version": "26.1.1",
+  "java_version": "25",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [],
+  "raw_log": "java.lang.NullPointerException: Cannot invoke \"net.minecraft.server.level.ServerLevel.getGameRules()\" because the return value of \"net.minecraft.server.dedicated.DedicatedServer.overworld()\" is null\n\tat net.minecraft.server.jsonrpc.internalapi.MinecraftGameRuleServiceImpl.<init>(MinecraftGameRuleServiceImpl.java:18) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.jsonrpc.internalapi.MinecraftApi.of(MinecraftApi.java:87) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:200) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1290) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\n[15:38:58] [Server thread/ERROR]: This crash report has been saved to: /Users/********/Downloads/paper/crash-reports/crash-2026-04-05_15.38.58-server.txt\n[15:38:58] [Server thread/INFO]: Stopping server\n[15:38:58] [Server thread/INFO]: Saving worlds\n[15:38:58] [Server thread/ERROR]: Exception stopping the server\njava.lang.NullPointerException: Cannot invoke \"org.bukkit.Server.getName()\" because \"org.bukkit.Bukkit.server\" is null\n\tat org.bukkit.Bukkit.getName(Bukkit.java:138) ~[paper-api-26.1.1.build.20-alpha.jar:?]\n\tat net.minecraft.world.level.storage.PrimaryLevelData.setTagData(PrimaryLevelData.java:156) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.world.level.storage.PrimaryLevelData.createTag(PrimaryLevelData.java:127) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.world.level.storage.LevelStorageSource$LevelStorageAccess.saveDataTag(LevelStorageSource.java:592) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.MinecraftServer.saveGlobalData(MinecraftServer.java:991) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.MinecraftServer.saveAllChunks(MinecraftServer.java:960) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.MinecraftServer.stopServer(MinecraftServer.java:1091) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.dedicated.DedicatedServer.stopServer(DedicatedServer.java:941) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1408) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【已证实】该 issue 已关闭，问题已修复或有明确解决方案，升级相关插件/服务端到最新版（依据：issue 已关闭；】NullPointerException 由对象未初始化即被调用导致，需检查插件配置或升级到修复版本（依据：堆栈显示 NPE））",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:npe; 日志来自 mclo.gs/olIAiXY;第三批采集"
+}

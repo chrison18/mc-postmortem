@@ -1,0 +1,33 @@
+{
+  "id": "case_035",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5339",
+  "source_title": "\"damage_entity_in_sight\" cause error in ValhallaMMO plugin",
+  "server_type": "paper",
+  "mc_version": "1.21.11",
+  "java_version": "25",
+  "exception_type": "java.lang.NoSuchMethodError",
+  "plugins": [
+    "AuthMe v5.6.0-bCUSTOM",
+    "ChatManager v1.21.5-0e26c74",
+    "DeluxeMenus v1.14.2-DEV-210",
+    "DiscordSRV v1.30.4",
+    "FastAsyncWorldEdit v2.15.0+59372c5",
+    "ItemsAdder v4.0.16",
+    "LuckPerms v5.5.17",
+    "MythicMobs v5.11.2-6a371d59",
+    "PlaceholderAPI v2.12.2",
+    "ProtocolLib v5.5.0-SNAPSHOT-6c6bde5",
+    "TAB v6.0.0",
+    "Towny v**.**.**.**",
+    "ValhallaMMO v1.9.2",
+    "ValhallaTrinkets v2.8",
+    "Vault v1.7.3-b131",
+    "voicechat v2.6.14"
+  ],
+  "raw_log": "[17:54:56] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Eclipse Adoptium Temurin-25.0.2+10) on Linux 5.15.0-173-generic (amd64)\n[17:54:56] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.11-127-main@bd74bf6 (2026-03-10T02:55:23Z) for Minecraft 1.21.11\n[17:54:57] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (16):\n - AuthMe (5.6.0-bCUSTOM), ChatManager (1.21.5-0e26c74), DeluxeMenus (1.14.2-DEV-210), DiscordSRV (1.30.4), FastAsyncWorldEdit (2.15.0+59372c5), ItemsAdder (4.0.16), LuckPerms (5.5.17), MythicMobs (5.11.2-6a371d59), PlaceholderAPI (2.12.2), ProtocolLib (5.5.0-SNAPSHOT-6c6bde5), TAB (6.0.0), Towny (**.**.**.**), ValhallaMMO (1.9.2), ValhallaTrinkets (2.8), Vault (1.7.3-b131), voicechat (2.6.14)\njava.lang.NoSuchMethodError: 'org.bukkit.NamespacedKey org.bukkit.damage.DamageType.getKeyOrNull()'\n\tat ValhallaMMO_1.9.2.jar//me.athlaeos.valhallammo.nms.NMS_v1_21_R7.getDamageTypeFromEvent(NMS_v1_21_R7.java:535) ~[?:?]\n\tat ValhallaMMO_1.9.2.jar//me.athlaeos.valhallammo.listeners.EntityDamagedListener.onDamageFirst(EntityDamagedListener.java:85) ~[?:?]\n\tat co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:71) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.event.Event.callEvent(Event.java:46) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.craftbukkit.event.CraftEventFactory.callEntityDamageEvent(CraftEventFactory.java:1190) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.event.CraftEventFactory.callEntityDamageEvent(CraftEventFactory.java:1180) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.event.CraftEventFactory.handleEntityDamageEvent(CraftEventFactory.java:1170) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.event.CraftEventFactory.handleEntityDamageEvent(CraftEventFactory.java:1071) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.event.CraftEventFactory.handleLivingEntityDamageEvent(CraftEventFactory.java:1234) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.world.entity.LivingEntity.handleEntityDamage(LivingEntity.java:2441) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.world.entity.LivingEntity.hurtServer(LivingEntity.java:1486) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.world.entity.Entity.hurt(Entity.java:2359) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.entity.CraftLivingEntity.damage(CraftLivingEntity.java:432) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.entity.CraftLivingEntity.damage(CraftLivingEntity.java:405) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat ItemsAdder_4.0.16.jar//itemsadder.m.lx.a(SourceFile:43) ~[?:?]\n\tat ItemsAdder_4.0.16.jar//itemsadder.m.nk.a(SourceFile:38) ~[?:?]\n\tat ItemsAdder_4.0.16.jar//itemsadder.m.nk.j(SourceFile:56) ~[?:?]\n\tat ItemsAdder_4.0.16.jar//itemsadder.m.oy.a(SourceFile:664) ~[?:?]\n\tat ItemsAdder_4.0.16.jar//itemsadder.m.lm.a(SourceFile:1084) ~[?:?]\n\tat org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:474) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1756) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1611) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:427) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1667) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1335) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:388) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【已证实】非 ItemsAdder 问题，ValhallaMMO 的 NMS 代码存在 bug 导致 NoSuchMethodError，需 ValhallaMMO 侧修复（依据：LoneDev6 确认）",
+  "quality": "high",
+  "collected_at": "2026-08-28",
+  "notes": "场景:version; 日志来自 issue 附件 mclo.gs/DwNUbOl;服务端 paper;清洗2026-08-28:fix=已补;quality=high→high"
+}

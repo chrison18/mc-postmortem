@@ -1,0 +1,18 @@
+{
+  "id": "case_013",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/LuckPerms/LuckPerms/issues/4186",
+  "source_title": "LuckPerms 5.5 fails to load on latest Velocity 3.4.0 - ClassNotFoundException: me.lucko.luckperms.lib.bytebuddy.dynamic.scaffold.subclass.ConstructorStrategy",
+  "server_type": "unknown",
+  "mc_version": "1.21.10",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoClassDefFoundError",
+  "plugins": [
+    "LuckPerms v5.5"
+  ],
+  "raw_log": "java.lang.NoClassDefFoundError: me/lucko/luckperms/lib/bytebuddy/dynamic/scaffold/subclass/ConstructorStrategy\n\tat me.lucko.luckperms.common.plugin.AbstractLuckPermsPlugin.enable(AbstractLuckPermsPlugin.java:238) ~[?:?]\n\tat me.lucko.luckperms.velocity.LPVelocityBootstrap.onEnable(LPVelocityBootstrap.java:140) ~[?:?]\n\tat me.lucko.luckperms.velocity.Lmbda$12.execute(Unknown Source) ~[?:?]\n\tat com.velocitypowered.proxy.event.UntargetedEventHandler$VoidHandler.lambda$buildHandler$0(UntargetedEventHandler.java:56) ~[velocity.jar:3.4.0-SNAPSHOT (git-a046f700-b557)]\n\tat com.velocitypowered.proxy.event.VelocityEventManager.fire(VelocityEventManager.java:677) ~[velocity.jar:3.4.0-SNAPSHOT (git-a046f700-b557)]\n\tat com.velocitypowered.proxy.event.VelocityEventManager.lambda$fire$5(VelocityEventManager.java:542) ~[velocity.jar:3.4.0-SNAPSHOT (git-a046f700-b557)]\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]\n\tat java.base/java.lang.Thread.run(Thread.java:1570) [?:?]\nCaused by: java.lang.ClassNotFoundException: me.lucko.luckperms.lib.bytebuddy.dynamic.scaffold.subclass.ConstructorStrategy\n\tat com.velocitypowered.proxy.plugin.PluginClassLoader.loadClass0(PluginClassLoader.java:87) ~[velocity.jar:3.4.0-SNAPSHOT (git-a046f700-b557)]\n\tat com.velocitypowered.proxy.plugin.PluginClassLoader.loadClass(PluginClassLoader.java:64) ~[velocity.jar:3.4.0-SNAPSHOT (git-a046f700-b557)]\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525) ~[?:?]\n\t... 9 more\n",
+  "fix_solution": "【已证实】LuckPerms 运行时依赖库下载失败导致 NoClassDefFoundError，停止代理后删除 plugins/LuckPerms/libs/ 目录再重启（依据：underscore11code 确认）",
+  "quality": "high",
+  "collected_at": "2026-08-27",
+  "notes": "场景:loadfail; 提取:inline:fence;清洗2026-08-28:fix=已补;quality=medium→high"
+}

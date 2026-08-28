@@ -1,0 +1,18 @@
+{
+  "id": "case_058",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/NiFeather/FeatherMorph/issues/57",
+  "source_title": "🐛 [BUG] - java.lang.StackOverflowError: null",
+  "server_type": "unknown",
+  "mc_version": "1.21.8",
+  "java_version": "unknown",
+  "exception_type": "java.lang.StackOverflowError",
+  "plugins": [
+    "FeatherMorph v2.4.5"
+  ],
+  "raw_log": "[22:59:29 INFO]: devxeno[/×.×.×.×:34972] logged in with entity id 777352557 at ([world_nether]-7487.699999988079, 209.0, -7482.699999988079)\n[22:59:29 ERROR]: Could not pass event PlayerClientOptionsChangeEvent to FeatherMorph v2.4.5\njava.lang.StackOverflowError: null\n\tat java.base/java.lang.String.equalsIgnoreCase(String.java:1993) ~[?:?]\n\tat feathermorph-2.4.5-1.21.8-perm-df.jar/xyz.nifeather.morph.messages.vanilla.VanillaMessageStore.getOrCreateSubStore(VanillaMessageStore.java:38) ~[feathermorph-2.4.5-1.21.8-perm-df.jar:?]\n\tat feathermorph-2.4.5-1.21.8-perm-df.jar/xyz.nifeather.morph.messages.vanilla.VanillaMessageStore.get(VanillaMessageStore.java:76) ~[feathermorph-2.4.5-1.21.8-perm-df.jar:?]",
+  "fix_solution": "【已证实】已在最新构建中修复（GitHub Actions run 18885402877），升级 FeatherMorph 到最新版（依据：MATRIX-feather 确认）",
+  "quality": "medium",
+  "collected_at": "2026-08-28",
+  "notes": "场景:other; raw_log 逐字摘自 issue 正文代码块;Luminol 1.21.8(Folia 分支);作者只贴了前 3 帧,堆栈被截断;清洗2026-08-28:fix=已补;quality=low→medium"
+}

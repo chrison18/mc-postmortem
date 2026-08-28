@@ -1,0 +1,16 @@
+{
+  "id": "case_060",
+  "source_type": "hosting_kb",
+  "source_url": "https://nodecraft.com/support/games/minecraft/troubleshooting/fixing-unable-to-access-jar-file-for-minecraft",
+  "source_title": "How to Fix \"Unable To Access Jar File\" Error For Minecraft",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "Startup error: Unable to access jarfile",
+  "plugins": [],
+  "raw_log": "If you've never seen the error Unable to access jarfile before in your Minecraft server's console here at Nodecraft, it can definitely cause some confusion. Thankfully, it's something that's really easy to figure out and fix! \nThis can be caused most often by one of two scenarios: Either the jar file is missing, or the jar file has a different name in the File Manager than what is set in your panel on the Java Settings page.",
+  "fix_solution": "The fastest way to fix this is to go to the Java Settings page on your NodePanel, select the correct jar file, and Save the setting. \nAlternatively, you can also rename the jar file to match what was is set in the NodePanel.",
+  "quality": "low",
+  "collected_at": "2026-08-28",
+  "notes": "场景:other; 托管商知识库教学文:raw_log 为文中报错描述原文(非某台服务器的崩溃日志,无堆栈/插件列表),fix_solution 为修复步骤原文;清洗2026-08-28:fix=保留KB原文;quality=low→low"
+}
