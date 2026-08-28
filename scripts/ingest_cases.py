@@ -95,7 +95,7 @@ def prepare_case_for_ingest(case: dict) -> dict:
     return {
         "id": case["id"],
         "embedding_text": embedding_text,
-        "exception_type": case.get("exception_type", ""),
+        "exception_type": parsed["exception_type"],
         "fix_solution": case.get("fix_solution", ""),
         "source_url": case.get("source_url", ""),
         "source_title": case.get("source_title", ""),

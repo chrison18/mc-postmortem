@@ -6,8 +6,8 @@ LangGraph 主流程定义。
   避免 LLM 自认为不需要检索就直接下结论。
 - react_agent 循环内后续会接入 RAG tool（及其他工具），支持 LLM 按需追加检索。
 
-当前阶段所有节点均为 stub 占位实现，返回固定值保证图可编译、可运行。
-后续逐个替换为真实节点实现，替换时保持函数签名 (state) -> dict 不变。
+当前状态：parse_log / classify / retrieve_cases 均已实现真实逻辑，仅 react_agent 仍为 stub。
+react_agent 后续将拆分为 agent_node + tools_node 双节点（见 docs/TECHNICAL_DESIGN.md）。
 
 流程：parse_log → classify → retrieve_cases(强制预检索) → react_agent(循环, 内含 RAG tool) → END
 """
@@ -48,7 +48,7 @@ def create_initial_state(raw_log_path: str) -> AgentState:
 
 
 # ---------------------------------------------------------------------------
-# 节点定义（以下均为 stub，后续替换为真实实现）
+# 节点定义（parse_log 直接实现；classify_node / retrieve_cases_node 为薄包装；react_agent 为 stub）
 # ---------------------------------------------------------------------------
 
 def parse_log(state: AgentState) -> dict:
