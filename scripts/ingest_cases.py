@@ -33,6 +33,32 @@ def load_all_cases() -> list[dict]:
     return cases
 
 
+def _normalize_plugins(case_plugins: list, parsed_plugins: list[dict]) -> list[str]:
+    """统一插件格式为字符串列表。
+
+    案例 JSON 的 plugins 可能是 ["Name v1.0"] 字符串列表，
+    解析器的 plugins 是 [{"name":..., "version":...}] 字典列表。
+    优先用案例 JSON 的，没有则用解析器的。
+
+    Args:
+        case_plugins: 案例 JSON 中的 plugins 字段。
+        parsed_plugins: 解析器提取的 plugins 字段。
+
+    Returns:
+        插件字符串列表，如 ["EssentialsX v2.20", "Vault v1.7"]。
+    """
+    plugins = case_plugins if case_plugins else parsed_plugins
+    result = []
+    for p in plugins:
+        if isinstance(p, dict):
+            name = p.get("name", "")
+            version = p.get("version", "")
+            result.append(f"{name} {version}".strip())
+        elif p:
+            result.append(str(p))
+    return result
+
+
 def prepare_case_for_ingest(case: dict) -> dict:
     """将原始案例 JSON 转换为入库格式。
 
@@ -56,10 +82,14 @@ def prepare_case_for_ingest(case: dict) -> dict:
     finally:
         os.unlink(tmp_path)
 
+    plugins = _normalize_plugins(case.get("plugins", []), parsed.get("plugins", []))
+
     embedding_text = build_embedding_text(
         exception_type=parsed["exception_type"],
         exception_message=parsed["exception_message"],
         stack_frames=parsed["key_stack_frames"],
+        plugins=plugins,
+        caused_by_chain=parsed.get("caused_by_chain", []),
     )
 
     return {

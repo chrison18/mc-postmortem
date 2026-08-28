@@ -15,7 +15,7 @@ _TOP_K = 5
 def retrieve_cases(state: AgentState) -> dict:
     """检索与当前崩溃日志相似的历史案例。
 
-    从 state 读取 parsed_log，用异常类型+消息+前10堆栈帧构建查询文本，
+    从 state 读取 parsed_log，用异常类型+消息+插件+Caused by+前10堆栈构建查询文本，
     调用向量库检索 top-k 相似案例。
 
     Args:
@@ -28,10 +28,22 @@ def retrieve_cases(state: AgentState) -> dict:
     if not parsed_log:
         return {"retrieved_cases": []}
 
+    # plugins 从 dict 列表转成字符串列表，与入库格式一致
+    plugins = []
+    for p in parsed_log.get("plugins", []):
+        if isinstance(p, dict):
+            name = p.get("name", "")
+            version = p.get("version", "")
+            plugins.append(f"{name} {version}".strip())
+        elif p:
+            plugins.append(str(p))
+
     query_text = build_embedding_text(
         exception_type=parsed_log.get("exception_type", ""),
         exception_message=parsed_log.get("exception_message", ""),
         stack_frames=parsed_log.get("key_stack_frames", []),
+        plugins=plugins,
+        caused_by_chain=parsed_log.get("caused_by_chain", []),
     )
 
     if not query_text.strip():

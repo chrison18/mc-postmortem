@@ -25,23 +25,44 @@ def build_embedding_text(
     exception_type: str,
     exception_message: str,
     stack_frames: list[str],
+    plugins: list[str] | None = None,
+    caused_by_chain: list[str] | None = None,
 ) -> str:
     """构建用于 embedding 的文本。
 
-    入库和检索必须调用此函数，保证文本组合一致：
-    异常类型 + 异常消息 + 前 10 条堆栈帧。
+    入库和检索必须调用此函数，保证文本组合一致。
+    包含：异常类型+消息、插件列表、Caused by 链、前 10 条堆栈帧。
 
     Args:
         exception_type: 异常全限定类名。
         exception_message: 异常消息。
         stack_frames: 堆栈帧列表。
+        plugins: 插件名列表（如 ["EssentialsX v2.20", "Vault v1.7"]）。
+        caused_by_chain: Caused by 行列表。
 
     Returns:
         拼接后的文本，用于生成 embedding。
     """
-    frames = "\n".join(stack_frames[:10])
-    text = f"{exception_type}: {exception_message}\n{frames}"
-    return text.strip()
+    parts = []
+
+    # 异常类型 + 消息
+    if exception_type or exception_message:
+        parts.append(f"{exception_type}: {exception_message}".strip())
+
+    # 插件列表（对插件冲突/版本不匹配类故障的区分度关键）
+    if plugins:
+        parts.append("插件: " + ", ".join(plugins))
+
+    # Caused by 异常链
+    if caused_by_chain:
+        parts.extend(caused_by_chain)
+
+    # 堆栈帧（前 10 条）
+    if stack_frames:
+        parts.append("堆栈:")
+        parts.extend(stack_frames[:10])
+
+    return "\n".join(parts).strip()
 
 
 class CaseStore:
