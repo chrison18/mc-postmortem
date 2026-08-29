@@ -4,19 +4,24 @@ LangGraph 主流程定义。
 设计为混合 RAG 模式：
 - retrieve_cases 节点在 react 循环前强制预检索一次，保证 LLM 至少获得一次历史案例上下文，
   避免 LLM 自认为不需要检索就直接下结论。
-- react_agent 循环内后续会接入 RAG tool（及其他工具），支持 LLM 按需追加检索。
+- react_agent 循环内通过 RAG tool 支持追加检索，LLM 按需调用。
 
-当前状态：parse_log / classify / retrieve_cases 均已实现真实逻辑，仅 react_agent 仍为 stub。
-react_agent 后续将拆分为 agent_node + tools_node 双节点（见 docs/TECHNICAL_DESIGN.md）。
+react_agent 拆分为标准 LangGraph 双节点：
+- agent_node：调用 LLM（带 function calling），返回 tool_calls 或最终答案
+- tools_node：执行工具调用，结果追加到 messages
+- 条件边：agent 返回 tool_calls → tools_node；返回最终答案 → END
+- tools_node → agent_node（回环）
+- loop_count 达到 MAX_REACT_LOOPS 时，agent_node 强制不传 tools，迫使 LLM 直接输出最终答案
 
-流程：parse_log → classify → retrieve_cases(强制预检索) → react_agent(循环, 内含 RAG tool) → END
+流程：parse_log → classify → retrieve_cases(强制预检索) → agent ⇄ tools → END
 """
 
 from langgraph.graph import END, StateGraph
 
-from app.config import settings
+from app.core.nodes.agent import agent_node
 from app.core.nodes.classify import classify
 from app.core.nodes.retrieve import retrieve_cases as retrieve_cases_impl
+from app.core.nodes.tools import tools_node
 from app.core.parsers import parse_crash_report
 from app.core.state import AgentState
 
@@ -42,13 +47,14 @@ def create_initial_state(raw_log_path: str) -> AgentState:
         "messages": [],
         "retrieved_cases": [],
         "root_cause": None,
+        "fix_suggestion": None,
         "loop_count": 0,
         "should_stop": False,
     }
 
 
 # ---------------------------------------------------------------------------
-# 节点定义（parse_log 直接实现；classify_node / retrieve_cases_node 为薄包装；react_agent 为 stub）
+# 节点定义（parse_log 直接实现；classify / retrieve_cases / agent / tools 为薄包装）
 # ---------------------------------------------------------------------------
 
 def parse_log(state: AgentState) -> dict:
@@ -95,45 +101,31 @@ def retrieve_cases_node(state: AgentState) -> dict:
     return retrieve_cases_impl(state)
 
 
-def react_agent(state: AgentState) -> dict:
-    """【stub】ReAct 循环节点，分析根因并决定是否继续。
-
-    后续替换为真实 LLM ReAct 逻辑：
-    - 接入 tools（含 RAG tool，支持追加检索历史案例）
-    - 通过 messages 字段维护对话历史
-    - LLM 自主决定调用工具或输出最终根因
-
-    当前每次调用 loop_count + 1，达到上限后由条件边终止。
-
-    Args:
-        state: 当前图状态。
-
-    Returns:
-        包含 root_cause 和 loop_count 的部分状态更新。
-    """
-    return {
-        "root_cause": "待实现：ReAct 根因分析",
-        "loop_count": state["loop_count"] + 1,
-    }
-
-
 # ---------------------------------------------------------------------------
 # 条件边
 # ---------------------------------------------------------------------------
 
-def should_continue(state: AgentState) -> str:
-    """判断 ReAct 循环是否继续。
+def should_use_tools(state: AgentState) -> str:
+    """判断 agent_node 返回后是否需要执行工具调用。
 
-    loop_count 未达上限则回到 react_agent，否则结束。
+    检查 messages 最后一条 AI 消息是否含有 tool_calls。
+    有 tool_calls → 进入 tools_node 执行工具；
+    无 tool_calls → 视为最终答案，结束流程（root_cause / fix_suggestion 已在 agent_node 中解析写入）。
 
     Args:
         state: 当前图状态。
 
     Returns:
-        下一个节点名 "react_agent"，或 END 表示终止。
+        下一个节点名 "tools_node"，或 END 表示终止。
     """
-    if state["loop_count"] < settings.MAX_REACT_LOOPS:
-        return "react_agent"
+    messages = state["messages"]
+    if not messages:
+        return END
+
+    last_msg = messages[-1]
+    tool_calls = getattr(last_msg, "tool_calls", None) or []
+    if tool_calls:
+        return "tools_node"
     return END
 
 
@@ -147,16 +139,27 @@ builder = StateGraph(AgentState)
 builder.add_node("parse_log", parse_log)
 builder.add_node("classify", classify_node)
 builder.add_node("retrieve_cases", retrieve_cases_node)
-builder.add_node("react_agent", react_agent)
+builder.add_node("agent", agent_node)
+builder.add_node("tools", tools_node)
 
 # 入口与线性边
 builder.set_entry_point("parse_log")
 builder.add_edge("parse_log", "classify")
 builder.add_edge("classify", "retrieve_cases")
-builder.add_edge("retrieve_cases", "react_agent")
+builder.add_edge("retrieve_cases", "agent")
 
-# ReAct 循环条件边
-builder.add_conditional_edges("react_agent", should_continue)
+# ReAct 循环条件边：agent → 有 tool_calls 去 tools，无则 END
+builder.add_conditional_edges(
+    "agent",
+    should_use_tools,
+    {
+        "tools_node": "tools",
+        END: END,
+    },
+)
+
+# tools 执行完回到 agent，形成回环
+builder.add_edge("tools", "agent")
 
 # 编译为可执行图
 graph = builder.compile()
