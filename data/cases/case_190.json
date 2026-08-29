@@ -1,0 +1,16 @@
+{
+  "id": "case_190",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/Xiao-MoMi/craft-engine/issues/774",
+  "source_title": "CE 异步重载配方时调用 MMOItems 同步事件导致 GenerateLoreEvent 报错",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "[WARN] [CraftEngine] Failed to build item 'MATERIAL:GHOSTLY_ECOPLASM' from plugin 'mmoitems'\njava.lang.IllegalStateException: GenerateLoreEvent may only be triggered synchronously.\n    at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:45)\n    at ...ItemStackBuilder.buildNBT(ItemStackBuilder.java:263)  ← MMOItems fires sync-only event\n    at ...ItemStackBuilder.build(ItemStackBuilder.java:308)\n    at ...MMOItemsProvider.buildOrNull(MMOItemsProvider.java:54)  ← CE → MMOItems bridge\n    at ...ExternalSourceProcessor.apply(ExternalSourceProcessor.java:52)\n    at ...BukkitItemDefinition.buildItem(BukkitItemDefinition.java:47)\n    at ...BukkitRecipeManager.getIngredientLooks(BukkitRecipeManager.java:74)  ← recipe preview build\n    at ...InjectedShapedRecipe.of(InjectedShapedRecipe.java:34)\n    at ...FastNMSImpl.createShapedRecipe(FastNMSImpl.java:175)\n    at ...BukkitRecipeManager.delayedLoad(BukkitRecipeManager.java:191)  ← async reload\n    at ...CraftEngine.lambda$runDelayTasks$9(CraftEngine.java:241)\n    at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(...)\n    at java.base/java.util.concurrent.ForkJoinPool.runWorker(...)  ← off-thread!",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

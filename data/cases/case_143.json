@@ -1,0 +1,16 @@
+{
+  "id": "case_143",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/Eisi05/NpcApi-Spigot/issues/7",
+  "source_title": "Can't give name to NPC on versions 2.0.x",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "org.bukkit.event.EventException",
+  "plugins": [],
+  "raw_log": "[18:05:36 ERROR]: Could not pass event InventoryClickEvent to NpcPlugin v2.0.4-beta\norg.bukkit.event.EventException\n\tat org.bukkit.plugin.java.JavaPluginLoader$1.execute(JavaPluginLoader.java:310)\n\tat org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70)\n\tat org.bukkit.plugin.SimplePluginManager.fireEvent(SimplePluginManager.java:601)\n\tat org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:588)\n\tat net.minecraft.server.network.PlayerConnection.a(ServerGamePacketListenerImpl.java:3039)\n\tat net.minecraft.network.protocol.game.PacketPlayInWindowClick.a(ServerboundContainerClickPacket.java:54)\n\tat net.minecraft.network.protocol.game.PacketPlayInWindowClick.a(ServerboundContainerClickPacket.java:14)\n\tat net.minecraft.network.PacketProcessor$a.a(PacketProcessor.java:58)\n\tat net.minecraft.network.PacketProcessor.b(PacketProcessor.java:42)\n\tat net.minecraft.server.MinecraftServer.b(MinecraftServer.java:1453)\n\tat net.minecraft.server.MinecraftServer.A(MinecraftServer.java:1121)\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:339)\n\tat java.base/java.lang.Thread.run(Thread.java:1570)\nCaused by: java.lang.NullPointerException: Cannot invoke \"String.replace(java.lang.CharSequence, java.lang.CharSequence)\" because \"legacyName\" is null\n\tat de.eisi05.npc.plugin.gui.NpcGUI.lambda$getInventory$38(NpcGUI.java:822)\n\tat de.eisi05.npc.plugin.gui.NpcGUI.lambda$createIcon$55(NpcGUI.java:1313)\n\tat de.eisi05.npc.plugin.utils.builder.ItemBuilder$ItemListener.onClick(ItemBuilder.java:185)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:580)\n\tat org.bukkit.plugin.java.JavaPluginLoader$1.execute(JavaPluginLoader.java:306)\n\t... 12 more",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "case_193",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/EternalCodeTeam/EternalCore/issues/1406",
+  "source_title": "[Bug]: Console spam when teleporting to a home in a deleted world",
+  "server_type": "unknown",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "[18:18:20 WARN]: [EternalCore] Task #104 for EternalCore v2.0.1-SNAPSHOT+83 generated an exception\n\njava.lang.IllegalStateException: World is not defined\n\n        at EternalCore v2.0.1-SNAPSHOT+83.jar//com.eternalcode.core.libs.com.eternalcode.commons.bukkit.position.PositionAdapter.convert(PositionAdapter.java:29) ~[?:?]\n\n        at EternalCore v2.0.1-SNAPSHOT+83.jar//com.eternalcode.core.feature.teleport.TeleportTask.completeTeleport(TeleportTask.java:93) ~[?:?]\n\n        at EternalCore v2.0.1-SNAPSHOT+83.jar//com.eternalcode.core.feature.teleport.TeleportTask.run(TeleportTask.java:88) ~[?:?]\n\n        at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:474) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1768) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1621) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:404) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1679) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1349) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[aspaper-26.2.jar:26.2-17268-a461b92]\n\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\n\n[18:18:21 WARN]: [EternalCore] Task #104 for EternalCore v2.0.1-SNAPSHOT+83 generated an exception",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

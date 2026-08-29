@@ -1,0 +1,16 @@
+{
+  "id": "case_151",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/lajczik/lagfixer/issues/9",
+  "source_title": "Stacktrace on console",
+  "server_type": "unknown",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [],
+  "raw_log": "[18:12:29 ERROR]: Entity threw exception at minecraft:overworld:-14179.5,52.0,-12728.5\njava.lang.NullPointerException: Cannot invoke \"net.minecraft.world.entity.ai.goal.WrappedGoal.isRunning()\" because \"goal\" is null\n        at net.minecraft.world.entity.ai.goal.GoalSelector.tick(GoalSelector.java:100) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.entity.Mob.serverAiStep(Mob.java:838) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:3731) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.entity.Mob.aiStep(Mob.java:527) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.entity.monster.Monster.aiStep(Monster.java:45) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:3437) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.entity.Mob.tick(Mob.java:405) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.entity.monster.zombie.Zombie.tick(Zombie.java:242) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:1405) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.level.Level.guardEntityTick(Level.java:1522) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.level.ServerLevel.lambda$tick$0(ServerLevel.java:904) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:39) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:886) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1823) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1620) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:404) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1678) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1348) ~[paper-26.2.jar:26.2-111-f570646]\n        at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-26.2.jar:26.2-111-f570646]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\n[18:14:26 ERROR]: Entity threw exception at minecraft:overworld:-14152.5,23.0,-12675.5\njava.lang.NullPointerException",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:npe; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "case_119",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/MonGen-s-Cave/mc-PlayerShop/issues/2",
+  "source_title": "Lamp version",
+  "server_type": "paper",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.ExceptionInInitializerError",
+  "plugins": [],
+  "raw_log": "[21:21:23 ERROR]: Error occurred while enabling mc-PlayerShop v1.1.0 (Is it up to date?)\njava.lang.ExceptionInInitializerError\n\tat Shops.jar//revxrsal.commands.bukkit.BukkitVisitors.lambda$bukkitParameterTypes$5(BukkitVisitors.java:141) ~[?:?]\n\tat Shops.jar//revxrsal.commands.Lamp$Builder.accept(Lamp.java:961) ~[?:?]\n\tat Shops.jar//revxrsal.commands.bukkit.BukkitLampConfig.visit(BukkitLampConfig.java:100) ~[?:?]\n\tat Shops.jar//revxrsal.commands.Lamp$Builder.accept(Lamp.java:961) ~[?:?]\n\tat Shops.jar//revxrsal.commands.bukkit.BukkitLamp.builder(BukkitLamp.java:58) ~[?:?]\n\tat Shops.jar//revxrsal.commands.bukkit.BukkitLamp.builder(BukkitLamp.java:45) ~[?:?]\n\tat Shops.jar//com.mongenscave.mcplayershop.utils.RegisterUtils.registerCommands(RegisterUtils.java:23) ~[?:?]\n\tat Shops.jar//com.mongenscave.mcplayershop.McPlayerShop.onEnable(McPlayerShop.java:77) ~[?:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.2.build.65-beta.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[paper-api-26.2.build.65-beta.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:633) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:648) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:343) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1267) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-26.2.jar:26.2-65-fc9375a]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\nCaused by: java.lang.NumberFormatException: For input string: \"build\"\n\tat java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]\n\tat java.base/java.lang.Integer.parseInt(Integer.java:565) ~[?:?]\n\tat java.base/java.lang.Integer.parseInt(Integer.java:662) ~[?:?]\n\tat Shops.jar//revxrsal.commands.bukkit.util.BukkitVersion.<clinit>(BukkitVersion.java:57) ~[?:?]\n\t... 19 more",
+  "fix_solution": "【推断】检查配置文件中的数值格式是否正确（依据：堆栈显示 NumberFormatException，字符串转数字失败通常因配置值格式错误）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

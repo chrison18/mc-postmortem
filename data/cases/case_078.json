@@ -4,7 +4,7 @@
   "source_url": "https://github.com/LuckPerms/LuckPerms/issues/4259",
   "source_title": "[Solved] Can't join the game with luckperms installed on neoforge 1.21.1",
   "server_type": "unknown",
-  "mc_version": "21.0.10",
+  "mc_version": "unknown",
   "java_version": "unknown",
   "exception_type": "java.lang.IllegalStateException",
   "plugins": [],
@@ -12,5 +12,5 @@
   "fix_solution": "【已证实】该问题已在后续版本修复，升级相关插件/服务端到最新版（依据：issue 已关闭）",
   "quality": "medium",
   "collected_at": "2026-08-28",
-  "notes": "场景:runtime; 日志来自 mclo.gs/h5ezGUO;第三批采集"
+  "notes": "场景:runtime; 日志来自 mclo.gs/h5ezGUO;第三批采集;审查2026-08-29:mc_version原为插件版本,改unknown"
 }

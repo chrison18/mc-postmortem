@@ -1,0 +1,16 @@
+{
+  "id": "case_220",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/whereareiam/Socialismus/issues/162",
+  "source_title": "me.whereareiam.configura.exception.ConfigException: Failed to deserialize config stream",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "me.whereareiam.socialismus.library.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java",
+  "plugins": [],
+  "raw_log": "at me.whereareiam.socialismus.library.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:72) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1822) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1596) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1543) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.deser.BeanDeserializer._deserializeFromArray(BeanDeserializer.java:681) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.deser.BeanDeserializer._deserializeOther(BeanDeserializer.java:203) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:179) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:5038) ~[?:?]\n        at me.whereareiam.socialismus.library.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3991) ~[?:?]\n        at me.whereareiam.configura.common.reader.DefaultConfigReader.decode(DefaultConfigReader.java:155) ~[?:?]\n        ... 8 more",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:config; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

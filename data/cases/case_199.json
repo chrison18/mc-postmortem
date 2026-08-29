@@ -1,0 +1,16 @@
+{
+  "id": "case_199",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/schrumbo/schrumboHUD/issues/1",
+  "source_title": "Out Of Memory crash",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.OutOfMemoryError",
+  "plugins": [],
+  "raw_log": "[11:51:22] [Render thread/ERROR]: Out of memory\njava.lang.OutOfMemoryError: Java heap space\n\tat java.base/java.util.Arrays.copyOf(Unknown Source)\n\tat java.base/java.util.ArrayList.grow(Unknown Source)\n\tat java.base/java.util.ArrayList.grow(Unknown Source)\n\tat java.base/java.util.ArrayList.add(Unknown Source)\n\tat java.base/java.util.ArrayList.add(Unknown Source)\n\tat knot//net.minecraft.class_11540.method_70946(class_11540.java:14)\n\tat knot//net.minecraft.class_10455.method_65584(class_10455.java:47)\n\tat knot//net.minecraft.class_10442.method_65596(class_10442.java:51)\n\tat knot//net.minecraft.class_10442.method_65598(class_10442.java:41)\n\tat knot//net.minecraft.class_10442.method_65597(class_10442.java:28)\n\tat knot//schrumbo.schrumbohud.hud.InventoryHudSpecialRenderer.renderPass(InventoryHudSpecialRenderer.java:84)\n\tat knot//schrumbo.schrumbohud.hud.InventoryHudSpecialRenderer.render(InventoryHudSpecialRenderer.java:63)\n\tat knot//schrumbo.schrumbohud.hud.InventoryHudSpecialRenderer.method_70905(InventoryHudSpecialRenderer.java:20)\n\tat knot//net.minecraft.class_11239.method_70913(class_11239.java:57)\n\tat knot//net.minecraft.class_11228.method_70888$mixinextras$wrapped$72(class_11228.java:412)\n\tat knot//net.minecraft.class_11228.mixinextras$bridge$method_70888$mixinextras$wrapped$72$73(class_11228.java)\n\tat knot//net.minecraft.class_11228$$Lambda/0x0000017f83aa8220.call(Unknown Source)\n\tat knot//net.minecraft.class_11228.wrapMethod$eik000$olympus$fixPipState(class_11228.java:2750)\n\tat knot//net.minecraft.class_11228.method_70888(class_11228.java)\n\tat knot//net.minecraft.class_11228.method_71056(class_11228.java:405)\n\tat knot//net.minecraft.class_11228$$Lambda/0x0000017f83499228.accept(Unknown Source)\n\tat knot//net.minecraft.class_11246.method_71065(class_11246.java:209)\n\tat knot//net.minecraft.class_11246$$Lambda/0x0000017f83499460.accept(Unknown Source)\n\tat knot//net.minecraft.class_11246.method_71061(class_11246.java:244)\n\tat knot//net.minecraft.class_11246.method_71061(class_11246.java:246)\n\tat knot//net.minecraft.class_11246.method_71061(class_11246.java:246)\n\tat knot//net.minecraft.class_11246.method_71074(class_11246.java:239)\n\tat knot//net.minecraft.class_11246.method_71071(class_11246.java:205)\n\tat knot//net.minecraft.class_11228.method_70893(class_11228.java:404)\n\tat knot//net.minecraft.class_11228.method_71290(class_11228.java:203)\n\tat knot//net.minecraft.class_11228.method_70890(class_11228.java:168)\n\tat knot//net.minecraft.class_757.method_3192(class_757.java:585)",
+  "fix_solution": "【推断】增加 JVM 堆内存分配（-Xmx）或排查内存泄漏插件（依据：堆栈显示 OOM，内存不足通常需调大堆或移除泄漏插件）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:oom; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

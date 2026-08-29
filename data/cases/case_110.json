@@ -1,0 +1,16 @@
+{
+  "id": "case_110",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/frengor/VisualFixer/issues/8",
+  "source_title": "ReflectionException on 26.2",
+  "server_type": "paper",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.ExceptionInInitializerError",
+  "plugins": [],
+  "raw_log": "[17:40:05] [Server thread/INFO]: [VisualFixer] Enabling VisualFixer v2.3.1\n[17:40:05] [Server thread/ERROR]: Error occurred while enabling VisualFixer v2.3.1 (Is it up to date?)\njava.lang.ExceptionInInitializerError\n\tat VisualFixer-2.3.1.jar//com.fren_gor.visualFixer.Main.registerListeners(Main.java:189) ~[?:?]\n\tat VisualFixer-2.3.1.jar//com.fren_gor.visualFixer.Main.onEnable(Main.java:49) ~[?:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.2.build.112-stable.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[paper-api-26.2.build.112-stable.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:633) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:648) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:343) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1266) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-26.2.jar:26.2-112-c9e894d]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\nCaused by: com.fren_gor.visualFixer.ReflectionException: Can't find NMS Class! (net.minecraft.server.CraftServer.BlockPosition)\n\tat VisualFixer-2.3.1.jar//com.fren_gor.visualFixer.ReflectionUtil.getNMSClass(ReflectionUtil.java:160) ~[?:?]\n\tat VisualFixer-2.3.1.jar//com.fren_gor.visualFixer.PlacePot.<clinit>(PlacePot.java:24) ~[?:?]\n\t... 13 more\n[17:40:05] [Server thread/INFO]: [VisualFixer] Disabling VisualFixer v2.3.1",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 ExceptionInInitializerError，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

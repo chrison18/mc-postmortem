@@ -1,0 +1,16 @@
+{
+  "id": "case_231",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/Hex27/TerraformGenerator/issues/183",
+  "source_title": "TerraformGenerator 25.0.2 fails on Leaf 1.21.4 (NoClassDefFoundError CraftServer v1_21_R3)",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoClassDefFoundError",
+  "plugins": [],
+  "raw_log": "Server thread/INFO]: [TerraformGenerator] Detected version: v1_21_R3, packName: v1_21_R3\n[12:22:57] [Server thread/ERROR]: Error occurred while enabling TerraformGenerator v25.0.2 (Is it up to date?)\njava.lang.NoClassDefFoundError: org/bukkit/craftbukkit/v1_21_R3/CraftServer\n\tat TerraformGenerator.jar/org.terraform.v1_21_R3.CustomBiomeHandler.init(CustomBiomeHandler.java:43) ~[TerraformGenerator.jar:?]\n\tat TerraformGenerator.jar/org.terraform.v1_21_R3.NMSInjector.startupTasks(NMSInjector.java:43) ~[TerraformGenerator.jar:?]\n\tat TerraformGenerator.jar/org.terraform.main.TerraformGeneratorPlugin.onEnable(TerraformGeneratorPlugin.java:147) ~[TerraformGenerator.jar:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:280) ~[leaf-api-1.21.4-R0.1-SNAPSHOT.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202) ~[leaf-1.21.4.jar:1.21.4-525-2d6d1f2]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[leaf-1.21.4.jar:1.21.4-525-2d6d1f2]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[leaf-api-1.21.4-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:675) ~[leaf-1.21.4.jar:1.21.4-525-2d6d1f2]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:625) ~[leaf-1.21.4.jar:1.21.4-525-2d6d1f2]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:345) ~[leaf-1.21.4.jar:1.21.4-525-2d6d1f2]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1188) ~[leaf-1.21.4.jar:1.21.4-525-2d6d1f2]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:300) ~[leaf-1.21.4.jar:1.21.4-525-2d6d1f2]\n\tat java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]\nCaused by: java.lang.ClassNotFoundException: org.bukkit.craftbukkit.v1_21_R3.CraftServer\n\tat org.bukkit.plugin.java.PluginClassLoader.loadClass0(PluginClassLoader.java:197) ~[leaf-api-1.21.4-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.plugin.java.PluginClassLoader.loadClass(PluginClassLoader.java:164) ~[leaf-api-1.21.4-R0.1-SNAPSHOT.jar:?]\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[?:?]\n\t... 13 more\n[12:22:57] [Server thread/INFO]: [TerraformGenerator] Disabling TerraformGenerator v25.0.2",
+  "fix_solution": "【推断】安装缺失的依赖插件或检查插件文件完整性（依据：堆栈显示 NoClassDefFoundError，类加载失败通常因缺依赖或文件损坏）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

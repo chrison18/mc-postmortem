@@ -1,0 +1,16 @@
+{
+  "id": "case_107",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/imDaniX/WGExtender/issues/19",
+  "source_title": "dont worked on Leaf 26.2(paper fork)",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoSuchMethodError",
+  "plugins": [],
+  "raw_log": "[11:44:46] [Server thread/INFO]: [WGExtender] Enabling WGExtender v3.6.0-SNAPSHOT-x\n[11:44:46] [Server thread/ERROR]: Error occurred while enabling WGExtender v3.6.0-SNAPSHOT-x (Is it up to date?)\njava.lang.NoSuchMethodError: 'net.kyori.adventure.util.Buildable$Builder net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer.toBuilder()'\n\tat WGExtenderX-3.6.0-SNAPSHOT.jar//wgextender.config.message.MessagesProvider$Serializer.fixup(MessagesProvider.java:180) ~[?:?]\n\tat WGExtenderX-3.6.0-SNAPSHOT.jar//wgextender.config.message.MessagesProvider$Serializer.<clinit>(MessagesProvider.java:168) ~[?:?]\n\tat WGExtenderX-3.6.0-SNAPSHOT.jar//wgextender.config.message.MessagesProvider.<init>(MessagesProvider.java:36) ~[?:?]\n\tat WGExtenderX-3.6.0-SNAPSHOT.jar//wgextender.config.ConfigurationProvider.<init>(ConfigurationProvider.java:56) ~[?:?]\n\tat WGExtenderX-3.6.0-SNAPSHOT.jar//wgextender.WGExtender.onEnable(WGExtender.java:90) ~[?:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[leaf-api-26.2.build.36-alpha.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[leaf-api-26.2.build.36-alpha.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:652) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:609) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:702) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:404) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1344) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[leaf-26.2.jar:26.2-36-b710632]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\n[11:44:46] [Server thread/INFO]: [WGExtender] Disabling WGExtender v3.6.0-SNAPSHOT-x",
+  "fix_solution": "【推断】升级或回滚相关插件至兼容版本（依据：堆栈显示 NoSuchMethodError，通常为插件版本与服务端/依赖不兼容）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

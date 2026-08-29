@@ -1,0 +1,16 @@
+{
+  "id": "case_215",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PikaMug/Unite/issues/8",
+  "source_title": "Unite not loading into server 1.21.10",
+  "server_type": "paper",
+  "mc_version": "1.21.10",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoClassDefFoundError",
+  "plugins": [],
+  "raw_log": "[19:12:50 ERROR]: Error occurred while enabling Unite v1.2.0 (Is it up to date?)\njava.lang.NoClassDefFoundError: de/simonsator/partyandfriends/spigot/api/events/BridgeNotAvailableException\n        at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[?:?]\n        at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3551) ~[?:?]\n        at java.base/java.lang.Class.getConstructor0(Class.java:3756) ~[?:?]\n        at java.base/java.lang.Class.getConstructor(Class.java:2444) ~[?:?]\n        at Unite-1.2.0.jar/me.pikamug.unite.Unite.hookProvider(Unite.java:72) ~[Unite-1.2.0.jar:?]\n        at Unite-1.2.0.jar/me.pikamug.unite.Unite.hookProviders(Unite.java:65) ~[Unite-1.2.0.jar:?]\n        at Unite-1.2.0.jar/me.pikamug.unite.Unite.onEnable(Unite.java:33) ~[Unite-1.2.0.jar:?]\n        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-1.21.10-R0.1-SNAPSHOT.jar:?]\n        at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520) ~[paper-api-1.21.10-R0.1-SNAPSHOT.jar:?]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:639) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:596) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:637) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:368) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1257) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:384) ~[paper-1.21.10.jar:1.21.10-129-3e25649]\n        at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]\nCaused by: java.lang.ClassNotFoundException: de.simonsator.partyandfriends.spigot.api.events.BridgeNotAvailableException\n        at org.bukkit.plugin.java.PluginClassLoader.loadClass0(PluginClassLoader.java:208) ~[paper-api-1.21.10-R0.1-SNAPSHOT.jar:?]\n        at org.bukkit.plugin.java.PluginClassLoader.loadClass(PluginClassLoader.java:175) ~[paper-api-1.21.10-R0.1-SNAPSHOT.jar:?]\n        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[?:?]\n        ... 18 more\n[19:12:50 INFO]: [Unite] Disabling Unite v1.2.0",
+  "fix_solution": "【推断】安装缺失的依赖插件或检查插件文件完整性（依据：堆栈显示 NoClassDefFoundError，类加载失败通常因缺依赖或文件损坏）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

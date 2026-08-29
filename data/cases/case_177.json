@@ -1,0 +1,16 @@
+{
+  "id": "case_177",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/SPlugins/SCore/issues/220",
+  "source_title": "BoundingBox missing on lower versions for INLINE_MINEINCUBE",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoClassDefFoundError",
+  "plugins": [],
+  "raw_log": "[16:03:43 WARN]: [SCore] Task #348 for SCore v42.42.42 generated an exception\njava.lang.NoClassDefFoundError: org/bukkit/util/BoundingBox\n        at com.ssomar.score.commands.runnable.block.commands.InlineMineInCube$1.run(InlineMineInCube.java:148) ~[?:?]\n        at com.ssomar.score.utils.scheduler.BukkitSchedulerHook$1.run(BukkitSchedulerHook.java:32) ~[?:?]\n        at org.bukkit.craftbukkit.v1_11_R1.scheduler.CraftTask.run(CraftTask.java:58) ~[patched_1.11.2.jar:git-Paper-1106]\n        at org.bukkit.craftbukkit.v1_11_R1.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:356) ~[patched_1.11.2.jar:git-Paper-1106]\n        at net.minecraft.server.v1_11_R1.MinecraftServer.D(MinecraftServer.java:829) ~[patched_1.11.2.jar:git-Paper-1106]\n        at net.minecraft.server.v1_11_R1.DedicatedServer.D(DedicatedServer.java:403) ~[patched_1.11.2.jar:git-Paper-1106]\n        at net.minecraft.server.v1_11_R1.MinecraftServer.C(MinecraftServer.java:763) ~[patched_1.11.2.jar:git-Paper-1106]\n        at net.minecraft.server.v1_11_R1.MinecraftServer.run(MinecraftServer.java:661) ~[patched_1.11.2.jar:git-Paper-1106]\n        at java.lang.Thread.run(Thread.java:1583) [?:?]\nCaused by: java.lang.ClassNotFoundException: org.bukkit.util.BoundingBox\n        at org.bukkit.plugin.java.PluginClassLoader.findClass(PluginClassLoader.java:92) ~[patched_1.11.2.jar:git-Paper-1106]\n        at org.bukkit.plugin.java.PluginClassLoader.findClass(PluginClassLoader.java:87) ~[patched_1.11.2.jar:git-Paper-1106]\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:593) ~[?:?]\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[?:?]\n        ... 9 more",
+  "fix_solution": "【推断】安装缺失的依赖插件或检查插件文件完整性（依据：堆栈显示 NoClassDefFoundError，类加载失败通常因缺依赖或文件损坏）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

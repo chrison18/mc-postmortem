@@ -1,0 +1,16 @@
+{
+  "id": "case_157",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/LunaDeerMC/Dominion/issues/250",
+  "source_title": "[Bug] 玩家移動時 Move.java:25 出現 NullPointerException（dom 為 null）",
+  "server_type": "paper",
+  "mc_version": "26.1.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [],
+  "raw_log": "13:07:39] [Server thread/ERROR]: Could not pass event PlayerMoveEvent to Dominion v4.8.4-release\njava.lang.NullPointerException: Cannot invoke \"cn.lunadeer.dominion.api.dtos.DominionDTO.getCuboid()\" because \"dom\" is null\nat Dominion-4.8.4-release-full.jar//cn.lunadeer.dominion.v1_20_1.events.player.Move.handler(Move.java:25) ~[?:?]\nat co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-26.1.2.build.72-stable.jar:?]\nat org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:71) ~[paper-api-26.1.2.build.72-stable.jar:?]\nat io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-26.1.2.jar:26.1.2-72-1a6b910]\nat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-26.1.2.jar:26.1.2-72-1a6b910]\nat org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-26.1.2.build.72-stable.jar:?]\nat net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1713) ~[paper-26.1.2.jar:26.1.2-72-1a6b910]\nat net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:70) ~[paper-26.1.2.jar:26.1.2-72-1a6b910]",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:npe; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

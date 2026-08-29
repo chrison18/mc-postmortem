@@ -1,0 +1,16 @@
+{
+  "id": "case_219",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/amsam0/voicechat-discord/issues/167",
+  "source_title": "Update for 26.1 please",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoClassDefFoundError",
+  "plugins": [],
+  "raw_log": "v3.0.13\n[09:31:20] [Server thread/INFO]: [voicechat-discord] Server is >=1.20.6 (26.1.1)\n[09:31:20] [Server thread/ERROR]: Error occurred while enabling voicechat-discord v3.0.13 (Is it up to date?)\njava.lang.NoClassDefFoundError: de/maxhenkel/voicechat/api/BukkitVoicechatService\n\tat voicechat-discord-paper-3.0.13.jar//dev.amsam0.voicechatdiscord.PaperPlugin.onEnable(PaperPlugin.java:70) ~[?:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.1.1.build.15-alpha.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:207) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520) ~[paper-api-26.1.1.build.15-alpha.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:637) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:594) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:680) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:386) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1290) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304) ~[paper-26.1.1.jar:26.1.1-15-4d8d06c]\n\tat java.base/java.lang.Thread.run(Thread.java:1516) ~[?:?]\nCaused by: java.lang.ClassNotFoundException: de.maxhenkel.voicechat.api.BukkitVoicechatService\n\tat org.bukkit.plugin.java.PluginClassLoader.loadClass0(PluginClassLoader.java:208) ~[paper-api-26.1.1.build.15-alpha.jar:?]\n\tat org.bukkit.plugin.java.PluginClassLoader.loadClass(PluginClassLoader.java:175) ~[paper-api-26.1.1.build.15-alpha.jar:?]\n\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:502) ~[?:?]\n\t... 12 more\n[09:31:20] [Server thread/INFO]: [voicechat-discord] Disabling voicechat-discord v3.0.13\n[09:31:20] [Server thread/INFO]: [voicechat-discord] Disabling voicechat-discord 3.0.13",
+  "fix_solution": "【推断】安装缺失的依赖插件或检查插件文件完整性（依据：堆栈显示 NoClassDefFoundError，类加载失败通常因缺依赖或文件损坏）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】;审查2026-08-29:mc_version原为插件版本,改unknown"
+}

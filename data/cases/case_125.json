@@ -1,0 +1,16 @@
+{
+  "id": "case_125",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/LumaLibre/Wyck/issues/9",
+  "source_title": "How can I include it directly in my plugin using shadow?",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoSuchMethodError",
+  "plugins": [],
+  "raw_log": "[00:36:37 WARN]: [RealisticSeasons] Task #21 for RealisticSeasons v10.7.4 generated an exception\njava.lang.NoSuchMethodError: 'net.minecraft.resources.ResourceKey net.minecraft.core.IdMap.key()'\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.libs.biomesapi.registry.internal.FrozenRegistryImpl.unFreeze(FrozenRegistryImpl.java:92) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.libs.biomesapi.registry.internal.FrozenRegistryImpl.whileUnfrozen(FrozenRegistryImpl.java:110) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.libs.biomesapi.registry.CustomBiomeRegistry.register(CustomBiomeRegistry.java:143) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.libs.biomesapi.registry.BiomeRegistry.register(BiomeRegistry.java:72) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.libs.biomesapi.biome.CustomBiome.register(CustomBiome.java:80) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.biome.BiomesApiCustomBiome.register(BiomesApiCustomBiome.java:67) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.RealisticSeasons.createSeasonsBiome(RealisticSeasons.java:549) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.data.BiomeFileLoader.load(BiomeFileLoader.java:50) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.data.BiomeFileLoader.<init>(BiomeFileLoader.java:45) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.RealisticSeasons.enable(RealisticSeasons.java:166) ~[?:?]\n\tat RealisticSeasons-6.12-all.jar//me.casperge.realisticseasons.RealisticSeasons.lambda$onEnable$0(RealisticSeasons.java:120) ~[?:?]\n\tat org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[octopus-1.21.11.jar:1.21.11-DEV-49e839e]\n\tat org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:474) ~[octopus-1.21.11.jar:1.21.11-DEV-49e839e]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1278) ~[octopus-1.21.11.jar:1.21.11-DEV-49e839e]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:387) ~[octopus-1.21.11.jar:1.21.11-DEV-49e839e]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】升级或回滚相关插件至兼容版本（依据：堆栈显示 NoSuchMethodError，通常为插件版本与服务端/依赖不兼容）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "case_233",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PaperMC/Paper/issues/13936",
+  "source_title": "Entering an invalid console command with a disallowed chat character in it crashes the server",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.RuntimeException",
+  "plugins": [],
+  "raw_log": "Description: Exception in server tick loop\njava.lang.RuntimeException: Failed to encode Minecraft Component: empty[style={color=gray,clickEvent=SuggestCommand[command=/hsay test]}, siblings=[literal{hsay test}[style={color=red,underlined}], translation{key='command.context.here', args=[]}[style={color=red,italic}]]]; Disallowed chat character: ''\n\tat io.papermc.paper.adventure.WrapperAwareSerializer.lambda$deserialize$0(WrapperAwareSerializer.java:28)\n\tat com.mojang.serialization.DataResult$Error.getOrThrow(DataResult.java:287)\n\tat io.papermc.paper.adventure.WrapperAwareSerializer.deserialize(WrapperAwareSerializer.java:28)\n\tat io.papermc.paper.adventure.WrapperAwareSerializer.deserialize(WrapperAwareSerializer.java:13)\n\tat io.papermc.paper.adventure.PaperAdventure.asAdventure(PaperAdventure.java:185)\n\tat net.minecraft.commands.Commands.finishParsing(Commands.java:445)\n\tat net.minecraft.commands.Commands.performCommand(Commands.java:373)\n\tat net.minecraft.commands.Commands.performCommand(Commands.java:365)\n\tat net.minecraft.commands.Commands.performPrefixedCommand(Commands.java:356)\n\tat net.minecraft.server.dedicated.DedicatedServer.handleConsoleInputs(DedicatedServer.java:630)\n\tat net.minecraft.server.dedicated.DedicatedServer.tickConnection(DedicatedServer.java:586)\n\tat net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1863)\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1645)\n\tat net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:452)\n\tat net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1708)\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1373)\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304)\n\tat java.base/java.lang.Thread.run(Unknown Source)",
+  "fix_solution": "【推断】升级相关插件或查看具体 Caused by 获取详细原因（依据：堆栈显示 RuntimeException，需结合 Caused by 定位具体问题）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

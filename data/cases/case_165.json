@@ -1,0 +1,16 @@
+{
+  "id": "case_165",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/Zrips/CMI/issues/10304",
+  "source_title": "Cannot invoke \"org.bukkit.entity.Player.getVehicle()\"",
+  "server_type": "unknown",
+  "mc_version": "26.1.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [],
+  "raw_log": "[15:14:47] [Server thread/WARN]: [CMI] Task #6488561 for CMI v9.8.7.7 generated an exception\njava.lang.NullPointerException: Cannot invoke \"org.bukkit.entity.Player.getVehicle()\" because \"<local4>\" is null\n\tat CMI-9.8.7.7.jar//com.Zrips.CMI.Modules.Skin.SkinManager.checkCache(SkinManager.java:292) ~[?:?]\n\tat CMI-9.8.7.7.jar//com.Zrips.CMI.Modules.Skin.SkinManager.lambda$6(SkinManager.java:267) ~[?:?]\n\tat CMILib1.5.9.6.jar//net.Zrips.CMILib.Version.Schedulers.CMIBukkitImpl.lambda$runTask$0(CMIBukkitImpl.java:33) ~[?:?]\n\tat org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:474) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1792) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1645) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:444) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1703) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1373) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304) ~[paper-26.1.2.jar:26.1.2-69-76d2ac7]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:npe; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

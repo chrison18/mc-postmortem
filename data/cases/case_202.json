@@ -1,0 +1,16 @@
+{
+  "id": "case_202",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/LOOHP/InteractiveChat-DiscordSRV-Addon/issues/109",
+  "source_title": "StackOverflowError in InteractiveChatDiscordSrvAddon",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.StackOverflowError",
+  "plugins": [],
+  "raw_log": "--- START OF STACK TRACE ---\njava.lang.StackOverflowError\n    at com.loohp.interactivechatdiscordsrvaddon.utils.ItemRenderUtils.resolveItemModelDefinition(ItemRenderUtils.java:642)\n    at com.loohp.interactivechatdiscordsrvaddon.utils.ItemRenderUtils.lambda$resolveItemModelDefinition$8(ItemRenderUtils.java:643)\n    at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:214)\n    at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1716)\n    at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:570)\n    at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:560)\n    at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)\n    at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:265)\n    at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:723)\n    at com.loohp.interactivechatdiscordsrvaddon.utils.ItemRenderUtils.resolveItemModelDefinition(ItemRenderUtils.java:645)\n    ... [The stack trace repeats recursively here] ...\n--- END OF STACK TRACE ---",
+  "fix_solution": "【推断】升级相关插件或排查递归/循环调用逻辑（依据：堆栈显示 StackOverflowError，通常为递归过深或插件逻辑死循环）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

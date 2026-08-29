@@ -1,0 +1,16 @@
+{
+  "id": "case_189",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/kangarko/ChatControl/issues/3834",
+  "source_title": "[Crash] IllegalStateException: Not connected to server!",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "org.mineacademy.chatcontrol.velocity.lib.fo.CommonCore.wrapRunnableInExceptionCatcher(CommonCore.java",
+  "plugins": [],
+  "raw_log": "Executor.runWorker(ThreadPoolExecutor.java:1090)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n\tat java.base/java.lang.Thread.run(Thread.java:1474)\n\tat org.mineacademy.chatcontrol.velocity.lib.fo.CommonCore.wrapRunnableInExceptionCatcher(CommonCore.java:1699)\n\tat org.mineacademy.chatcontrol.velocity.lib.fo.remain.Remain.runTaskTimerAsync(Remain.java:142)\n\tat org.mineacademy.chatcontrol.velocity.lib.fo.platform.VelocityPlatform.runTaskTimerAsync(VelocityPlatform.java:205)\n\tat org.mineacademy.chatcontrol.velocity.lib.fo.platform.FoundationPlatform.runTaskTimerAsync(FoundationPlatform.java:192)\n\tat org.mineacademy.chatcontrol.velocity.lib.fo.platform.Platform.runTaskTimerAsync(Platform.java:386)\n\tat org.mineacademy.chatcontrol.proxy.ProxyDirectoryService.scheduleReconciliation(ProxyDirectoryService.java:296)\n\tat org.mineacademy.chatcontrol.velocity.VelocityControl.onPluginStart(VelocityControl.java:92)\n\tat org.mineacademy.chatcontrol.velocity.lib.fo.platform.VelocityPlugin.onProxyInitialization(VelocityPlugin.java:233)\n\tat org.mineacademy.chatcontrol.velocity.lib.fo.platform.Lmbda$13.execute(Unknown Source)\n\tat com.velocitypowered.proxy.event.UntargetedEventHandler$VoidHandler.lambda$buildHandler$0(UntargetedEventHandler.java:56)\n\tat com.velocitypowered.proxy.event.VelocityEventManager.fire(VelocityEventManager.java:677)\n\tat com.velocitypowered.proxy.event.VelocityEventManager.lambda$fire$0(VelocityEventManager.java:542)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)\n\tat java.base/java.lang.Thread.run(Thread.java:1474)",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

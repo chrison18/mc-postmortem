@@ -4,7 +4,7 @@
   "source_url": "https://github.com/PaperMC/Paper/issues/14032",
   "source_title": "crash on latest paper",
   "server_type": "unknown",
-  "mc_version": "6.1.0",
+  "mc_version": "unknown",
   "java_version": "25",
   "exception_type": "java.lang.NullPointerException",
   "plugins": [
@@ -30,8 +30,8 @@
     "CoreProtect v24.0"
   ],
   "raw_log": "java.lang.NullPointerException: Cannot invoke \"ca.spottedleaf.moonrise.patches.entity_tracker.EntityTrackerEntity.moonrise$getTrackedEntity()\" because \"entity\" is null\n\tat net.minecraft.server.level.ChunkMap.newTrackerTick(ChunkMap.java:1050)\n\tat net.minecraft.server.level.ChunkMap.tick(ChunkMap.java:1066)\n\tat net.minecraft.server.level.ServerChunkCache.tick(ServerChunkCache.java:494)\n\tat net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:858)\n\tat net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1824)\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1621)\n\tat net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:404)\n\tat net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1679)\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1349)\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303)\n\tat java.base/java.lang.Thread.run(Thread.java:1474)\n\n\nA detailed walkthrough of the error, its code path and all known details is as follows:\n\n-- System Details --\nDetails:\n\tMinecraft Version: 26.2\n\tMinecraft Version ID: 26.2\n\tOperating System: Linux (amd64) version 6.1.0-44-amd64\n\tJava Version: 25.0.3, Eclipse Adoptium\n\tJava VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium\n\tMemory: 8946450432 bytes (8532 MiB) / 12884901888 bytes (12288 MiB) up to 12884901888 bytes (12288 MiB)\n\tMemory (heap): init: 12288MiB, used: 3744MiB, committed: 12288MiB, max: 12288MiB\n\tMemory (non-head): init: 007MiB, used: 496MiB, committed: 503MiB, max: 000MiB\n\tCPUs: 22\n\tProcessor Vendor: AuthenticAMD\n\tProcessor Name: Common KVM processor\n\tIdentifier: AuthenticAMD Family 15 Model 6 Stepping 1\n\tMicroarchitecture: K8 / Hammer\n\tFrequency (GHz): -0.00\n\tNumber of physical packages: 1\n\tNumber of physical CPUs: 22\n\tNumber of logical CPUs: 22\n\tGraphics card #0 name: unknown\n\tGraphics card #0 vendor: unknown\n\tGraphics card #0 VRAM (MiB): 0.00\n\tGraphics card #0 deviceId: unknown\n\tGraphics card #0 versionInfo: unknown\n\tVirtual memory max (MiB): 37178.88\n\tVirtual memory used (MiB): 63424.29\n\tSwap memory total (MiB): 0.00\n\tSwap memory used (MiB): 0.00\n\tSpace in storage for jna.tmpdir (MiB): <path not set>\n\tSpace in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>\n\tSpace in storage for io.netty.native.workdir (MiB): <path not set>\n\tSpace in storage for java.io.tmpdir (MiB): available: 96.13, total: 100.00\n\tSpace in storage for workdir (MiB): available: 322515.16, total: 503792.81\n\tOperating System Version: GNU/Linux Ubuntu 26.04 LTS (Resolute Raccoon) build 6.1.0-44-amd64\n\tProcess Elevated: false\n\tProcess Loads: Uptime: 33s, user: 126s (384.01%), kernel: 13s (40.90%), total: 139s (424.91%)\n\tProcess Virtual Size (MiB): 25929.12\n\tProcess Resident Size (MiB): 13738.53\n\tJVM Flags: 20 total; -Xmx12G -Xms12G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40",
-  "fix_solution": "【已证实】该 issue 已关闭，问题已修复或有明确解决方案，升级相关插件/服务端到最新版（依据：issue 已关闭；】NullPointerException 由对象未初始化即被调用导致，需检查插件配置或升级到修复版本（依据：堆栈显示 NPE））",
-  "quality": "high",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
   "collected_at": "2026-08-28",
-  "notes": "场景:npe; 日志来自 mclo.gs/wJI0Zfx;第三批采集"
+  "notes": "场景:npe; 日志来自 mclo.gs/wJI0Zfx;第三批采集;审查2026-08-29:模板化【已证实】改【推断】,high→medium;审查2026-08-29:mc_version原为插件版本,改unknown"
 }

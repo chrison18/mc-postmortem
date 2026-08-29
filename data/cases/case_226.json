@@ -1,0 +1,16 @@
+{
+  "id": "case_226",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/GeyserMC/Floodgate/issues/663",
+  "source_title": "It cannot be used properly under paper26.1.1",
+  "server_type": "paper",
+  "mc_version": "26.1.1",
+  "java_version": "unknown",
+  "exception_type": "org.geysermc.floodgate.shadow.com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java",
+  "plugins": [],
+  "raw_log": "at floodgate-spigot.jar//org.geysermc.floodgate.shadow.com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:589) ~[?:?]\n        at floodgate-spigot.jar//org.geysermc.floodgate.shadow.com.google.inject.internal.InternalInjectorCreator.injectDynamically(InternalInjectorCreator.java:190) ~[?:?]\n        at floodgate-spigot.jar//org.geysermc.floodgate.shadow.com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:113) ~[?:?]\n        at floodgate-spigot.jar//org.geysermc.floodgate.shadow.com.google.inject.internal.InjectorImpl.createChildInjector(InjectorImpl.java:240) ~[?:?]\n        at floodgate-spigot.jar//org.geysermc.floodgate.shadow.com.google.inject.internal.InjectorImpl.createChildInjector(InjectorImpl.java:245) ~[?:?]\n        at floodgate-spigot.jar//org.geysermc.floodgate.FloodgatePlatform.enable(FloodgatePlatform.java:76) ~[?:?]\n        at floodgate-spigot.jar//org.geysermc.floodgate.SpigotPlugin.onEnable(SpigotPlugin.java:64) ~[?:?]\n        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.1.1.build.20-alpha.jar:?]\n        at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:207) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520) ~[paper-api-26.1.1.build.20-alpha.jar:?]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:637) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:594) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:680) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:386) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1290) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304) ~[paper-26.1.1.jar:26.1.1-20-d29063d]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

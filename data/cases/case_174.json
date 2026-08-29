@@ -1,0 +1,16 @@
+{
+  "id": "case_174",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/dmulloy2/ProtocolLib/issues/3609",
+  "source_title": "1.21.x Entity Teleport packet has errors",
+  "server_type": "unknown",
+  "mc_version": "1.21.11",
+  "java_version": "unknown",
+  "exception_type": "com.comphenix.protocol.reflect.FieldAccessException",
+  "plugins": [],
+  "raw_log": "[09:21:22 WARN]: [KenshinsHideAndSeek] Task #3 for KenshinsHideAndSeek v2.0.0 generated an exception\ncom.comphenix.protocol.reflect.FieldAccessException: Field index 0 is out of bounds for length 0\n\tat ProtocolLib.jar//com.comphenix.protocol.reflect.FieldAccessException.fromFormat(FieldAccessException.java:49) ~[?:?]\n\tat ProtocolLib.jar//com.comphenix.protocol.reflect.StructureModifier.write(StructureModifier.java:318) ~[?:?]\n\tat khs-2.0.0-SNAPSHOT.jar//cat.freya.khs.bukkit.packet.EntityTeleportPacket.setPosition(EntityTeleportPacket.kt:21) ~[?:?]\n\tat khs-2.0.0-SNAPSHOT.jar//cat.freya.khs.bukkit.disguise.Disguise.teleportEntity(Disguise.kt:163) ~[?:?]\n\tat khs-2.0.0-SNAPSHOT.jar//cat.freya.khs.bukkit.disguise.Disguise.update(Disguise.kt:78) ~[?:?]\n\tat khs-2.0.0-SNAPSHOT.jar//cat.freya.khs.bukkit.disguise.Disguiser.update(Disguiser.kt:46) ~[?:?]\n\tat khs-2.0.0-SNAPSHOT.jar//cat.freya.khs.bukkit.KhsPlugin$onEnable$1.run(Plugin.kt:30) ~[?:?]\n\tat org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:474) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1756) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1611) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:427) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1667) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1335) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:388) ~[paper-1.21.11.jar:1.21.11-127-bd74bf6]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 FieldAccessException，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

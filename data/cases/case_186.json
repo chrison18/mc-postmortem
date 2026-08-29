@@ -1,0 +1,16 @@
+{
+  "id": "case_186",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/BetonQuest/BetonQuest/issues/4189",
+  "source_title": "Cannot extend player dialog.",
+  "server_type": "unknown",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "[18:49:16 WARN]: [BetonQuest] Plugin BetonQuest v3.2.0-DEV-16 generated an exception while executing task 5651\njava.lang.IllegalStateException: Cannot construct a root FallbackConfigurationSection when not a Configuration\n        at BetonQuest-3.2.0-DEV-16.jar//org.betonquest.betonquest.lib.config.section.fallback.FallbackConfigurationSection.<init>(FallbackConfigurationSection.java:55) ~[?:?]\n        at BetonQuest-3.2.0-DEV-16.jar//org.betonquest.betonquest.conversation.DefaultConversationData$ConversationOption.getProperties(DefaultConversationData.java:696) ~[?:?]\n        at BetonQuest-3.2.0-DEV-16.jar//org.betonquest.betonquest.conversation.DefaultConversationData$ConversationOption.getProperties(DefaultConversationData.java:685) ~[?:?]\n        at BetonQuest-3.2.0-DEV-16.jar//org.betonquest.betonquest.conversation.DefaultConversationData.getProperties(DefaultConversationData.java:373) ~[?:?]\n        at BetonQuest-3.2.0-DEV-16.jar//org.betonquest.betonquest.conversation.Conversation.printOptions(Conversation.java:316) ~[?:?]\n        at BetonQuest-3.2.0-DEV-16.jar//org.betonquest.betonquest.conversation.Conversation$OptionPrinter.run(Conversation.java:758) ~[?:?]\n        at org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at org.bukkit.craftbukkit.scheduler.CraftAsyncTask.run(CraftAsyncTask.java:57) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at com.destroystokyo.paper.ServerSchedulerReportingWrapper.run(ServerSchedulerReportingWrapper.java:22) ~[paper-26.2.jar:?]\n        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]\n        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

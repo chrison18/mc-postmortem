@@ -1,0 +1,16 @@
+{
+  "id": "case_095",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/jonesdevelopment/sonar/issues/625",
+  "source_title": "Sonar loading issues on Paper 26.2 (26.2-112-main@c9e894d) with Adventure",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoSuchMethodError",
+  "plugins": [],
+  "raw_log": "[20:46:06 ERROR]: Error occurred while enabling Sonar v2.1.50 (Is it up to date?)\njava.lang.NoSuchMethodError: 'java.util.Optional xyz.jonesdev.sonar.libs.kyori.adventure.util.Services.service(java.util.ServiceLoader, java.lang.Class)'\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.libs.kyori.adventure.text.minimessage.MiniMessageImpl.(MiniMessageImpl.java:51) ~[?:?]\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.libs.kyori.adventure.text.minimessage.MiniMessageImpl$Instances.(MiniMessageImpl.java:60) ~[?:?]\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.libs.kyori.adventure.text.minimessage.MiniMessage.miniMessage(MiniMessage.java:59) ~[?:?]\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.api.config.SonarConfiguration.loadValues(SonarConfiguration.java:244) ~[?:?]\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.api.config.SonarConfiguration.load(SonarConfiguration.java:135) ~[?:?]\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.common.boot.SonarBootstrap.reload(SonarBootstrap.java:130) ~[?:?]\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.common.boot.SonarBootstrap.initialize(SonarBootstrap.java:104) ~[?:?]\nat Sonar-Bukkit.jar//xyz.jonesdev.sonar.bukkit.SonarBukkitPlugin.onEnable(SonarBukkitPlugin.java:37) ~[?:?]\nat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.2.build.112-stable.jar:?]\nat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[paper-26.2.jar:26.2-112-c9e894d]\nat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.2.jar:26.2-112-c9e894d]\nat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[paper-api-26.2.build.112-stable.jar:?]\nat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:633) ~[paper-26.2.jar:26.2-112-c9e894d]\nat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590) ~[paper-26.2.jar:26.2-112-c9e894d]\nat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:648) ~[paper-26.2.jar:26.2-112-c9e894d]\nat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:343) ~[paper-26.2.jar:26.2-112-c9e894d]\nat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1266) ~[paper-26.2.jar:26.2-112-c9e894d]\nat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-26.2.jar:26.2-112-c9e894d]\nat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】升级或回滚相关插件至兼容版本（依据：堆栈显示 NoSuchMethodError，通常为插件版本与服务端/依赖不兼容）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; mclo.gs/Kuan7PL; 第四批采集; 插件相关;审查2026-08-29:模板化【已证实】改【推断】"
+}

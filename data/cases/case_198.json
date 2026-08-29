@@ -1,0 +1,16 @@
+{
+  "id": "case_198",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/RelativityMC/C2ME-fabric/issues/578",
+  "source_title": "Race Condition on triggering chunkDataCacheLimit with scalableLux/c2me",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java",
+  "plugins": [],
+  "raw_log": "at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323)\n        at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359)\n        at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364)\n        at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1791)\n        at knot//com.ishland.flowsched.executor.SimpleTask.run(SimpleTask.java:17)\n        at knot//com.ishland.flowsched.executor.WorkerThread.pollTasks(WorkerThread.java:51)\n        at knot//com.ishland.flowsched.executor.WorkerThread.run(WorkerThread.java:29)",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

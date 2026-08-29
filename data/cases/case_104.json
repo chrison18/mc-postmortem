@@ -1,0 +1,16 @@
+{
+  "id": "case_104",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/spartacus04/jext-reborn/issues/841",
+  "source_title": "[Bug]: Async Catcher Exception & NPE when playing discs on Folia/Lophine (Thread failed main thread check)",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": ".java:526) ~[concurrentutil-0.0.8.jar:?]\n        at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]\n[01:17:15 WARN]: [JEXT] Global task for JukeboxExtendedReborn v2.2.1 generated an exception\njava.lang.IllegalStateException: Thread failed main thread check: Cannot read world asynchronously, context=[thread=Folia Region Scheduler Thread #0,class=io.papermc.paper.threadedregions.TickRegionScheduler$TickThreadRunner,region={null}], world=world, block_pos=BlockPos{x=244, y=63, z=203}\n        at ca.spottedleaf.moonrise.common.util.TickThread.ensureTickThread(TickThread.java:62) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at org.bukkit.craftbukkit.block.CraftBlock.getNMS(CraftBlock.java:80) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at org.bukkit.craftbukkit.block.CraftBlockStates.getBlockState(CraftBlockStates.java:197) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at org.bukkit.craftbukkit.block.CraftBlockStates.getBlockState(CraftBlockStates.java:189) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at org.bukkit.craftbukkit.block.CraftBlock.getState(CraftBlock.java:350) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at JEXT-Reborn_2.2.1.jar//me.spartacus04.jext.listeners.RecordPacketEvent.onPacketSend$lambda$0(Unknown Source) ~[?:?]\n        at JEXT-Reborn_2.2.1.jar//me.spartacus04.colosseum.scheduler.schedulersImpl.folia.FoliaScheduler.runTaskLater$lambda$0(Unknown Source) ~[?:?]\n        at io.papermc.paper.threadedregions.scheduler.FoliaGlobalRegionScheduler$GlobalScheduledTask.run(FoliaGlobalRegionScheduler.java:208) ~[lophine-1.21.11.jar:?]\n        at io.papermc.paper.threadedregions.scheduler.FoliaGlobalRegionScheduler.tick(FoliaGlobalRegionScheduler.java:38) ~[lophine-1.21.11.jar:?]\n        at io.papermc.paper.threadedregions.RegionizedServer.globalTick(RegionizedServer.java:345) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at io.papermc.paper.threadedregions.RegionizedServer$GlobalTickTickHandle.tickRegion(RegionizedServer.java:184) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at io.papermc.paper.threadedregions.TickRegionScheduler$RegionScheduleHandle.runTick(TickRegionScheduler.java:515) ~[lophine-1.21.11.jar:1.21.11-DEV-e74300a]\n        at ca.spottedleaf.concurrentutil.scheduler.EDFSchedulerThreadPool$TickThreadRunner.run(EDFSchedulerThreadPool.java:526) ~[concurrentutil-0.0.8.jar:?]\n        at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]\n[01:17:15 WARN]: [JEXT] Global task for JukeboxExtendedReborn v2.2.1 generated an exception\njava.lang.NullPointerException",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:npe; mclo.gs/Bp2ZSyA; 第四批采集; Folia系分支;审查2026-08-29:模板化【已证实】改【推断】"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "case_109",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5504",
+  "source_title": "[18:40:59 ERROR]: Error occurred while enabling ItemsAdder v4.0.18 (Is it up to date?) java.lang.NoClassDefFoundError: beer/devs/fastnbt/nms/Version",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java",
+  "plugins": [],
+  "raw_log": "at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:670) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:503) ~[?:?]\n        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]\n        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

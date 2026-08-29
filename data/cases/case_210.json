@@ -1,0 +1,16 @@
+{
+  "id": "case_210",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/BananaPuncher714/Cartographer2/issues/45",
+  "source_title": "Cartographer2 2.15.17 fails to load on Paper 1.21.11 with ClassFormatError",
+  "server_type": "spigot",
+  "mc_version": "1.21.11",
+  "java_version": "unknown",
+  "exception_type": "org.bukkit.plugin.InvalidPluginException",
+  "plugins": [],
+  "raw_log": "[23:55:58] [Server thread/ERROR]: [ModernPluginLoadingStrategy] Could not load plugin 'Cartographer2-2.15.17.jar' in folder 'plugins\\.paper-remapped'\norg.bukkit.plugin.InvalidPluginException: java.lang.ClassFormatError: Invalid constant pool index 353 in class file io/github/bananapuncher714/cartographer/core/Cartographer (not an interface method)\n    at io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:129) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:35) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at io.papermc.paper.plugin.entrypoint.strategy.modern.ModernPluginLoadingStrategy.loadProviders(ModernPluginLoadingStrategy.java:116) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:38) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at io.papermc.paper.plugin.entrypoint.LaunchEntryPointHandler.enter(LaunchEntryPointHandler.java:39) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:555) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:320) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1253) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]\n    at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:388) ~[paper-1.21.11.jar:1.21.11-130-c5a2736]",
+  "fix_solution": "【推断】检查插件文件完整性、依赖插件及服务端版本兼容性（依据：堆栈显示 InvalidPluginException，插件加载失败通常因文件损坏或缺依赖）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:loadfail; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

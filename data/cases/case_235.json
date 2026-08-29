@@ -1,0 +1,16 @@
+{
+  "id": "case_235",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/ian171/AuthAnvilLogin/issues/15",
+  "source_title": "在 Purpur 1.20.1 显示无法加载插件 org.bukkit.plugin.InvalidPluginException: Unsupported API version 1.12",
+  "server_type": "purpur",
+  "mc_version": "1.20.1",
+  "java_version": "unknown",
+  "exception_type": "org.bukkit.plugin.InvalidPluginException",
+  "plugins": [],
+  "raw_log": "[22:31:11] [Server thread/ERROR]: [ModernPluginLoadingStrategy] Could not load plugin 'authanvillogin-2.2.3-Stable-all.jar' in folder 'plugins'\norg.bukkit.plugin.InvalidPluginException: Unsupported API version 1.12\n\tat org.bukkit.craftbukkit.v1_20_R1.util.CraftMagicNumbers.checkSupported(CraftMagicNumbers.java:380) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:119) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:35) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat io.papermc.paper.plugin.entrypoint.strategy.modern.ModernPluginLoadingStrategy.loadProviders(ModernPluginLoadingStrategy.java:116) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:39) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat io.papermc.paper.plugin.entrypoint.LaunchEntryPointHandler.enter(LaunchEntryPointHandler.java:36) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat org.bukkit.craftbukkit.v1_20_R1.CraftServer.loadPlugins(CraftServer.java:524) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:310) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1116) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:322) ~[purpur-1.20.1.jar:git-Purpur-2062]\n\tat java.lang.Thread.run(Thread.java:1583) ~[?:?]",
+  "fix_solution": "【推断】检查插件文件完整性、依赖插件及服务端版本兼容性（依据：堆栈显示 InvalidPluginException，插件加载失败通常因文件损坏或缺依赖）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

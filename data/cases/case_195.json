@@ -1,0 +1,16 @@
+{
+  "id": "case_195",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/ESMP-FUN/BetterEnd/issues/1",
+  "source_title": "[BUG]",
+  "server_type": "paper",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "[BetterEnd]: Task #124 for BetterEnd v0.1.0 generated an exception\njava.lang.IllegalStateException: Cannot register lifecycle event handlers\n\tat com.google.common.base.Preconditions.checkState(Preconditions.java:534) ~[guava-33.6.0-jre.jar:?]\n\tat io.papermc.paper.plugin.lifecycle.event.PaperLifecycleEventManager.registerEventHandler(PaperLifecycleEventManager.java:23) ~[purpur-26.2.jar:?]\n\tat io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager.registerEventHandler(LifecycleEventManager.java:37) ~[purpur-api-26.2.build.2609-stable.jar:?]\n\tat org.bukkit.plugin.java.JavaPlugin.registerCommand(JavaPlugin.java:433) ~[purpur-api-26.2.build.2609-stable.jar:?]\n\tat org.bukkit.plugin.java.JavaPlugin.registerCommand(JavaPlugin.java:394) ~[purpur-api-26.2.build.2609-stable.jar:?]\n\tat BetterEnd-0.1.0.jar//com.esmpfun.betterend.BetterEnd$onEnable$1.invokeSuspend$lambda$0(BetterEnd.kt:111) ~[?:?]\n\tat org.bukkit.craftbukkit.scheduler.CraftTask.run(CraftTask.java:78) ~[purpur-26.2.jar:26.2-2609-6726940]\n\tat org.bukkit.craftbukkit.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:474) ~[purpur-26.2.jar:26.2-2609-6726940]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1296) ~[purpur-26.2.jar:26.2-2609-6726940]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[purpur-26.2.jar:26.2-2609-6726940]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

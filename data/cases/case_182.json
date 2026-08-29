@@ -1,0 +1,16 @@
+{
+  "id": "case_182",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/Daniel730/civs-quests/issues/55",
+  "source_title": "[server-error] ClassNotFoundException in RPGServer",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.ClassNotFoundException",
+  "plugins": [],
+  "raw_log": "java.lang.ClassNotFoundException: org.redcastlemedia.multitallented.civs.Civs\n\tat rpg-server-0.1.0-SNAPSHOT.jar//dev.daniel730.rpgserver.hook.CivsHook.hasMenuPermission(CivsHook.java:129)\n\tat rpg-server-0.1.0-SNAPSHOT.jar//dev.daniel730.rpgserver.hook.CivsHook.openMenu(CivsHook.java:79)\n\tat rpg-server-0.1.0-SNAPSHOT.jar//dev.daniel730.rpgserver.hook.CivsHook.openMenu(CivsHook.java:72)\n\tat rpg-server-0.1.0-SNAPSHOT.jar//dev.daniel730.rpgserver.listener.PlayerHubListener.openCivsMenu(PlayerHubListener.java:182)\n\tat rpg-server-0.1.0-SNAPSHOT.jar//dev.daniel730.rpgserver.listener.PlayerHubListener.handleAction(PlayerHubListener.java:140)\n\tat rpg-server-0.1.0-SNAPSHOT.jar//dev.daniel730.rpgserver.listener.PlayerHubListener.onInventoryClick(PlayerHubListener.java:120)\n\tat co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80)\n\tat org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:71)\n\tat io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54)\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131)\n\tat org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628)\n\tat net.minecraft.server.network.ServerGamePacketListenerImpl.handleContainerClick(ServerGamePacketListenerImpl.java:3360)\n\tat net.minecraft.network.protocol.game.ServerboundContainerClickPacket.handle(ServerboundContainerClickPacket.java:56)\n\tat net.minecraft.network.protocol.game.ServerboundContainerClickPacket.handle(ServerboundContainerClickPacket.java:14)\n\tat net.minecraft.network.PacketProcessor$ListenerAndPacket.handle(PacketProcessor.java:97)\n\tat net.minecraft.network.PacketProcessor.executeSinglePacket(PacketProcessor.java:33)\n\tat net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1534)\n\tat net.minecraft.server.MinecraftServer.recordTaskExecutionTimeWhileWaiting(MinecraftServer.java:1264)\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1380)\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304)\n\tat java.base/java.lang.Thread.run(Thread.java:1474)",
+  "fix_solution": "【推断】安装缺失的依赖插件或检查插件文件完整性（依据：堆栈显示 ClassNotFoundException，类加载失败通常因缺依赖或文件损坏）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

@@ -778,5 +778,1020 @@
   {
     "id": "case_090",
     "fp": "1c95f03820"
+  },
+  {
+    "id": "case_091",
+    "fp": "e5afbd771f",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5411"
+  },
+  {
+    "id": "case_092",
+    "fp": "040c6cebef",
+    "head": "com.moulberry.axiom.paperapi.AxiomAlreadyRegisteredException",
+    "biz": "",
+    "source_url": "https://github.com/CraftCanvasMC/Canvas/issues/270"
+  },
+  {
+    "id": "case_093",
+    "fp": "deb19511bc",
+    "head": "java.io.FileNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5333"
+  },
+  {
+    "id": "case_094",
+    "fp": "5f8615859e",
+    "head": "java.lang.ArrayIndexOutOfBoundsException",
+    "biz": "",
+    "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5213"
+  },
+  {
+    "id": "case_095",
+    "fp": "054a60db74",
+    "head": "java.lang.NoSuchMethodError",
+    "biz": "",
+    "source_url": "https://github.com/jonesdevelopment/sonar/issues/625"
+  },
+  {
+    "id": "case_096",
+    "fp": "6ec7e3bba4",
+    "head": "java.lang.reflect.InvocationTargetException",
+    "biz": "",
+    "source_url": "https://github.com/TheNextLvl-net/worlds/issues/456"
+  },
+  {
+    "id": "case_097",
+    "fp": "4356fa0266",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/Etoryx/TreeChopper/issues/1"
+  },
+  {
+    "id": "case_098",
+    "fp": "6c371d7399",
+    "head": "java.net.UnknownHostException",
+    "biz": "",
+    "source_url": "https://github.com/Insprill/custom-join-messages/issues/76"
+  },
+  {
+    "id": "case_099",
+    "fp": "53d00ea9a2",
+    "head": "java.lang.NoSuchMethodError",
+    "biz": "",
+    "source_url": "https://github.com/Hexaoxide/Carbon/issues/769"
+  },
+  {
+    "id": "case_100",
+    "fp": "1e1a78c1be",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/prism/prism/issues/399"
+  },
+  {
+    "id": "case_101",
+    "fp": "fb4c73abf1",
+    "head": "java.util.ConcurrentModificationException",
+    "biz": "",
+    "source_url": "https://github.com/WiIIiam278/HuskHomes/issues/979"
+  },
+  {
+    "id": "case_102",
+    "fp": "8b8525059b",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/Wolfieheart/ArmorStandEditor/issues/800"
+  },
+  {
+    "id": "case_103",
+    "fp": "5f9f332b29",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/MobFarmManager/issues/108"
+  },
+  {
+    "id": "case_104",
+    "fp": "b5f9355523",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/spartacus04/jext-reborn/issues/841"
+  },
+  {
+    "id": "case_105",
+    "fp": "768a489cf2",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/BitworksMC/EconomyCore/issues/19"
+  },
+  {
+    "id": "case_106",
+    "fp": "e4be263d7b",
+    "head": "java.lang.UnsupportedOperationException",
+    "biz": "",
+    "source_url": "https://github.com/MohistMC/Youer/issues/518"
+  },
+  {
+    "id": "case_107",
+    "fp": "50127d4af1",
+    "head": "java.lang.NoSuchMethodError",
+    "biz": "",
+    "source_url": "https://github.com/imDaniX/WGExtender/issues/19"
+  },
+  {
+    "id": "case_108",
+    "fp": "fcebc97d8e",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/CloudNetService/CloudNet/issues/1896"
+  },
+  {
+    "id": "case_109",
+    "fp": "7ae8def60a",
+    "head": "java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java",
+    "biz": "",
+    "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5504"
+  },
+  {
+    "id": "case_110",
+    "fp": "750a7c3955",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/frengor/VisualFixer/issues/8"
+  },
+  {
+    "id": "case_111",
+    "fp": "768ad1c6b5",
+    "head": "org.eclipse.aether.resolution.DependencyResolutionException",
+    "biz": "",
+    "source_url": "https://github.com/PaperMC/Paper/issues/14158"
+  },
+  {
+    "id": "case_112",
+    "fp": "e3075f5bce",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/SQD-Studios/ChamoParty/issues/4"
+  },
+  {
+    "id": "case_113",
+    "fp": "495dc39a9d",
+    "head": "java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java",
+    "biz": "",
+    "source_url": "https://github.com/PowerNukkitX-Bundle/AnyVersion/issues/13"
+  },
+  {
+    "id": "case_114",
+    "fp": "b1202175d9",
+    "head": "org.flywaydb.core.api.FlywayException",
+    "biz": "",
+    "source_url": "https://github.com/ToberoCat/ImprovedFactions/issues/368"
+  },
+  {
+    "id": "case_115",
+    "fp": "8a232e4366",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/BG-Software-LLC/SuperiorSkyblock2/issues/3010"
+  },
+  {
+    "id": "case_116",
+    "fp": "58d7902b12",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/BeestoXd/UltimateDonutSMP/issues/77"
+  },
+  {
+    "id": "case_117",
+    "fp": "b0a9e65b22",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/MeveraStudios/Imperat/issues/19"
+  },
+  {
+    "id": "case_118",
+    "fp": "80c6503b47",
+    "head": "java.lang.NumberFormatException",
+    "biz": "",
+    "source_url": "https://github.com/Ez4p1xEL/NoBuildPlus/issues/33"
+  },
+  {
+    "id": "case_119",
+    "fp": "8d14c73d62",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/MonGen-s-Cave/mc-PlayerShop/issues/2"
+  },
+  {
+    "id": "case_120",
+    "fp": "80e63e01bb",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/Xiao-MoMi/Custom-Nameplates/issues/86"
+  },
+  {
+    "id": "case_121",
+    "fp": "f78ad2201b",
+    "head": "java.lang.RuntimeException",
+    "biz": "",
+    "source_url": "https://github.com/cev-api/AntiFly/issues/7"
+  },
+  {
+    "id": "case_122",
+    "fp": "77a89e318b",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/pablo67340/GUIShop/issues/144"
+  },
+  {
+    "id": "case_123",
+    "fp": "e4a5541413",
+    "head": "java.lang.NumberFormatException.forInputString(NumberFormatException.java",
+    "biz": "",
+    "source_url": "https://github.com/funniray/minimap-control/issues/27"
+  },
+  {
+    "id": "case_124",
+    "fp": "0b09652287",
+    "head": "java.lang.IllegalArgumentException",
+    "biz": "",
+    "source_url": "https://github.com/Rothes/ESU/issues/34"
+  },
+  {
+    "id": "case_125",
+    "fp": "ebc058a842",
+    "head": "java.lang.NoSuchMethodError",
+    "biz": "",
+    "source_url": "https://github.com/LumaLibre/Wyck/issues/9"
+  },
+  {
+    "id": "case_126",
+    "fp": "95e94bb046",
+    "head": "com.google.inject.internal.InternalProvisionException.toProvisionException(InternalProvisionException.java",
+    "biz": "",
+    "source_url": "https://github.com/jpenilla/squaremap/issues/541"
+  },
+  {
+    "id": "case_127",
+    "fp": "f1710ac4aa",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/kernitus/BukkitOldCombatMechanics/issues/908"
+  },
+  {
+    "id": "case_128",
+    "fp": "a7b925f376",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/ChimpGamer/UltimateMobCoins/issues/24"
+  },
+  {
+    "id": "case_129",
+    "fp": "4231efe03e",
+    "head": "java.lang.NoSuchMethodError",
+    "biz": "",
+    "source_url": "https://github.com/mattmunichYT/IceBoatRacing/issues/1"
+  },
+  {
+    "id": "case_130",
+    "fp": "322f05ea93",
+    "head": "java.lang.NoSuchMethodError",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10301"
+  },
+  {
+    "id": "case_131",
+    "fp": "4fb05b4c56",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/EternalCodeTeam/EternalCombat/issues/391"
+  },
+  {
+    "id": "case_132",
+    "fp": "6d638e9742",
+    "head": "java.lang.RuntimeException",
+    "biz": "",
+    "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5301"
+  },
+  {
+    "id": "case_133",
+    "fp": "fefd7d1f44",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5258"
+  },
+  {
+    "id": "case_134",
+    "fp": "ab15255263",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/Jobs/issues/1989"
+  },
+  {
+    "id": "case_135",
+    "fp": "afbec25aab",
+    "head": "org.bukkit.event.EventException",
+    "biz": "",
+    "source_url": "https://github.com/kettingpowered/Ketting-1-20-x/issues/455"
+  },
+  {
+    "id": "case_136",
+    "fp": "64f75cb831",
+    "head": "com.destroystokyo.paper.exception.ServerEventException",
+    "biz": "",
+    "source_url": "https://github.com/UltraCosmetics/UltraCosmetics/issues/806"
+  },
+  {
+    "id": "case_137",
+    "fp": "2524130be4",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/Residence/issues/1452"
+  },
+  {
+    "id": "case_138",
+    "fp": "a278dcdd2e",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10285"
+  },
+  {
+    "id": "case_139",
+    "fp": "6ac84ca4bc",
+    "head": "java.lang.ArrayIndexOutOfBoundsException",
+    "biz": "",
+    "source_url": "https://github.com/IntellectualSites/PlotSquared/issues/4864"
+  },
+  {
+    "id": "case_140",
+    "fp": "25755665a7",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/CoderKuo/TrMenu/issues/253"
+  },
+  {
+    "id": "case_141",
+    "fp": "7e597635ea",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/Norbit4/SurvivalTweaks/issues/7"
+  },
+  {
+    "id": "case_142",
+    "fp": "be71530d85",
+    "head": "java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java",
+    "biz": "",
+    "source_url": "https://github.com/lajczik/gatekeeper/issues/9"
+  },
+  {
+    "id": "case_143",
+    "fp": "a9bd05ca5d",
+    "head": "org.bukkit.event.EventException",
+    "biz": "",
+    "source_url": "https://github.com/Eisi05/NpcApi-Spigot/issues/7"
+  },
+  {
+    "id": "case_144",
+    "fp": "8255be1775",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/GriefPrevention/GriefPrevention/issues/2573"
+  },
+  {
+    "id": "case_145",
+    "fp": "71941bf444",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/WesJD/AnvilGUI/issues/395"
+  },
+  {
+    "id": "case_146",
+    "fp": "549fd24163",
+    "head": "java.lang.RuntimeException",
+    "biz": "",
+    "source_url": "https://github.com/EvModder/DropHeads/issues/153"
+  },
+  {
+    "id": "case_147",
+    "fp": "d7539e1fc3",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10091"
+  },
+  {
+    "id": "case_148",
+    "fp": "54b2b9bc4f",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/PikaMug/Quests/issues/2399"
+  },
+  {
+    "id": "case_149",
+    "fp": "df2bef33c9",
+    "head": "java.lang.IllegalArgumentException",
+    "biz": "",
+    "source_url": "https://github.com/Jumper251/AdvancedReplay/issues/248"
+  },
+  {
+    "id": "case_150",
+    "fp": "2f1207800e",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/CoderKuo/TrMenu/issues/246"
+  },
+  {
+    "id": "case_151",
+    "fp": "be640cc4f7",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/lajczik/lagfixer/issues/9"
+  },
+  {
+    "id": "case_152",
+    "fp": "740caad821",
+    "head": "java.lang.ClassNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/Artillex-Studios/Issues/issues/1187"
+  },
+  {
+    "id": "case_153",
+    "fp": "37392165a7",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/castledking/GriefPrevention3D/issues/8"
+  },
+  {
+    "id": "case_154",
+    "fp": "f8fa665224",
+    "head": "net.minecraft.ReportedException",
+    "biz": "",
+    "source_url": "https://github.com/CraftCanvasMC/Canvas/issues/303"
+  },
+  {
+    "id": "case_155",
+    "fp": "9c674cb9cc",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/OakLoaf/PluginUpdater/issues/164"
+  },
+  {
+    "id": "case_156",
+    "fp": "7bd75488c0",
+    "head": "net.minecraft.ReportedException",
+    "biz": "",
+    "source_url": "https://github.com/CraftCanvasMC/Canvas/issues/299"
+  },
+  {
+    "id": "case_157",
+    "fp": "c924ae81aa",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/LunaDeerMC/Dominion/issues/250"
+  },
+  {
+    "id": "case_158",
+    "fp": "2c2c7fec98",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/MrXiaoM/SweetMail/issues/62"
+  },
+  {
+    "id": "case_159",
+    "fp": "0f55e82e24",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10169"
+  },
+  {
+    "id": "case_160",
+    "fp": "6bb1ba286c",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10173"
+  },
+  {
+    "id": "case_161",
+    "fp": "c8a79b6e5a",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10126"
+  },
+  {
+    "id": "case_162",
+    "fp": "8eb4e2738d",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10322"
+  },
+  {
+    "id": "case_163",
+    "fp": "dd8538538f",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10269"
+  },
+  {
+    "id": "case_164",
+    "fp": "ef65ae0193",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10298"
+  },
+  {
+    "id": "case_165",
+    "fp": "ae6bb12473",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/Zrips/CMI/issues/10304"
+  },
+  {
+    "id": "case_166",
+    "fp": "cb3aaae568",
+    "head": "net.minecraft.ReportedException",
+    "biz": "",
+    "source_url": "https://github.com/BG-Software-LLC/SuperiorSkyblock2/issues/2863"
+  },
+  {
+    "id": "case_167",
+    "fp": "4760283d7a",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/TownyAdvanced/Towny/issues/8088"
+  },
+  {
+    "id": "case_168",
+    "fp": "ec55dff578",
+    "head": "java.lang.NullPointerException",
+    "biz": "",
+    "source_url": "https://github.com/EssentialsX/Essentials/issues/6388"
+  },
+  {
+    "id": "case_169",
+    "fp": "4195412c16",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/EssentialsX/Essentials/issues/6495"
+  },
+  {
+    "id": "case_170",
+    "fp": "4a025eb64b",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/EssentialsX/Essentials/issues/6479"
+  },
+  {
+    "id": "case_171",
+    "fp": "e94c6f41e8",
+    "head": "java.lang.NumberFormatException.forInputString(NumberFormatException.java",
+    "biz": "",
+    "source_url": "https://github.com/PlaceholderAPI/PlaceholderAPI/issues/1240"
+  },
+  {
+    "id": "case_172",
+    "fp": "be28d311e1",
+    "head": "java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java",
+    "biz": "",
+    "source_url": "https://github.com/ViaVersion/ViaVersion/issues/5004"
+  },
+  {
+    "id": "case_173",
+    "fp": "4ae9cbe51c",
+    "head": "java.util.ConcurrentModificationException",
+    "biz": "",
+    "source_url": "https://github.com/dmulloy2/ProtocolLib/issues/3652"
+  },
+  {
+    "id": "case_174",
+    "fp": "feb492ebdb",
+    "head": "com.comphenix.protocol.reflect.FieldAccessException",
+    "biz": "",
+    "source_url": "https://github.com/dmulloy2/ProtocolLib/issues/3609"
+  },
+  {
+    "id": "case_175",
+    "fp": "d0159d4ea4",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/dmulloy2/ProtocolLib/issues/3586"
+  },
+  {
+    "id": "case_176",
+    "fp": "65323ec457",
+    "head": "org.bukkit.command.CommandException",
+    "biz": "",
+    "source_url": "https://github.com/BeestoXd/UltimateDonutSMP/issues/142"
+  },
+  {
+    "id": "case_177",
+    "fp": "9970e11333",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/SPlugins/SCore/issues/220"
+  },
+  {
+    "id": "case_178",
+    "fp": "60fb5dcd70",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/will-y/crystal-tools/issues/38"
+  },
+  {
+    "id": "case_179",
+    "fp": "1dda9c132b",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/UltraCosmetics/UltraCosmetics/issues/828"
+  },
+  {
+    "id": "case_180",
+    "fp": "eb6bc72d7b",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/Hayston1001/FastLoginPlus/issues/4"
+  },
+  {
+    "id": "case_181",
+    "fp": "ab0a1271ff",
+    "head": "java.lang.ClassNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/Daniel730/civs-quests/issues/56"
+  },
+  {
+    "id": "case_182",
+    "fp": "44edcc8df8",
+    "head": "java.lang.ClassNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/Daniel730/civs-quests/issues/55"
+  },
+  {
+    "id": "case_183",
+    "fp": "97e35e95d2",
+    "head": "java.lang.ClassNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/Daniel730/civs-quests/issues/54"
+  },
+  {
+    "id": "case_184",
+    "fp": "16a3815bbf",
+    "head": "java.lang.ClassNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/Daniel730/civs-quests/issues/53"
+  },
+  {
+    "id": "case_185",
+    "fp": "27a3ab0339",
+    "head": "java.lang.ClassNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/Daniel730/civs-quests/issues/52"
+  },
+  {
+    "id": "case_186",
+    "fp": "c545b03296",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/BetonQuest/BetonQuest/issues/4189"
+  },
+  {
+    "id": "case_187",
+    "fp": "7d7334b29c",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/Minecraft0122/SimpMC-BedWars/issues/6"
+  },
+  {
+    "id": "case_188",
+    "fp": "6c71611ec1",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/Cubicake/RaycastedAntiESP/issues/82"
+  },
+  {
+    "id": "case_189",
+    "fp": "d8532d0991",
+    "head": "org.mineacademy.chatcontrol.velocity.lib.fo.CommonCore.wrapRunnableInExceptionCatcher(CommonCore.java",
+    "biz": "",
+    "source_url": "https://github.com/kangarko/ChatControl/issues/3834"
+  },
+  {
+    "id": "case_190",
+    "fp": "3df39aff52",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/Xiao-MoMi/craft-engine/issues/774"
+  },
+  {
+    "id": "case_191",
+    "fp": "37ade4fafc",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/MohistMC/Youer/issues/484"
+  },
+  {
+    "id": "case_192",
+    "fp": "7955e3f83e",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/BG-Software-LLC/SuperiorSkyblock2/issues/2994"
+  },
+  {
+    "id": "case_193",
+    "fp": "189586e653",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/EternalCodeTeam/EternalCore/issues/1406"
+  },
+  {
+    "id": "case_194",
+    "fp": "9e5da188ab",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/CraftCanvasMC/Canvas/issues/295"
+  },
+  {
+    "id": "case_195",
+    "fp": "786806c634",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/ESMP-FUN/BetterEnd/issues/1"
+  },
+  {
+    "id": "case_196",
+    "fp": "a6daa01ff7",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/OakLoaf/PluginUpdater/issues/136"
+  },
+  {
+    "id": "case_197",
+    "fp": "ede974d46f",
+    "head": "java.util.ConcurrentModificationException",
+    "biz": "",
+    "source_url": "https://github.com/DivByDiamond/OC2R/issues/22"
+  },
+  {
+    "id": "case_198",
+    "fp": "f93b03033d",
+    "head": "java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java",
+    "biz": "",
+    "source_url": "https://github.com/RelativityMC/C2ME-fabric/issues/578"
+  },
+  {
+    "id": "case_199",
+    "fp": "26b91fdf92",
+    "head": "java.lang.OutOfMemoryError",
+    "biz": "",
+    "source_url": "https://github.com/schrumbo/schrumboHUD/issues/1"
+  },
+  {
+    "id": "case_200",
+    "fp": "0c7de18dc0",
+    "head": "java.lang.OutOfMemoryError",
+    "biz": "",
+    "source_url": "https://github.com/Apollounknowndev/RegionsUnexplored/issues/5"
+  },
+  {
+    "id": "case_201",
+    "fp": "a245155359",
+    "head": "java.lang.OutOfMemoryError",
+    "biz": "",
+    "source_url": "https://github.com/cc-tweaked/CC-Tweaked/issues/2365"
+  },
+  {
+    "id": "case_202",
+    "fp": "f046bc8923",
+    "head": "java.lang.StackOverflowError",
+    "biz": "",
+    "source_url": "https://github.com/LOOHP/InteractiveChat-DiscordSRV-Addon/issues/109"
+  },
+  {
+    "id": "case_203",
+    "fp": "ff7194afbd",
+    "head": "java.lang.StackOverflowError",
+    "biz": "",
+    "source_url": "https://github.com/HyperSystems-Development/HyperProtect-Mixin/issues/3"
+  },
+  {
+    "id": "case_204",
+    "fp": "1dfc33b5c5",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/XPPlugins/CnUsername/issues/13"
+  },
+  {
+    "id": "case_205",
+    "fp": "14e1488b46",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/XPPlugins/CnUsername/issues/14"
+  },
+  {
+    "id": "case_206",
+    "fp": "c94a0b2c52",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/intave/intave/issues/111"
+  },
+  {
+    "id": "case_207",
+    "fp": "42c473da70",
+    "head": "java.lang.IllegalArgumentException",
+    "biz": "",
+    "source_url": "https://github.com/MiniPlaceholders/LuckPerms-Expansion/issues/118"
+  },
+  {
+    "id": "case_208",
+    "fp": "4d0043606b",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/K0bus/CreativeManager/issues/45"
+  },
+  {
+    "id": "case_209",
+    "fp": "e62f0c193c",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/Maxlego08/zMenu/issues/251"
+  },
+  {
+    "id": "case_210",
+    "fp": "ecc2b45863",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/BananaPuncher714/Cartographer2/issues/45"
+  },
+  {
+    "id": "case_211",
+    "fp": "d9befa13f7",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/Derec-Mods/Lootin-Remastered/issues/3"
+  },
+  {
+    "id": "case_212",
+    "fp": "b7b5a7a442",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/intave/intave/issues/29"
+  },
+  {
+    "id": "case_213",
+    "fp": "fbe746eb12",
+    "head": "java.lang.NumberFormatException.forInputString(NumberFormatException.java",
+    "biz": "",
+    "source_url": "https://github.com/ScreamingSandals/BedWars/issues/600"
+  },
+  {
+    "id": "case_214",
+    "fp": "c30f6bcf19",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/retrooper/packetevents/issues/1450"
+  },
+  {
+    "id": "case_215",
+    "fp": "db848ab223",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/PikaMug/Unite/issues/8"
+  },
+  {
+    "id": "case_216",
+    "fp": "95a324d756",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/David-M-GitHub/EconomySystem/issues/4"
+  },
+  {
+    "id": "case_217",
+    "fp": "aa56d85e4d",
+    "head": "java.lang.ClassNotFoundException",
+    "biz": "",
+    "source_url": "https://github.com/ZombieStriker/QualityArmoryVehicles2/issues/344"
+  },
+  {
+    "id": "case_218",
+    "fp": "eb82296ce8",
+    "head": "java.lang.RuntimeException",
+    "biz": "",
+    "source_url": "https://github.com/LOOHP/ImageFrame/issues/151"
+  },
+  {
+    "id": "case_219",
+    "fp": "fb1151764a",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/amsam0/voicechat-discord/issues/167"
+  },
+  {
+    "id": "case_220",
+    "fp": "b85986ba4c",
+    "head": "me.whereareiam.socialismus.library.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java",
+    "biz": "",
+    "source_url": "https://github.com/whereareiam/Socialismus/issues/162"
+  },
+  {
+    "id": "case_221",
+    "fp": "bf2c6e7768",
+    "head": "java.lang.IllegalStateException",
+    "biz": "",
+    "source_url": "https://github.com/kernitus/BukkitOldCombatMechanics/issues/862"
+  },
+  {
+    "id": "case_222",
+    "fp": "b7347054c7",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/josemmo/yamipa/issues/169"
+  },
+  {
+    "id": "case_223",
+    "fp": "43b1082f0b",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/LOOHP/ImageFrame/issues/165"
+  },
+  {
+    "id": "case_224",
+    "fp": "599afe52a5",
+    "head": "java.lang.RuntimeException",
+    "biz": "",
+    "source_url": "https://github.com/WilfryDev/xPlugins/issues/1"
+  },
+  {
+    "id": "case_225",
+    "fp": "79f927d7ab",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/SentixDev/squaremarker/issues/39"
+  },
+  {
+    "id": "case_226",
+    "fp": "7bed644bc3",
+    "head": "org.geysermc.floodgate.shadow.com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java",
+    "biz": "",
+    "source_url": "https://github.com/GeyserMC/Floodgate/issues/663"
+  },
+  {
+    "id": "case_227",
+    "fp": "0c04c08f38",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/tritonmc/Triton/issues/607"
+  },
+  {
+    "id": "case_228",
+    "fp": "6c8b0d49cb",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/EvModder/DropHeads/issues/159"
+  },
+  {
+    "id": "case_229",
+    "fp": "5378c563f4",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/Ugleh/RedstoneProximitySensor/issues/20"
+  },
+  {
+    "id": "case_230",
+    "fp": "1c0ef72013",
+    "head": "java.lang.ExceptionInInitializerError",
+    "biz": "",
+    "source_url": "https://github.com/Pulse-MC/Pulse/issues/6"
+  },
+  {
+    "id": "case_231",
+    "fp": "d091d9ba0a",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/Hex27/TerraformGenerator/issues/183"
+  },
+  {
+    "id": "case_232",
+    "fp": "617f3e3042",
+    "head": "java.lang.NoClassDefFoundError",
+    "biz": "",
+    "source_url": "https://github.com/MohistMC/Youer/issues/309"
+  },
+  {
+    "id": "case_233",
+    "fp": "013751614c",
+    "head": "java.lang.RuntimeException",
+    "biz": "",
+    "source_url": "https://github.com/PaperMC/Paper/issues/13936"
+  },
+  {
+    "id": "case_234",
+    "fp": "9dde28cfe2",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/GodTierGamers/DiscordLogger/issues/161"
+  },
+  {
+    "id": "case_235",
+    "fp": "5a5d4ae029",
+    "head": "org.bukkit.plugin.InvalidPluginException",
+    "biz": "",
+    "source_url": "https://github.com/ian171/AuthAnvilLogin/issues/15"
   }
 ]

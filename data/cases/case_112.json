@@ -1,0 +1,16 @@
+{
+  "id": "case_112",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/SQD-Studios/ChamoParty/issues/4",
+  "source_title": "Plugin doesn't enable because of bStats failure",
+  "server_type": "paper",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "[13:27:54 ERROR]: Error occurred while enabling chamoParty v1.0.0 (Is it up to date?)\njava.lang.IllegalStateException: bStats Metrics class has not been relocated correctly!\nat chamoParty-1.0.0 (1).jar//org.bstats.MetricsBase.checkRelocation(MetricsBase.java:259) ~[?:?]\nat chamoParty-1.0.0 (1).jar//org.bstats.MetricsBase.<init>(MetricsBase.java:129) ~[?:?]\nat chamoParty-1.0.0 (1).jar//org.bstats.bukkit.Metrics.<init>(Metrics.java:80) ~[?:?]\nat chamoParty-1.0.0 (1).jar//net.chamosmp.chamoparty.paper.ChamoPartyPlugin.onEnable(ChamoPartyPlugin.java:118) ~[?:?]\nat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[purpur-api-26.2.build.2620-stable.jar:?]\nat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[purpur-api-26.2.build.2620-stable.jar:?]\nat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:647) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:604) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:652) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:386) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1281) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[purpur-26.2.jar:26.2-2620-8762b2f]\nat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

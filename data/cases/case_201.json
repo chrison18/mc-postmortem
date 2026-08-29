@@ -1,0 +1,16 @@
+{
+  "id": "case_201",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/cc-tweaked/CC-Tweaked/issues/2365",
+  "source_title": "Crash placing multiple signs with long content",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.OutOfMemoryError",
+  "plugins": [],
+  "raw_log": "---- Minecraft Crash Report ----\n// Daisy, daisy...\n\nTime: 2026-01-16 14:31:32\nDescription: Ticking block entity\n\njava.lang.OutOfMemoryError: Java heap space\n\tat java.base/java.util.Arrays.copyOf(Arrays.java:3478)\n\tat java.base/java.util.ArrayList.grow(ArrayList.java:238)\n\tat java.base/java.util.ArrayList.grow(ArrayList.java:245)\n\tat java.base/java.util.ArrayList.add(ArrayList.java:484)\n\tat java.base/java.util.ArrayList.add(ArrayList.java:497)\n\tat knot//com.google.common.base.Splitter.splitToList(Splitter.java:422)\n\tat knot//dan200.computercraft.shared.turtle.core.TurtlePlaceCommand.setSignText(TurtlePlaceCommand.java:236)\n\tat knot//dan200.computercraft.shared.turtle.core.TurtlePlaceCommand.deployOnBlock(TurtlePlaceCommand.java:186)\n\tat knot//dan200.computercraft.shared.turtle.core.TurtlePlaceCommand.deploy(TurtlePlaceCommand.java:91)\n\tat knot//dan200.computercraft.shared.turtle.core.TurtlePlaceCommand.execute(TurtlePlaceCommand.java:62)\n\tat knot//dan200.computercraft.shared.turtle.core.TurtleBrain.updateCommands(TurtleBrain.java:594)\n\tat knot//dan200.computercraft.shared.turtle.core.TurtleBrain.update(TurtleBrain.java:126)\n\tat knot//dan200.computercraft.shared.turtle.blocks.TurtleBlockEntity.serverTick(TurtleBlockEntity.java:117)\n\tat knot//dan200.computercraft.shared.computer.blocks.AbstractComputerBlock.lambda$new$0(AbstractComputerBlock.java:38)\n\tat knot//dan200.computercraft.shared.computer.blocks.AbstractComputerBlock$$Lambda/0x000000006bb820a0.tick(Unknown Source)\n\tat knot//net.minecraft.class_2818$class_5563.method_31703(class_2818.java:744)\n\tat knot//net.minecraft.class_2818$class_5564.method_31703(class_2818.java:798)\n\tat knot//net.minecraft.class_1937.method_18471(class_1937.java:500)\n\tat knot//net.minecraft.class_3218.method_18765(class_3218.java:413)\n\tat knot//net.minecraft.server.MinecraftServer.method_3813(MinecraftServer.java:1063)\n\tat knot//net.minecraft.server.MinecraftServer.method_3748(MinecraftServer.java:947)\n\tat knot//net.minecraft.class_1132.method_3748(class_1132.java:114)\n\tat knot//net.minecraft.server.MinecraftServer.method_29741(MinecraftServer.java:707)\n\tat knot//net.minecraft.server.MinecraftServer.method_29739(MinecraftServer.java:291)\n\tat knot//net.minecraft.server.MinecraftServer$$Lambda/0x000000006c0b5c18.run(Unknown Source)\n\tat java.base/java.lang.Thread.runWith(Thread.java:1487)\n\tat java.base/java.lang.Thread.run(Thread.java:1474)\n\n\nA detailed walkthrough of the error, its code path and all known details is as follows:",
+  "fix_solution": "【推断】增加 JVM 堆内存分配（-Xmx）或排查内存泄漏插件（依据：堆栈显示 OOM，内存不足通常需调大堆或移除泄漏插件）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:oom; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

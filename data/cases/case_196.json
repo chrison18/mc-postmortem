@@ -1,0 +1,16 @@
+{
+  "id": "case_196",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/OakLoaf/PluginUpdater/issues/136",
+  "source_title": "Failed to collect versions for [PLUGIN]",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "[19:30:42 ERROR]: [PluginUpdater] Failed to collect versions for 'TreeFeller'\njava.lang.IllegalStateException: Failed to collect versions for 'TreeFeller'\n        at PluginUpdater-paper-3.0.10.jar//org.lushplugins.pluginupdater.api.source.type.ModrinthSource.getLatestVersion(ModrinthSource.java:107) ~[?:?]\n        at PluginUpdater-paper-3.0.10.jar//org.lushplugins.pluginupdater.api.source.type.ModrinthSource.getLatestVersion(ModrinthSource.java:48) ~[?:?]\n        at PluginUpdater-paper-3.0.10.jar//org.lushplugins.pluginupdater.api.source.Source.isUpdateAvailable(Source.java:31) ~[?:?]\n        at PluginUpdater-paper-3.0.10.jar//org.lushplugins.pluginupdater.api.source.Source.lambda$isUpdateAvailable$0(Source.java:100) ~[?:?]\n        at PluginUpdater-paper-3.0.10.jar//org.lushplugins.pluginupdater.api.source.Source.attemptOnSources(Source.java:125) ~[?:?]\n        at PluginUpdater-paper-3.0.10.jar//org.lushplugins.pluginupdater.api.source.Source.isUpdateAvailable(Source.java:99) ~[?:?]\n        at PluginUpdater-paper-3.0.10.jar//org.lushplugins.pluginupdater.common.updater.UpdateHandler.processQueue(UpdateHandler.java:96) ~[?:?]\n        at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545) ~[?:?]\n        at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:369) ~[?:?]\n        at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:310) ~[?:?]\n        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090) ~[?:?]\n        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614) ~[?:?]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】;审查2026-08-29:mc_version原为插件版本,改unknown"
+}

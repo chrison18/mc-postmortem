@@ -1,0 +1,16 @@
+{
+  "id": "case_194",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/CraftCanvasMC/Canvas/issues/295",
+  "source_title": "Crash: IllegalStateException \"Thread failed main thread check: Cannot trigger criterion async\" in EnderDragonFight.setRespawnStage on Folia region thread",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalStateException",
+  "plugins": [],
+  "raw_log": "Everything's going to plan. No, really, that was supposed to happen.\n---- DO NOT REPORT TO PAPER/FOLIA, REPORT TO CANVAS INSTEAD ----\n\nTime: 2026-07-20 11:17:47\nDescription: Exception ticking world\n\njava.lang.IllegalStateException: Thread failed main thread check: Cannot trigger criterion async, context=[thread=Folia Region Scheduler Thread #0,class=io.papermc.paper.threadedregions.TickRegionScheduler$TickThreadRunner,region={center=[-1, 6],world=minecraft:the_end}], entity={root=[{type=ServerPlayer,id=6864271,uuid=d5654be8-711d-3a24-81c9-c2e2bfcc75c3,pos=(12,719.589,-50.000,18,225.683),mot=(0.000,0.000,0.000),aabb=AABB[12719.289446797371, -50.0, 18225.382934326342] -> [12719.889446821213, -48.200000047683716, 18225.982934350184],removed=CHANGED_DIMENSION,has_vehicle=false,passenger_count=0], vehicle=[{null}], passengers=[]\n        at ca.spottedleaf.moonrise.common.util.TickThread.ensureTickThread(TickThread.java:98)\n        at net.minecraft.advancements.triggers.SimpleCriterionTrigger.trigger(SimpleCriterionTrigger.java:21)\n        at net.minecraft.advancements.triggers.SummonedEntityTrigger.trigger(SummonedEntityTrigger.java:23)\n        at net.minecraft.world.level.dimension.end.EnderDragonFight.setRespawnStage(EnderDragonFight.java:321)\n        at net.minecraft.world.level.dimension.end.DragonRespawnStage$4.tick(DragonRespawnStage.java:88)\n        at net.minecraft.world.level.dimension.end.EnderDragonFight.tick(EnderDragonFight.java:208)\n        at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:922)\n        at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1877)\n        at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1669)\n        at net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:420)\n        at io.papermc.paper.threadedregions.TickRegions$ConcreteRegionTickHandle.tickRegion(TickRegions.java:615)\n        at io.papermc.paper.threadedregions.TickRegionScheduler$RegionScheduleHandle.runTick(TickRegionScheduler.java:604)\n        at ca.spottedleaf.concurrentutil.scheduler.EDFSchedulerThreadPool$TickThreadRunner.run(EDFSchedulerThreadPool.java:528)\n        at ca.spottedleaf.concurrentutil.util.LazyRunnable.run(LazyRunnable.java:25)\n        at java.base/java.lang.Thread.run(Thread.java:1516)\n\n-- Head --",
+  "fix_solution": "【推断】检查插件调用时机及状态，升级相关插件（依据：堆栈显示 IllegalStateException，对象状态不合法通常因调用顺序错误或插件 bug）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集; Folia系分支;审查2026-08-29:模板化【已证实】改【推断】"
+}

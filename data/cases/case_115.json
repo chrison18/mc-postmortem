@@ -1,0 +1,16 @@
+{
+  "id": "case_115",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/BG-Software-LLC/SuperiorSkyblock2/issues/3010",
+  "source_title": "Crash error after update",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [],
+  "raw_log": "[11:47:27 ERROR]: [SuperiorSkyblock2] An unexpected error occurred while enabling the plugin:\n[11:47:27 ERROR]: [SuperiorSkyblock2] java.lang.NullPointerException: Cannot invoke \"org.bukkit.configuration.ConfigurationSection.getKeys(boolean)\" because the return value of \"org.bukkit.configuration.file.YamlConfiguration.getConfigurationSection(String)\" is null\n        at SuperiorSkyblock2-2026.2-b925.jar//com.bgsoftware.superiorskyblock.config.SettingsContainer.<init>(SettingsContainer.java:305)\n        at SuperiorSkyblock2-2026.2-b925.jar//com.bgsoftware.superiorskyblock.config.SettingsManagerImpl.loadContainerFromConfig(SettingsManagerImpl.java:754)\n        at SuperiorSkyblock2-2026.2-b925.jar//com.bgsoftware.superiorskyblock.config.SettingsManagerImpl.loadData(SettingsManagerImpl.java:105)\n        at SuperiorSkyblock2-2026.2-b925.jar//com.bgsoftware.superiorskyblock.SuperiorSkyblockPlugin.onEnable(SuperiorSkyblockPlugin.java:224)\n        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279)\n        at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:202)\n        at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109)\n        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520)\n        at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:644)\n        at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:600)\n        at net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:628)\n        at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:375)\n        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1243)\n        at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:391)\n        at java.base/java.lang.Thread.run(Thread.java:1474)",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:npe; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

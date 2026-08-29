@@ -1,0 +1,16 @@
+{
+  "id": "case_204",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/XPPlugins/CnUsername/issues/13",
+  "source_title": "[Bug] 26.1游戏版本解析错误",
+  "server_type": "spigot",
+  "mc_version": "26.1.2",
+  "java_version": "unknown",
+  "exception_type": "org.bukkit.plugin.InvalidPluginException",
+  "plugins": [],
+  "raw_log": "nUsername] ===========================================================\n[23:11:24] [Server thread/ERROR]: [ModernPluginLoadingStrategy] Could not load plugin 'CnUsername-1.1.2.jar' in folder 'plugins'\norg.bukkit.plugin.InvalidPluginException: Exception initializing main class `me.xpyex.plugin.cnusername.bukkit.CnUsernameBK'\n\tat org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:117) ~[paper-api-26.1.2.build.19-alpha.jar:?]\n\tat io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:125) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat io.papermc.paper.plugin.provider.type.spigot.SpigotPluginProvider.createInstance(SpigotPluginProvider.java:35) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat io.papermc.paper.plugin.entrypoint.strategy.modern.ModernPluginLoadingStrategy.loadProviders(ModernPluginLoadingStrategy.java:116) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat io.papermc.paper.plugin.storage.SimpleProviderStorage.enter(SimpleProviderStorage.java:38) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat io.papermc.paper.plugin.entrypoint.LaunchEntryPointHandler.enter(LaunchEntryPointHandler.java:39) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat org.bukkit.craftbukkit.CraftServer.loadPlugins(CraftServer.java:553) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:341) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1291) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:304) ~[paper-26.1.2.jar:26.1.2-19-1d14197]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\nCaused by: java.lang.reflect.InvocationTargetException\n\tat java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74) ~[?:?]\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[?:?]\n\tat org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:109) ~[paper-api-26.1.2.build.19-alpha.jar:?]\n\t... 10 more\nCaused by: java.lang.IllegalArgumentException: Invalid version string: '26.1.2.build.19'\n\tat java.base/java.lang.Runtime$Version.parse(Runtime.java:1028) ~[?:?]\n\tat CnUsername-1.1.2.jar//me.xpyex.plugin.cnusername.bukkit.CnUsernameBK.<init>(CnUsernameBK.java:32) ~[?:?]\n\tat java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]\n\t... 13 more",
+  "fix_solution": "【推断】检查插件文件完整性、依赖插件及服务端版本兼容性（依据：堆栈显示 InvalidPluginException，插件加载失败通常因文件损坏或缺依赖）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:loadfail; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

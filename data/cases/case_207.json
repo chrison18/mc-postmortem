@@ -1,0 +1,16 @@
+{
+  "id": "case_207",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/MiniPlaceholders/LuckPerms-Expansion/issues/118",
+  "source_title": "Lack of plugin.yml",
+  "server_type": "paper",
+  "mc_version": "26.1.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.IllegalArgumentException",
+  "plugins": [],
+  "raw_log": "[19:45:25 ERROR]: [DirectoryProviderSource] Error loading plugin: java.lang.IllegalArgumentException: Directory 'plugins\\LuckPerms-Expansion-2.1.0.jar' does not contain a paper-plugin.yml or plugin.yml! Could not determine plugin type, cannot load a plugin from it!\njava.lang.RuntimeException: java.lang.IllegalArgumentException: Directory 'plugins\\LuckPerms-Expansion-2.1.0.jar' does not contain a paper-plugin.yml or plugin.yml! Could not determine plugin type, cannot load a plugin from it!\n        at io.papermc.paper.plugin.provider.source.FileProviderSource.registerProviders(FileProviderSource.java:74) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at io.papermc.paper.plugin.provider.source.DirectoryProviderSource.registerProviders(DirectoryProviderSource.java:58) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at io.papermc.paper.plugin.provider.source.DirectoryProviderSource.registerProviders(DirectoryProviderSource.java:17) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at io.papermc.paper.plugin.util.EntrypointUtil.registerProvidersFromSource(EntrypointUtil.java:15) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at io.papermc.paper.plugin.PluginInitializerManager.load(PluginInitializerManager.java:104) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at net.minecraft.server.Main.main(Main.java:107) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at io.papermc.paper.PaperBootstrap.boot(PaperBootstrap.java:21) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at org.bukkit.craftbukkit.Main.main(Main.java:204) ~[paper-26.1.2.jar:26.1.2-74-e4e17fc]\n        at io.papermc.paperclip.Paperclip.lambda$main$0(Paperclip.java:42) ~[?:?]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\nCaused by: java.lang.IllegalArgumentException: Directory 'plugins\\LuckPerms-Expansion-2.1.0.jar' does not contain a paper-plugin.yml or plugin.yml! Could not determine plugin type, cannot load a plugin from it!\n        ... 10 more",
+  "fix_solution": "【推断】检查相关插件配置参数是否合法（依据：堆栈显示 IllegalArgumentException，方法接收到非法参数通常因配置错误）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

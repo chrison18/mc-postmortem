@@ -1,0 +1,16 @@
+{
+  "id": "case_133",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PluginBugs/Issues-ItemsAdder/issues/5258",
+  "source_title": "PlayerInteractEvent issues with complex furnitures",
+  "server_type": "paper",
+  "mc_version": "1.21.11",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NullPointerException",
+  "plugins": [],
+  "raw_log": "[16:35:05] [Server thread/ERROR]: Could not pass event PlayerInteractEvent to ItemsAdder v4.0.16-beta-12-test-5\njava.lang.NullPointerException: Cannot invoke \"itemsadder.m.bp.a(org.bukkit.entity.Player, int, org.bukkit.Location, itemsadder.m.bv, boolean)\" because \"<local11>\" is null\n\tat ItemsAdder_4.0.16-beta-12-test-5.jar//itemsadder.m.ce.a(SourceFile:385) ~[?:?]\n\tat ItemsAdder_4.0.16-beta-12-test-5.jar//itemsadder.m.ce.b(SourceFile:299) ~[?:?]\n\tat co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:80) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:71) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:131) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:628) ~[paper-api-1.21.11-R0.1-SNAPSHOT.jar:?]\n\tat org.bukkit.craftbukkit.event.CraftEventFactory.callPlayerInteractEvent(CraftEventFactory.java:654) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.level.ServerPlayerGameMode.useItemOn(ServerPlayerGameMode.java:507) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.network.ServerGamePacketListenerImpl.handleUseItemOn(ServerGamePacketListenerImpl.java:2094) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:45) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.network.protocol.game.ServerboundUseItemOnPacket.handle(ServerboundUseItemOnPacket.java:10) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.network.PacketProcessor$ListenerAndPacket.handle(PacketProcessor.java:99) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.network.PacketProcessor.executeSinglePacket(PacketProcessor.java:33) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.MinecraftServer.runAllTasksAtTickStart(MinecraftServer.java:1185) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.MinecraftServer.processPacketsAndTick(MinecraftServer.java:1671) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1340) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:388) ~[paper-1.21.11.jar:1.21.11-99-81b9122]\n\tat java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:npe; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

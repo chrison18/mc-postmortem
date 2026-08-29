@@ -1,0 +1,16 @@
+{
+  "id": "case_156",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/CraftCanvasMC/Canvas/issues/299",
+  "source_title": "Server crash when i change io threads to 3",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "net.minecraft.ReportedException",
+  "plugins": [],
+  "raw_log": "\\crash-reports\\crash-2026-07-26_09.48.16-server.txt\n[09:48:16] [Folia Region Scheduler Thread #1/ERROR]: [TickRegionScheduler] Region #2 centered at chunk [531, -825] in world 'world' failed to tick:\nnet.minecraft.ReportedException: Exception ticking world\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1707) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.dedicated.DedicatedServer.tickServer(DedicatedServer.java:460) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat io.papermc.paper.threadedregions.TickRegions$ConcreteRegionTickHandle.tickRegion(TickRegions.java:519) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat io.papermc.paper.threadedregions.TickRegionScheduler$RegionScheduleHandle.runTick(TickRegionScheduler.java:524) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat ca.spottedleaf.concurrentutil.scheduler.EDFSchedulerThreadPool$TickThreadRunner.run(EDFSchedulerThreadPool.java:528) ~[concurrentutil-0.0.10.jar:26.1.2--1-6d6ca1b]\n\tat ca.spottedleaf.concurrentutil.util.LazyRunnable.run(LazyRunnable.java:25) ~[concurrentutil-0.0.10.jar:?]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\nCaused by: java.lang.NullPointerException: Cannot invoke \"net.minecraft.world.level.chunk.LevelChunk.getSections()\" because \"chunk\" is null\n\tat net.minecraft.server.level.ServerLevel.optimiseRandomTick(ServerLevel.java:1052) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.level.ServerLevel.tickChunk(ServerLevel.java:1114) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.level.ServerChunkCache.iterateTickingChunksFaster(ServerChunkCache.java:191) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.level.ServerChunkCache.tickChunks(ServerChunkCache.java:603) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.level.ServerChunkCache.tickChunks(ServerChunkCache.java:518) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.level.ServerChunkCache.tick(ServerChunkCache.java:503) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:905) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:1898) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\tat net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:1693) ~[canvas-26.1.2.jar:26.1.2--1-6d6ca1b]\n\t... 6 more",
+  "fix_solution": "【推断】升级相关插件至最新版或检查其配置项（依据：堆栈显示 NPE，通常为插件 bug 或配置缺失导致空指针）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集; Folia系分支;审查2026-08-29:模板化【已证实】改【推断】"
+}

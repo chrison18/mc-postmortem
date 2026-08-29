@@ -1,12 +1,12 @@
 # MC 服务端崩溃案例库
 
-- 采集时间：2026-08-27（第一批 case_001~030）、2026-08-28（第二批 case_031~060、第三批 case_061~090）
-- 案例数：90
-- 场景分布：npe 15 / version 17 / conflict 7 / config 5 / loadfail 5 / oom 3 / watchdog 3 / runtime 19 / other 16
-- 来源分布：GitHub Issue 81 / 托管商知识库 9
-- 服务端分布：Paper 25 / Purpur 8 / Spigot 2 / unknown 55（含 Folia 系分支及未标注）
-- 质量分布：high 23 / medium 60 / low 7
-- fix_solution 分布：【已证实】55 / 【推断】11 / 待补充 15 / KB原文 9
+- 采集时间：2026-08-27（第一批 case_001~030）、2026-08-28（第二批 case_031~060、第三批 case_061~090）、2026-08-29（第四批 case_091~104、第五批 case_105~235）
+- 案例数：235
+- 场景分布：npe 30 / version 65 / conflict 7 / config 6 / loadfail 17 / oom 6 / watchdog 3 / runtime 47 / other 54
+- 来源分布：GitHub Issue 226 / 托管商知识库 9
+- 服务端分布：Paper 112 / Purpur 9 / Spigot 14 / unknown 100（含 Folia 系分支及未标注）
+- 质量分布：high 17 / medium 211 / low 7
+- fix_solution 分布：【已证实】40 / 【推断】171 / 待补充 15 / KB原文 9
 - 每条 case 一个 JSON，字段见 `../schema.json`；原始证据存于 `../_raw/`
 
 ## 场景说明
@@ -29,11 +29,12 @@
 2. `raw_log` 逐字复制原文，不改写堆栈；节选时只删无关行，保留异常头+完整堆栈+上下文。
 3. 场景按根因标注（写在每条 notes 开头），异常类名仅作参考。
 4. 低质量样本（截断日志/仅签名）如实标 low/medium，不补全。
-5. 第二批优先 1.18+：30 条中已知版本全部 ≥1.18（28 条明确为 1.18+，2 条版本未知）。
-6. 第二批重点补「other 罕见异常」与高质量样本：16 条 high 全部来自第二批，多为带 Java 版本+完整插件列表+完整堆栈的 mclo.gs 全日志。
-7. 第三批（case_061~090）多样性纠偏：ItemsAdder 系仅 1 条，覆盖 LuckPerms/EssentialsX/WorldGuard/WorldEdit/ViaVersion/CoreProtect/PlaceholderAPI/Citizens/BlueMap/Geyser 等；闭环 issue 优先，12 条 high、4 条待补充；已知版本全部 ≥1.18。
-8. 质量分级新口径（2026-08-28 起）：high = 完整堆栈 + 系统信息（插件列表或 System Details）+ 【已证实】修复方案；medium = 完整堆栈但 fix 为【推断】/待补充，或日志完整但缺系统信息；low = 日志截断/仅签名。
-9. fix_solution 非空强制：所有案例 fix_solution 必须为【已证实】/【推断】/待补充/KB原文之一，禁止空串。
+5. 第二批优先 1.18+：30 条中已知版本全部 ≥1.18。
+6. 第三批（case_061~090）多样性纠偏：闭环 issue 优先，12 条 high、4 条待补充；已知版本全部 ≥1.18。
+7. 第四批（case_091~104）：mclo.gs 死链率高，转向 GitHub issue 内联日志，产出 14 条。
+8. 第五批（case_105~235）：GitHub issue 内联日志富矿，多关键词搜索累计产出 131 条；2026-08-29 审查时清理 17 条非 Minecraft 误采（Gradle/Android/Elasticsearch/Trino 等），修正 160 条模板化 fix_solution。
+9. 质量分级新口径（2026-08-28 起）：high = 完整堆栈 + 系统信息（插件列表或 System Details）+ 【已证实】修复方案；medium = 完整堆栈但 fix 为【推断】/待补充，或日志完整但缺系统信息；low = 日志截断/仅签名。
+10. fix_solution 非空强制：所有案例 fix_solution 必须为【已证实】/【推断】/待补充/KB原文之一，禁止空串；禁止模板化"issue 已关闭所以升级插件"这类无具体依据的【已证实】。
 
 ## 备注
 
@@ -43,6 +44,7 @@
 - 崩溃报告（crash-report）类日志无 Bukkit 插件列表，plugins 为空数组。
 - 知识库教学文没有真实服务器堆栈，raw_log 为文中报错描述原文，fix_solution 为修复步骤原文。
 - 个别 issue 正文粘贴的日志行之间带空行（Markdown 粘贴所致），按原样保留。
+- 第五批内联日志案例证据文件命名为 `b5_inline_case_XXX.md`，存于 `../_raw/`。
 
 ## 校验
 

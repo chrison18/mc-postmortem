@@ -1,0 +1,16 @@
+{
+  "id": "case_118",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/Ez4p1xEL/NoBuildPlus/issues/33",
+  "source_title": "NumberFormatException 解析配置中的非数字字符串 \"build\"",
+  "server_type": "paper",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NumberFormatException",
+  "plugins": [],
+  "raw_log": "[17:44:24 ERROR]: Error occurred while enabling NoBuildPlus v1.7.0 (Is it up to date?)\njava.lang.NumberFormatException: For input string: \"build\"\n        at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]\n        at java.base/java.lang.Integer.parseInt(Integer.java:565) ~[?:?]\n        at java.base/java.lang.Integer.parseInt(Integer.java:662) ~[?:?]\n        at NoBuildPlus-1.7.0.jar//p1xel.nobuildplus.NoBuildPlus.onEnable(NoBuildPlus.java:69) ~[?:?]\n        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[paper-api-26.2.build.84-stable.jar:?]\n        at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:519) ~[paper-api-26.2.build.84-stable.jar:?]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:633) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:648) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:343) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1267) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:303) ~[paper-26.2.jar:26.2-84-26e81c4]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]",
+  "fix_solution": "【推断】检查配置文件中的数值格式是否正确（依据：堆栈显示 NumberFormatException，字符串转数字失败通常因配置值格式错误）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

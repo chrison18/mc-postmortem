@@ -1,0 +1,16 @@
+{
+  "id": "case_172",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/ViaVersion/ViaVersion/issues/5004",
+  "source_title": "protocol lib error",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java",
+  "plugins": [],
+  "raw_log": "at java.base/java.util.concurrent.CompletableFuture.wrapInCompletionException(CompletableFuture.java:323) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:359) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:364) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1828) ~[?:?]\n        at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1817) ~[?:?]\n        at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:511) ~[?:?]\n        at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1450) ~[?:?]\n        at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:2019) ~[?:?]\n        at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:187) ~[?:?]",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

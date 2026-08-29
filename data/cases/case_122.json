@@ -1,0 +1,16 @@
+{
+  "id": "case_122",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/pablo67340/GUIShop/issues/144",
+  "source_title": "Crashes on 26.x",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.ExceptionInInitializerError",
+  "plugins": [],
+  "raw_log": "[21:31:51 INFO]: [GUIShop] Enabling GUIShop v9.4.3c\n[21:31:51 ERROR]: Error occurred while enabling GUIShop v9.4.3c (Is it up to date?)\njava.lang.ExceptionInInitializerError\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.shade.xseries.XMaterial.<init>(XMaterial.java:2004) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.shade.xseries.XMaterial.<init>(XMaterial.java:2015) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.shade.xseries.XMaterial.<clinit>(XMaterial.java:73) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.config.TransactionGuiConfig.<init>(TransactionGuiConfig.java:13) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.config.Config.<clinit>(Config.java:53) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.util.LogUtil.debugLog(LogUtil.java:74) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.util.ConfigManager.loadAllShopConfigs(ConfigManager.java:325) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.util.ConfigManager.initConfigs(ConfigManager.java:195) ~[?:?]\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.GUIShop.onEnable(GUIShop.java:138) ~[?:?]\n\tat org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:279) ~[folia-api-26.2.build.1-alpha.jar:?]\n\tat io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:201) ~[folia-26.2.jar:26.2-1-6203419]\n\tat io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[folia-26.2.jar:26.2-1-6203419]\n\tat org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520) ~[folia-api-26.2.build.1-alpha.jar:?]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:633) ~[folia-26.2.jar:26.2-1-6203419]\n\tat org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:590) ~[folia-26.2.jar:26.2-1-6203419]\n\tat net.minecraft.server.MinecraftServer.initPostWorld(MinecraftServer.java:674) ~[folia-26.2.jar:26.2-1-6203419]\n\tat net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:343) ~[folia-26.2.jar:26.2-1-6203419]\n\tat net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1343) ~[folia-26.2.jar:26.2-1-6203419]\n\tat net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:302) ~[folia-26.2.jar:26.2-1-6203419]\n\tat java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\nCaused by: java.lang.IllegalArgumentException: Failed to parse server version from: 26.2-1-6203419 (MC: 26.2)\n\tat GUIShop-9.4.3c.jar//com.pablo67340.guishop.shade.xseries.XMaterial$Data.<clinit>(XMaterial.java:2570) ~[?:?]\n\t... 20 more\n[21:31:51 INFO]: [GUIShop] Disabling GUIShop v9.4.3c",
+  "fix_solution": "【推断】检查相关插件配置参数是否合法（依据：堆栈显示 IllegalArgumentException，方法接收到非法参数通常因配置错误）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

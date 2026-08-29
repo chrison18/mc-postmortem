@@ -1,0 +1,16 @@
+{
+  "id": "case_173",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/dmulloy2/ProtocolLib/issues/3652",
+  "source_title": "Results in kicksing of players, but they can rejoin, no issues.",
+  "server_type": "unknown",
+  "mc_version": "26.2",
+  "java_version": "unknown",
+  "exception_type": "java.util.ConcurrentModificationException",
+  "plugins": [],
+  "raw_log": "t io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.2.15.Final.jar:4.2.15.Final]\n        at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]\nCaused by: java.util.ConcurrentModificationException\n        at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:1096) ~[?:?]\n        at java.base/java.util.ArrayList$Itr.next(ArrayList.java:1050) ~[?:?]\n        at net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket.pack(ClientboundSetEntityDataPacket.java:23) ~[paper-26.2.jar:26.2-62-75c0b48]\n        at net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket.write(ClientboundSetEntityDataPacket.java:44) ~[paper-26.2.jar:26.2-62-75c0b48]\n        at net.minecraft.network.codec.StreamCodec$2.encode(StreamCodec.java:44) ~[paper-26.2.jar:26.2-62-75c0b48]\n        at net.minecraft.network.codec.StreamCodec$5.encode(StreamCodec.java:94) ~[paper-26.2.jar:26.2-62-75c0b48]\n        at net.minecraft.network.codec.StreamCodec$5.encode(StreamCodec.java:84) ~[paper-26.2.jar:26.2-62-75c0b48]\n        at net.minecraft.network.codec.IdDispatchCodec.encode(IdDispatchCodec.java:58) ~[paper-26.2.jar:26.2-62-75c0b48]",
+  "fix_solution": "【推断】升级相关插件或排查异步线程并发访问问题（依据：堆栈显示 ConcurrentModificationException，集合在迭代时被修改通常因线程安全问题）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

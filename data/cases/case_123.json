@@ -1,0 +1,16 @@
+{
+  "id": "case_123",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/funniray/minimap-control/issues/27",
+  "source_title": "26.2 request",
+  "server_type": "spigot",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NumberFormatException.forInputString(NumberFormatException.java",
+  "plugins": [],
+  "raw_log": "at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]\n        at java.base/java.lang.Integer.parseInt(Integer.java:565) ~[?:?]\n        at java.base/java.lang.Integer.parseInt(Integer.java:662) ~[?:?]\n        at minimap-spigot-1.18.0.jar//com.funniray.minimap.spigot.impl.SpigotServer.getMinecraftVersion(SpigotServer.java:21) ~[?:?]\n        at minimap-spigot-1.18.0.jar//com.funniray.minimap.common.jm.data.JMVersion.<init>(JMVersion.java:9) ~[?:?]\n        at minimap-spigot-1.18.0.jar//com.funniray.minimap.common.jm.data.JMConfig.<init>(JMConfig.java:42) ~[?:?]\n        at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]\n        ... 28 more",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:runtime; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

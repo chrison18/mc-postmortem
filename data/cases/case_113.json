@@ -1,0 +1,16 @@
+{
+  "id": "case_113",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/PowerNukkitX-Bundle/AnyVersion/issues/13",
+  "source_title": "umm...",
+  "server_type": "unknown",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java",
+  "plugins": [],
+  "raw_log": "at java.base/java.lang.reflect.AccessibleObject.throwInaccessibleObjectException(AccessibleObject.java:353)\n        at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:329)\n        at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:277)\n        at java.base/java.lang.reflect.Method.checkCanSetAccessible(Method.java:182)\n        at java.base/java.lang.reflect.Method.setAccessible(Method.java:176)\n        at org.powernukkitx.plugin.MethodEventExecutor.loadClass(MethodEventExecutor.java:169)\n        at org.powernukkitx.plugin.MethodEventExecutor.compile(MethodEventExecutor.java:150)\n        at org.powernukkitx.plugin.MethodEventExecutor.compile(MethodEventExecutor.java:59)\n        at org.powernukkitx.plugin.PluginManager.registerEvents(PluginManager.java:657)\n        at org.powernukkitx.anyversion.AnyVersion.onEnable(AnyVersion.java:28)\n        at org.powernukkitx.plugin.PluginBase.setEnabled(PluginBase.java:99)\n        at org.powernukkitx.plugin.JavaPluginLoader.enablePlugin(JavaPluginLoader.java:177)\n        at org.powernukkitx.plugin.PluginManager.enablePlugin(PluginManager.java:472)\n        at org.powernukkitx.Server.enablePlugin(Server.java:1658)\n        at org.powernukkitx.Server.enablePlugins(Server.java:1643)\n        at org.powernukkitx.Server.<init>(Server.java:660)\n        at org.powernukkitx.PowerNukkitX.main(PowerNukkitX.java:233)\n        at org.powernukkitx.JarStart.main(JarStart.java:20)",
+  "fix_solution": "【推断】升级相关插件至最新版或查看 Caused by 定位具体原因（依据：堆栈显示 java，需结合详细堆栈定位）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:other; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

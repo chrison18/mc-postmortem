@@ -1,0 +1,16 @@
+{
+  "id": "case_129",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/mattmunichYT/IceBoatRacing/issues/1",
+  "source_title": "Register command unavailable",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoSuchMethodError",
+  "plugins": [],
+  "raw_log": "[23:46:09 ERROR]: Error occurred while enabling IceBoatRacing v1.4-SNAPSHOT (Is it up to date?)\njava.lang.NoSuchMethodError: 'void fr.mattmunich.iceBoatRacing.Main.registerCommand(java.lang.String, java.lang.String, java.util.Collection, io.papermc.paper.command.brigadier.BasicCommand)'\n        at IceBoatRacing-1.4-SNAPSHOT.jar/fr.mattmunich.iceBoatRacing.Main.registerCommands(Main.java:144) ~[IceBoatRacing-1.4-SNAPSHOT.jar:?]\n        at IceBoatRacing-1.4-SNAPSHOT.jar/fr.mattmunich.iceBoatRacing.Main.onEnable(Main.java:59) ~[IceBoatRacing-1.4-SNAPSHOT.jar:?]\n        at org.bukkit.plugin.java.JavaPlugin.setEnabled(JavaPlugin.java:288) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at io.papermc.paper.plugin.manager.PaperPluginInstanceManager.enablePlugin(PaperPluginInstanceManager.java:203) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.enablePlugin(PaperPluginManagerImpl.java:109) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at org.bukkit.plugin.SimplePluginManager.enablePlugin(SimplePluginManager.java:520) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugin(CraftServer.java:651) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at org.bukkit.craftbukkit.CraftServer.enablePlugins(CraftServer.java:600) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at net.minecraft.server.MinecraftServer.loadWorld0(MinecraftServer.java:747) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at net.minecraft.server.MinecraftServer.loadLevel(MinecraftServer.java:520) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at net.minecraft.server.dedicated.DedicatedServer.initServer(DedicatedServer.java:341) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1208) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:338) ~[universe-1.21.1.jar:1.21.1-bbdd40c]\n        at java.base/java.lang.Thread.run(Thread.java:1583) ~[?:?]",
+  "fix_solution": "【推断】升级或回滚相关插件至兼容版本（依据：堆栈显示 NoSuchMethodError，通常为插件版本与服务端/依赖不兼容）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}

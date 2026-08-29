@@ -1,0 +1,16 @@
+{
+  "id": "case_162",
+  "source_type": "github_issue",
+  "source_url": "https://github.com/Zrips/CMI/issues/10322",
+  "source_title": "Paper 1.12.2 message issue",
+  "server_type": "paper",
+  "mc_version": "unknown",
+  "java_version": "unknown",
+  "exception_type": "java.lang.NoClassDefFoundError",
+  "plugins": [],
+  "raw_log": "> cmi version\n[11:29:08 INFO]: --------------------------------------------------\n[11:29:08 WARN]: [CMI] Task #47627 for CMI v9.8.8.1 generated an exception\njava.lang.NoClassDefFoundError: net/kyori/adventure/text/event/HoverEventSource\n        at com.Zrips.CMI.commands.list.version.lambda$1(version.java:96) ~[?:?]\n        at net.Zrips.CMILib.Version.Schedulers.CMIBukkitImpl.lambda$runTask$0(CMIBukkitImpl.java:33) ~[?:?]\n        at org.bukkit.craftbukkit.v1_12_R1.scheduler.CraftTask.run(CraftTask.java:64) ~[patched_1.12.2.jar:git-Paper-1620]\n        at org.bukkit.craftbukkit.v1_12_R1.scheduler.CraftScheduler.mainThreadHeartbeat(CraftScheduler.java:423) ~[patched_1.12.2.jar:git-Paper-1620]\n        at net.minecraft.server.v1_12_R1.MinecraftServer.D(MinecraftServer.java:840) ~[patched_1.12.2.jar:git-Paper-1620]\n        at net.minecraft.server.v1_12_R1.DedicatedServer.D(DedicatedServer.java:423) ~[patched_1.12.2.jar:git-Paper-1620]\n        at net.minecraft.server.v1_12_R1.MinecraftServer.C(MinecraftServer.java:774) ~[patched_1.12.2.jar:git-Paper-1620]\n        at net.minecraft.server.v1_12_R1.MinecraftServer.run(MinecraftServer.java:666) ~[patched_1.12.2.jar:git-Paper-1620]\n        at java.lang.Thread.run(Thread.java:1474) [?:?]\nCaused by: java.lang.ClassNotFoundException: net.kyori.adventure.text.event.HoverEventSource\n        at java.net.URLClassLoader.findClass(URLClassLoader.java:377) ~[?:?]\n        at org.bukkit.plugin.java.PluginClassLoader.findClass(PluginClassLoader.java:156) ~[patched_1.12.2.jar:git-Paper-1620]\n        at org.bukkit.plugin.java.PluginClassLoader.findClass(PluginClassLoader.java:104) ~[patched_1.12.2.jar:git-Paper-1620]\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:557) ~[?:?]\n        at java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[?:?]\n        ... 9 more",
+  "fix_solution": "【推断】安装缺失的依赖插件或检查插件文件完整性（依据：堆栈显示 NoClassDefFoundError，类加载失败通常因缺依赖或文件损坏）",
+  "quality": "medium",
+  "collected_at": "2026-08-29",
+  "notes": "场景:version; inline; 第五批采集;审查2026-08-29:模板化【已证实】改【推断】"
+}
