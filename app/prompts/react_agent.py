@@ -1,0 +1,154 @@
+"""
+react_agent 的 system prompt 模块。
+
+Prompt 独立成模块，绝对不写在节点或 graph 里。
+build_react_system_prompt() 从 state 读取上下文，拼接成完整 system prompt。
+
+注入内容：
+- parsed_log：结构化崩溃日志
+- fault_category + classify_reason：前置分类结果（不主动传会被静默丢弃）
+- retrieved_cases：预检索相似案例（强制预检索的结果）
+- RAG tool 使用说明：告知向量库的 embedding 文本格式，指导 LLM 有方向地自由查询
+- 边界约束：只能基于日志原文和检索案例下结论，不编造，不确定就标注
+"""
+
+import json
+
+
+def _format_parsed_log(parsed_log: dict | None) -> str:
+    """将结构化日志格式化为可读文本。
+
+    Args:
+        parsed_log: ParsedLog 字典，为 None 时返回提示。
+
+    Returns:
+        格式化后的日志文本。
+    """
+    if not parsed_log:
+        return "（日志解析失败，无结构化字段，可从原始日志全文中提取信息）"
+
+    lines = []
+    lines.append(f"服务端类型: {parsed_log.get('server_type', 'unknown')}")
+    lines.append(f"服务端版本: {parsed_log.get('server_version', '')}")
+    lines.append(f"Java 版本: {parsed_log.get('java_version', '')}")
+    lines.append(f"异常类型: {parsed_log.get('exception_type', '')}")
+    lines.append(f"异常消息: {parsed_log.get('exception_message', '')}")
+    lines.append(f"崩溃线程: {parsed_log.get('crash_thread', '')}")
+
+    caused_by = parsed_log.get("caused_by_chain", [])
+    if caused_by:
+        lines.append("Caused by 链:")
+        for c in caused_by:
+            lines.append(f"  {c}")
+
+    plugins = parsed_log.get("plugins", [])
+    if plugins:
+        lines.append("已加载插件:")
+        for p in plugins:
+            name = p.get("name", "")
+            version = p.get("version", "")
+            lines.append(f"  - {name} {version}".strip())
+
+    frames = parsed_log.get("key_stack_frames", [])
+    if frames:
+        lines.append(f"堆栈帧（共 {len(frames)} 条，展示前 20 条）:")
+        for f in frames[:20]:
+            lines.append(f"  {f}")
+
+    raw_content = parsed_log.get("raw_content", "")
+    if raw_content:
+        lines.append("原始日志全文:")
+        lines.append(raw_content)
+
+    return "\n".join(lines)
+
+
+def _format_retrieved_cases(cases: list[dict]) -> str:
+    """将预检索案例格式化为可读文本。
+
+    Args:
+        cases: 检索结果列表，每条含 id / distance / fix_solution 等字段。
+
+    Returns:
+        格式化后的案例文本。
+    """
+    if not cases:
+        return "（预检索未找到相似案例）"
+
+    lines = []
+    for i, case in enumerate(cases, 1):
+        lines.append(f"--- 案例 {i} ---")
+        lines.append(f"ID: {case.get('id', '')}")
+        lines.append(f"相似度距离: {case.get('distance', '')}（越小越相似）")
+        lines.append(f"质量: {case.get('quality', '')}")
+        lines.append(f"异常类型: {case.get('exception_type', '')}")
+        lines.append(f"来源: {case.get('source_title', '')} ({case.get('source_url', '')})")
+        fix = case.get("fix_solution", "")
+        if fix:
+            lines.append(f"修复方案: {fix}")
+        lines.append("")
+    return "\n".join(lines)
+
+
+def build_react_system_prompt(state: dict) -> str:
+    """构建 react_agent 的 system prompt。
+
+    从 state 读取 parsed_log / fault_category / classify_reason / retrieved_cases，
+    拼接成完整的 system prompt，包含角色定义、上下文、工具使用说明和输出规范。
+
+    Args:
+        state: 当前 AgentState 字典。
+
+    Returns:
+        完整的 system prompt 文本。
+    """
+    parsed_log = state.get("parsed_log")
+    fault_category = state.get("fault_category", "unknown")
+    classify_reason = state.get("classify_reason", "")
+    retrieved_cases = state.get("retrieved_cases", [])
+
+    prompt = f"""你是一名资深 Minecraft 服务端（Paper/Spigot/Purpur）事故复盘工程师。
+你的任务是分析崩溃日志，给出根因分析和修复建议。
+
+## 工作方式
+1. 先阅读下方的结构化日志、分类结果和预检索案例。
+2. 如果现有信息足够，直接输出最终结论。
+3. 如果需要更多相似案例，可以调用 search_similar_cases 工具追加检索。
+4. 检索工具可以多次调用，每次可以换不同的查询角度。
+
+## 故障分类结果（前置节点给出，供参考）
+- 分类: {fault_category}
+- 分类理由: {classify_reason or '（无）'}
+
+## 结构化崩溃日志
+{_format_parsed_log(parsed_log)}
+
+## 预检索相似案例（已强制检索一次，以下是结果）
+{_format_retrieved_cases(retrieved_cases)}
+
+## 检索工具使用说明
+向量库中每条案例的 embedding 文本由以下部分组成（你组织查询词时可以参考这个结构，但不必严格照搬）：
+- 异常类型 + 异常消息
+- 插件列表
+- Caused by 异常链
+- 前 10 条堆栈帧
+
+查询词建议：用自然语言描述你想找的相似故障场景，例如 "NullPointerException at plugin load" 或 "WorldEdit version mismatch"。工具会返回最相似的案例及其修复方案。
+
+## 边界约束（严格遵守，防止幻觉）
+1. 只能基于上方的日志原文和检索到的案例下结论，不得编造不存在的案例、插件或修复方案。
+2. 如果日志信息不足或检索案例不相关，明确说明"信息不足"，不要强行猜测。
+3. 修复建议必须有依据：要么来自检索案例的 fix_solution，要么来自日志中明确的错误信息。
+4. 区分"已证实"和"推断"：来自案例的标注【已证实】，自己推理的标注【推断】。
+5. 不要给出与 Bukkit 插件生态无关的建议（如 Forge/Fabric 模组方案）。
+
+## 最终输出格式
+当你认为分析完成时，输出严格的 JSON 格式（不要包裹在 markdown 代码块中，直接输出 JSON 文本）：
+{{{{
+  "root_cause": "根因分析，说明是什么导致了崩溃，为什么",
+  "fix_suggestion": "修复建议，具体可操作的步骤，标注【已证实】或【推断】"
+}}}}
+
+如果信息不足无法给出结论，root_cause 填写"信息不足，无法确定根因"，fix_suggestion 填写"建议补充完整日志或提供更多上下文"。
+"""
+    return prompt

@@ -58,6 +58,8 @@ class AgentState(TypedDict):
     retrieved_cases: list[dict]
     # 最终根因分析结论
     root_cause: str | None
+    # 最终修复建议（与 root_cause 分开存储，由 react_agent 从 LLM 最终答案中解析）
+    fix_suggestion: str | None
     # 当前 ReAct 循环次数，用于判断是否达到 MAX_REACT_LOOPS
     loop_count: int
     # 是否终止循环的标志位
