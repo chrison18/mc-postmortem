@@ -9,23 +9,28 @@ build_react_system_prompt() 从 state 读取上下文，拼接成完整 system p
 - fault_category + classify_reason：前置分类结果（不主动传会被静默丢弃）
 - retrieved_cases：预检索相似案例（强制预检索的结果）
 - RAG tool 使用说明：告知向量库的 embedding 文本格式，指导 LLM 有方向地自由查询
+- read_log_snippet 工具说明：原始日志全文不进 prompt，LLM 按需读取指定行范围
 - 边界约束：只能基于日志原文和检索案例下结论，不编造，不确定就标注
 """
 
 import json
 
 
-def _format_parsed_log(parsed_log: dict | None) -> str:
+def _format_parsed_log(parsed_log: dict | None, raw_log_path: str = "") -> str:
     """将结构化日志格式化为可读文本。
+
+    raw_content 全文不进 prompt（可能几千行，易爆上下文窗口），
+    只保留原始日志路径，由 LLM 按需调用 read_log_snippet 工具读取片段。
 
     Args:
         parsed_log: ParsedLog 字典，为 None 时返回提示。
+        raw_log_path: 原始日志文件路径，供 LLM 按需读取。
 
     Returns:
         格式化后的日志文本。
     """
     if not parsed_log:
-        return "（日志解析失败，无结构化字段，可从原始日志全文中提取信息）"
+        return "（日志解析失败，无结构化字段，可调用 read_log_snippet 工具读取原始日志）"
 
     lines = []
     lines.append(f"服务端类型: {parsed_log.get('server_type', 'unknown')}")
@@ -55,10 +60,11 @@ def _format_parsed_log(parsed_log: dict | None) -> str:
         for f in frames[:20]:
             lines.append(f"  {f}")
 
-    raw_content = parsed_log.get("raw_content", "")
-    if raw_content:
-        lines.append("原始日志全文:")
-        lines.append(raw_content)
+    # raw_content 全文不进 prompt，只保留路径，由 read_log_snippet 工具按需读取
+    if raw_log_path:
+        lines.append(
+            f"原始日志路径: {raw_log_path}，需要查看日志细节时调用 read_log_snippet 工具读取指定行范围"
+        )
 
     return "\n".join(lines)
 
@@ -93,7 +99,7 @@ def _format_retrieved_cases(cases: list[dict]) -> str:
 def build_react_system_prompt(state: dict) -> str:
     """构建 react_agent 的 system prompt。
 
-    从 state 读取 parsed_log / fault_category / classify_reason / retrieved_cases，
+    从 state 读取 parsed_log / fault_category / classify_reason / retrieved_cases / raw_log_path，
     拼接成完整的 system prompt，包含角色定义、上下文、工具使用说明和输出规范。
 
     Args:
@@ -106,6 +112,7 @@ def build_react_system_prompt(state: dict) -> str:
     fault_category = state.get("fault_category", "unknown")
     classify_reason = state.get("classify_reason", "")
     retrieved_cases = state.get("retrieved_cases", [])
+    raw_log_path = state.get("raw_log_path", "")
 
     prompt = f"""你是一名资深 Minecraft 服务端（Paper/Spigot/Purpur）事故复盘工程师。
 你的任务是分析崩溃日志，给出根因分析和修复建议。
@@ -115,13 +122,14 @@ def build_react_system_prompt(state: dict) -> str:
 2. 如果现有信息足够，直接输出最终结论。
 3. 如果需要更多相似案例，可以调用 search_similar_cases 工具追加检索。
 4. 检索工具可以多次调用，每次可以换不同的查询角度。
+5. 如果结构化日志信息不足，可以调用 read_log_snippet 工具读取原始日志的指定行范围。
 
 ## 故障分类结果（前置节点给出，供参考）
 - 分类: {fault_category}
 - 分类理由: {classify_reason or '（无）'}
 
 ## 结构化崩溃日志
-{_format_parsed_log(parsed_log)}
+{_format_parsed_log(parsed_log, raw_log_path)}
 
 ## 预检索相似案例（已强制检索一次，以下是结果）
 {_format_retrieved_cases(retrieved_cases)}
@@ -134,6 +142,15 @@ def build_react_system_prompt(state: dict) -> str:
 - 前 10 条堆栈帧
 
 查询词建议：用自然语言描述你想找的相似故障场景，例如 "NullPointerException at plugin load" 或 "WorldEdit version mismatch"。工具会返回最相似的案例及其修复方案。
+
+## 日志读取工具使用说明
+read_log_snippet 工具用于按需读取原始崩溃日志的指定行范围，避免将全文塞入上下文。
+参数：
+- path：日志文件路径（使用上方"原始日志路径"给出的路径）
+- start_line：起始行号，从 1 开始
+- end_line：结束行号
+返回带行号的日志片段，格式如 "123 | 日志内容"。
+每次建议读 50-100 行，可多次调用覆盖不同区间。
 
 ## 边界约束（严格遵守，防止幻觉）
 1. 只能基于上方的日志原文和检索到的案例下结论，不得编造不存在的案例、插件或修复方案。

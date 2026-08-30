@@ -11,7 +11,7 @@ from langchain_core.messages import ToolMessage
 from langchain_core.tools import BaseTool
 
 from app.core.state import AgentState
-from app.core.tools.rag_tool import TOOLS
+from app.core.tools import TOOLS
 
 # 工具名 -> 工具实例的映射，用于按名查找执行
 _TOOL_MAP: dict[str, BaseTool] = {tool.name: tool for tool in TOOLS}

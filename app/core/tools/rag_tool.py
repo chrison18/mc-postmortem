@@ -59,7 +59,3 @@ def search_similar_cases(query: str) -> str:
         lines.append("")
 
     return "\n".join(lines)
-
-
-# 导出工具列表，供 agent_node 绑定到 LLM
-TOOLS = [search_similar_cases]

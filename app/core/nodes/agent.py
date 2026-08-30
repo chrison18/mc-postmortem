@@ -18,7 +18,7 @@ from langchain_core.messages import AIMessage, SystemMessage
 
 from app.config import settings
 from app.core.state import AgentState
-from app.core.tools.rag_tool import TOOLS
+from app.core.tools import TOOLS
 from app.prompts.react_agent import build_react_system_prompt
 from app.services.llm import get_llm
 
