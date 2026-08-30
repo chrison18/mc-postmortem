@@ -18,6 +18,7 @@ react_agent 拆分为标准 LangGraph 双节点：
 
 from langgraph.graph import END, StateGraph
 
+from app.config import settings
 from app.core.nodes.agent import agent_node
 from app.core.nodes.classify import classify
 from app.core.nodes.retrieve import retrieve_cases as retrieve_cases_impl
@@ -118,6 +119,10 @@ def should_use_tools(state: AgentState) -> str:
     Returns:
         下一个节点名 "tools_node"，或 END 表示终止。
     """
+    # 即使 LLM 异常返回 tool_calls，达到最大轮次也强制终止，防止死循环
+    if state["loop_count"] >= settings.MAX_REACT_LOOPS:
+        return END
+
     messages = state["messages"]
     if not messages:
         return END
