@@ -36,6 +36,8 @@ CREATE TABLE IF NOT EXISTS tasks (
     classify_reason TEXT,
     root_cause TEXT,
     fix_suggestion TEXT,
+    summary TEXT,
+    confidence TEXT,
     retrieved_cases TEXT,
     loop_count INTEGER DEFAULT 0,
     error TEXT,
@@ -74,6 +76,13 @@ class TaskStore:
         with self._lock:
             self._conn.execute(_CREATE_TABLE_SQL)
             self._conn.commit()
+            # 迁移：旧库缺少 summary/confidence 列时补上（ALTER TABLE 是写操作，必须在锁内）
+            try:
+                self._conn.execute("ALTER TABLE tasks ADD COLUMN summary TEXT")
+                self._conn.execute("ALTER TABLE tasks ADD COLUMN confidence TEXT")
+                self._conn.commit()
+            except sqlite3.OperationalError:
+                pass  # 列已存在，忽略
 
     def create_task(self, raw_log_path: str) -> str:
         """创建新任务，返回任务 ID。
@@ -129,7 +138,8 @@ class TaskStore:
             result: graph.invoke() 返回的完整状态字典，从中提取各字段。
         """
         retrieved_cases = result.get("retrieved_cases", [])
-        retrieved_json = json.dumps(retrieved_cases, ensure_ascii=False)  # 空列表也存"[]"，保持字段一致
+        # 空列表也存 "[]"，保持字段一致性
+        retrieved_json = json.dumps(retrieved_cases, ensure_ascii=False)
 
         with self._lock:
             self._conn.execute(
@@ -139,6 +149,8 @@ class TaskStore:
                     classify_reason = ?,
                     root_cause = ?,
                     fix_suggestion = ?,
+                    summary = ?,
+                    confidence = ?,
                     retrieved_cases = ?,
                     loop_count = ?,
                     completed_at = ?
@@ -149,6 +161,8 @@ class TaskStore:
                     result.get("classify_reason"),
                     result.get("root_cause"),
                     result.get("fix_suggestion"),
+                    result.get("summary"),
+                    result.get("confidence"),
                     retrieved_json,
                     result.get("loop_count", 0),
                     _now_iso(),
