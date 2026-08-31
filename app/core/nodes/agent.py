@@ -66,10 +66,8 @@ def agent_node(state: AgentState) -> dict:
     # 带重试调用 LLM
     ai_msg = _call_llm_with_retry(llm_with_tools, messages)
     if ai_msg is None:
-        # LLM 调用全部失败，降级为一条无 tool_calls 的 AI 消息，使流程走向 END
-        ai_msg = AIMessage(
-            content="LLM 调用失败（已重试3次），无法完成根因分析。",
-        )
+        # LLM 调用全部失败，抛异常中断 graph，由 routes 层捕获并标记任务 failed
+        raise RuntimeError("LLM 调用失败（已重试3次），无法完成根因分析")
 
     result: dict = {"messages": [ai_msg], "loop_count": loop_count + 1}
 
