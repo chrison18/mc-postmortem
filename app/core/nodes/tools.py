@@ -4,7 +4,7 @@ react_agent 的 tools 节点。
 执行 agent_node 返回的 tool_calls，将工具结果包装为 ToolMessage 追加到 messages。
 执行后回到 agent_node，形成 ReAct 回环。
 
-MVP 只有一个工具 search_similar_cases，但结构上支持多工具并行执行。
+当前有两个工具：search_similar_cases（RAG 检索）和 read_log_snippet（日志片段读取），结构上支持多工具并行执行。
 """
 
 from langchain_core.messages import ToolMessage

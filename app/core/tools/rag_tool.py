@@ -4,7 +4,7 @@ RAG 追加检索工具。
 react_agent 循环中 LLM 可调用的工具，用于按需追加检索相似案例。
 使用 OpenAI function calling schema 定义，DeepSeek v4 flash 已确认支持。
 
-MVP 只做这一个工具。工具内部调 case_store.search_similar，
+工具内部调 case_store.search_similar，
 不泄露 Chroma API，与预检索共用同一套 embedding 空间。
 """
 
