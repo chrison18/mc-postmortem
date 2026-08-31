@@ -64,6 +64,12 @@ class AgentState(TypedDict):
     summary: str | None
     # 置信度：high / medium / low
     confidence: str | None
+    # 审查次数（每次进入 review 节点 +1）
+    review_count: int
+    # 最近一次审查意见（issues 列表的 JSON 字符串，通过时为 "[]"）
+    review_opinion: str | None
+    # 是否通过独立审查
+    verified: bool
     # 当前 ReAct 循环次数，用于判断是否达到 MAX_REACT_LOOPS
     loop_count: int
     # 是否终止循环的标志位

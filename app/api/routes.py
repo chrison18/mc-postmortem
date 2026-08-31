@@ -55,6 +55,9 @@ class TaskResponse(BaseModel):
     fix_suggestion: str | None = None
     summary: str | None = None
     confidence: str | None = None
+    review_count: int = 0
+    review_opinion: str | None = None
+    verified: bool = False
     retrieved_cases: list = []
     loop_count: int = 0
     error: str | None = None

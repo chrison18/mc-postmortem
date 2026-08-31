@@ -38,6 +38,9 @@ CREATE TABLE IF NOT EXISTS tasks (
     fix_suggestion TEXT,
     summary TEXT,
     confidence TEXT,
+    review_count INTEGER DEFAULT 0,
+    review_opinion TEXT,
+    verified INTEGER DEFAULT 0,
     retrieved_cases TEXT,
     loop_count INTEGER DEFAULT 0,
     error TEXT,
@@ -76,13 +79,20 @@ class TaskStore:
         with self._lock:
             self._conn.execute(_CREATE_TABLE_SQL)
             self._conn.commit()
-            # 迁移：旧库缺少 summary/confidence 列时补上（ALTER TABLE 是写操作，必须在锁内）
-            try:
-                self._conn.execute("ALTER TABLE tasks ADD COLUMN summary TEXT")
-                self._conn.execute("ALTER TABLE tasks ADD COLUMN confidence TEXT")
-                self._conn.commit()
-            except sqlite3.OperationalError:
-                pass  # 列已存在，忽略
+            # 迁移：旧库缺少列时补上（每条 ALTER TABLE 独立 try/except，
+            # 避免已有列抛异常后跳过后续新列的添加）
+            for alter_sql in [
+                "ALTER TABLE tasks ADD COLUMN summary TEXT",
+                "ALTER TABLE tasks ADD COLUMN confidence TEXT",
+                "ALTER TABLE tasks ADD COLUMN review_count INTEGER DEFAULT 0",
+                "ALTER TABLE tasks ADD COLUMN review_opinion TEXT",
+                "ALTER TABLE tasks ADD COLUMN verified INTEGER DEFAULT 0",
+            ]:
+                try:
+                    self._conn.execute(alter_sql)
+                except sqlite3.OperationalError:
+                    pass  # 列已存在，忽略
+            self._conn.commit()
 
     def create_task(self, raw_log_path: str) -> str:
         """创建新任务，返回任务 ID。
@@ -151,6 +161,9 @@ class TaskStore:
                     fix_suggestion = ?,
                     summary = ?,
                     confidence = ?,
+                    review_count = ?,
+                    review_opinion = ?,
+                    verified = ?,
                     retrieved_cases = ?,
                     loop_count = ?,
                     completed_at = ?
@@ -163,6 +176,9 @@ class TaskStore:
                     result.get("fix_suggestion"),
                     result.get("summary"),
                     result.get("confidence"),
+                    result.get("review_count", 0),
+                    result.get("review_opinion"),
+                    1 if result.get("verified", False) else 0,
                     retrieved_json,
                     result.get("loop_count", 0),
                     _now_iso(),
