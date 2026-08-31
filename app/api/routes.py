@@ -53,6 +53,8 @@ class TaskResponse(BaseModel):
     classify_reason: str | None = None
     root_cause: str | None = None
     fix_suggestion: str | None = None
+    summary: str | None = None
+    confidence: str | None = None
     retrieved_cases: list = []
     loop_count: int = 0
     error: str | None = None
