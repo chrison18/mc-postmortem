@@ -81,6 +81,17 @@ def agent_node(state: AgentState) -> dict:
     return result
 
 
+def _strip_double_braces(text: str) -> str:
+    """如果文本被双层大括号 {{...}} 包裹，剥离一层变为 {...}。
+
+    LLM 可能照抄 prompt 中的双层括号示例，导致 JSON 解析失败。
+    """
+    text = text.strip()
+    if text.startswith("{{") and text.endswith("}}"):
+        return text[1:-1]
+    return text
+
+
 def _parse_final_answer(content: str) -> tuple[str, str | None]:
     """解析 LLM 最终答案中的 JSON，提取 root_cause 和 fix_suggestion。
 
@@ -107,15 +118,16 @@ def _parse_final_answer(content: str) -> tuple[str, str | None]:
         cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
         cleaned = re.sub(r"\s*```$", "", cleaned)
 
-    # 尝试直接解析（格式1：纯 JSON）
-    result = _try_extract_json(cleaned)
+    # 尝试直接解析（格式1：纯 JSON），先剥离可能的双层大括号
+    result = _try_extract_json(_strip_double_braces(cleaned))
     if result is not None:
         return result
 
     # 格式3：从混合文本中用正则提取 JSON 对象（第一个 { 到最后一个 }）
     match = re.search(r"\{[\s\S]*\}", cleaned)
     if match:
-        result = _try_extract_json(match.group())
+        # 对提取的 JSON 块也做双层大括号剥离
+        result = _try_extract_json(_strip_double_braces(match.group()))
         if result is not None:
             return result
 
