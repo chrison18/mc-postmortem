@@ -129,7 +129,7 @@ class TaskStore:
             result: graph.invoke() 返回的完整状态字典，从中提取各字段。
         """
         retrieved_cases = result.get("retrieved_cases", [])
-        retrieved_json = json.dumps(retrieved_cases, ensure_ascii=False) if retrieved_cases else None
+        retrieved_json = json.dumps(retrieved_cases, ensure_ascii=False)  # 空列表也存"[]"，保持字段一致
 
         with self._lock:
             self._conn.execute(
