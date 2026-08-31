@@ -171,6 +171,26 @@ class TaskStore:
             )
             self._conn.commit()
 
+
+    def _row_to_task(self, row: sqlite3.Row) -> dict:
+        """将数据库行转为任务字典，统一处理 retrieved_cases JSON 解析。
+
+        Args:
+            row: sqlite3.Row 查询结果行。
+
+        Returns:
+            任务字典，retrieved_cases 已解析为列表。
+        """
+        task = dict(row)
+        if task.get("retrieved_cases"):
+            try:
+                task["retrieved_cases"] = json.loads(task["retrieved_cases"])
+            except json.JSONDecodeError:
+                task["retrieved_cases"] = []
+        else:
+            task["retrieved_cases"] = []
+        return task
+
     def get_task(self, task_id: str) -> dict | None:
         """查询单个任务。
 
@@ -188,17 +208,7 @@ class TaskStore:
         ).fetchone()
         if row is None:
             return None
-
-        task = dict(row)
-        # retrieved_cases 从 JSON 字符串解析回列表
-        if task.get("retrieved_cases"):
-            try:
-                task["retrieved_cases"] = json.loads(task["retrieved_cases"])
-            except json.JSONDecodeError:
-                task["retrieved_cases"] = []
-        else:
-            task["retrieved_cases"] = []
-        return task
+        return self._row_to_task(row)
 
     def list_tasks(self, limit: int = 20) -> list[dict]:
         """列出最近的任务。
@@ -217,15 +227,7 @@ class TaskStore:
         ).fetchall()
         tasks = []
         for row in rows:
-            task = dict(row)
-            if task.get("retrieved_cases"):
-                try:
-                    task["retrieved_cases"] = json.loads(task["retrieved_cases"])
-                except json.JSONDecodeError:
-                    task["retrieved_cases"] = []
-            else:
-                task["retrieved_cases"] = []
-            tasks.append(task)
+            tasks.append(self._row_to_task(row))
         return tasks
 
     def close(self) -> None:
