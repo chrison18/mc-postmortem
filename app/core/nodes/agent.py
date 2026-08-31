@@ -71,12 +71,14 @@ def agent_node(state: AgentState) -> dict:
 
     result: dict = {"messages": [ai_msg], "loop_count": loop_count + 1}
 
-    # 没有 tool_calls 说明是最终答案，解析 JSON 提取 root_cause 和 fix_suggestion
+    # 没有 tool_calls 说明是最终答案，解析 JSON 提取 4 字段
     tool_calls = getattr(ai_msg, "tool_calls", None) or []
     if not tool_calls:
-        root_cause, fix_suggestion = _parse_final_answer(ai_msg.content)
+        summary, root_cause, fix_suggestion, confidence = _parse_final_answer(ai_msg.content)
+        result["summary"] = summary
         result["root_cause"] = root_cause
         result["fix_suggestion"] = fix_suggestion
+        result["confidence"] = confidence
 
     return result
 
@@ -92,24 +94,24 @@ def _strip_double_braces(text: str) -> str:
     return text
 
 
-def _parse_final_answer(content: str) -> tuple[str, str | None]:
-    """解析 LLM 最终答案中的 JSON，提取 root_cause 和 fix_suggestion。
+def _parse_final_answer(content: str) -> tuple[str | None, str, str | None, str | None]:
+    """解析 LLM 最终答案中的 JSON，提取 summary/root_cause/fix_suggestion/confidence。
 
     支持三种格式：
     1. 纯 JSON 文本
     2. markdown 代码块包裹的 JSON（```json ... ```）
     3. 混合文本（前面有分析文字，后面包含 JSON 对象）——用正则提取 JSON
 
-    解析失败时降级：全文当 root_cause，fix_suggestion 为 None。
+    解析失败时降级：summary/confidence 为 None，全文当 root_cause，fix_suggestion 为 None。
 
     Args:
         content: LLM 返回的文本内容。
 
     Returns:
-        (root_cause, fix_suggestion) 元组。
+        (summary, root_cause, fix_suggestion, confidence) 四元组。
     """
     if not content or not content.strip():
-        return "LLM 返回为空", None
+        return None, "LLM 返回为空", None, None
 
     cleaned = content.strip()
 
@@ -131,27 +133,42 @@ def _parse_final_answer(content: str) -> tuple[str, str | None]:
         if result is not None:
             return result
 
-    # 降级：全文当 root_cause
-    return content.strip(), None
+    # 降级：summary/confidence 为 None，全文当 root_cause
+    return None, content.strip(), None, None
 
 
-def _try_extract_json(text: str) -> tuple[str, str | None] | None:
-    """尝试解析 JSON 文本，提取 root_cause 和 fix_suggestion。
+def _try_extract_json(text: str) -> tuple[str | None, str, str | None, str | None] | None:
+    """尝试解析 JSON 文本，提取 summary/root_cause/fix_suggestion/confidence。
 
     Args:
         text: 待解析的文本。
 
     Returns:
-        (root_cause, fix_suggestion) 元组，解析失败或无 root_cause 时返回 None。
+        (summary, root_cause, fix_suggestion, confidence) 四元组，解析失败或无 root_cause 时返回 None。
     """
     try:
         data = json.loads(text)
         root_cause = str(data.get("root_cause", "")).strip()
+        if not root_cause:
+            return None
+
+        # summary 缺失时为 None
+        summary = data.get("summary")
+        if summary is not None:
+            summary = str(summary).strip() or None
+
         fix_suggestion = data.get("fix_suggestion")
         if fix_suggestion is not None:
             fix_suggestion = str(fix_suggestion).strip() or None
-        if root_cause:
-            return root_cause, fix_suggestion
+
+        # confidence 归一化：小写，只接受 high/medium/low，否则 None
+        confidence = data.get("confidence")
+        if confidence is not None:
+            confidence = str(confidence).strip().lower()
+            if confidence not in ("high", "medium", "low"):
+                confidence = None
+
+        return summary, root_cause, fix_suggestion, confidence
     except json.JSONDecodeError:
         pass
     return None
