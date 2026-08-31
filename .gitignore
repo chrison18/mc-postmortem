@@ -28,8 +28,8 @@ Thumbs.db
 .env
 .env.local
 
-# API 运行时数据库
-data/tasks.db
+# API 运行时数据库（含 WAL/SHM 临时文件）
+data/tasks.db*
 
 # 内部工作 agent 协作文件夹（不入库）
 agent_docs/
