@@ -29,7 +29,7 @@ class ParsedLog(TypedDict):
     caused_by_chain: list[str]
     # 全量堆栈帧（保留所有 at 行，不过滤 JDK 内部帧，为后续分析留全量信息）
     key_stack_frames: list[str]
-    # 崩溃时加载的插件列表，每项含 name / version / url
+    # 崩溃时加载的插件列表，每项含 name / version
     plugins: list[dict]
     # 疑似导致崩溃的插件名，无法判断时为 None
     suspected_plugin: str | None
