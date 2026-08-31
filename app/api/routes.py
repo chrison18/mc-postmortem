@@ -11,7 +11,7 @@ FastAPI 路由定义。
 """
 
 import os
-import threading
+from concurrent.futures import ThreadPoolExecutor
 
 from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from pydantic import BaseModel
@@ -26,6 +26,10 @@ from app.repositories.task_store import (
 )
 
 router = APIRouter(prefix="/api", tags=["analysis"])
+
+# 后台分析线程池，限制最大并发数，防止 LLM 配额或系统资源被打满
+# 线程池无界队列，任务会排队等待不会丢失；max_workers=10 是 MVP 配置，后续可根据 LLM 配额调整
+_executor = ThreadPoolExecutor(max_workers=10, thread_name_prefix="analysis")
 
 
 # ---------------------------------------------------------------------------
@@ -101,12 +105,8 @@ def _save_log_and_start(task_id: str, content: str | bytes, is_binary: bool) -> 
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(content)
 
-    thread = threading.Thread(
-        target=_run_analysis,
-        args=(task_id, file_path),
-        daemon=True,
-    )
-    thread.start()
+    # 提交到线程池执行，超过 max_workers 的任务排队等待
+    _executor.submit(_run_analysis, task_id, file_path)
     return file_path
 
 
