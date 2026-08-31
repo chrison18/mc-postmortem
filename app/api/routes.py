@@ -27,6 +27,9 @@ from app.repositories.task_store import (
 
 router = APIRouter(prefix="/api", tags=["analysis"])
 
+# 上传文件大小限制（10MB），流式读取避免大文件占内存
+_MAX_UPLOAD_SIZE = 10 * 1024 * 1024
+
 # 后台分析线程池，限制最大并发数，防止 LLM 配额或系统资源被打满
 # 线程池无界队列，任务会排队等待不会丢失；max_workers=10 是 MVP 配置，后续可根据 LLM 配额调整
 _executor = ThreadPoolExecutor(max_workers=10, thread_name_prefix="analysis")
@@ -144,7 +147,10 @@ async def analyze_log(
     task_id = store.create_task(raw_log_path="")
 
     if file is not None:
-        file_content = await file.read()
+        # 只读限制+1字节，超过说明文件超限，避免全量读入内存
+        file_content = await file.read(_MAX_UPLOAD_SIZE + 1)
+        if len(file_content) > _MAX_UPLOAD_SIZE:
+            raise HTTPException(status_code=400, detail="文件大小超过 10MB 限制")
         file_path = _save_log_and_start(task_id, file_content, is_binary=True)
     else:
         file_path = _save_log_and_start(task_id, content, is_binary=False)
@@ -168,6 +174,8 @@ async def analyze_log_text(request: AnalyzeTextRequest) -> TaskResponse:
     """
     if not request.content.strip():
         raise HTTPException(status_code=400, detail="content 不能为空")
+    if len(request.content) > _MAX_UPLOAD_SIZE:
+        raise HTTPException(status_code=400, detail="文本内容超过 10MB 限制")
 
     store = get_task_store()
     task_id = store.create_task(raw_log_path="")
