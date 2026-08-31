@@ -60,6 +60,10 @@ class AgentState(TypedDict):
     root_cause: str | None
     # 最终修复建议（与 root_cause 分开存储，由 react_agent 从 LLM 最终答案中解析）
     fix_suggestion: str | None
+    # 一句话崩溃总结（LLM 最终答案中提取）
+    summary: str | None
+    # 置信度：high / medium / low
+    confidence: str | None
     # 当前 ReAct 循环次数，用于判断是否达到 MAX_REACT_LOOPS
     loop_count: int
     # 是否终止循环的标志位

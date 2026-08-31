@@ -49,6 +49,8 @@ def create_initial_state(raw_log_path: str) -> AgentState:
         "retrieved_cases": [],
         "root_cause": None,
         "fix_suggestion": None,
+        "summary": None,
+        "confidence": None,
         "loop_count": 0,
         "should_stop": False,
     }
