@@ -68,6 +68,8 @@ class TaskStore:
         """
         self._conn = sqlite3.connect(settings.SQLITE_PATH, check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
+        # 开启 WAL 模式，允许并发读 + 单写，减少 database is locked
+        self._conn.execute("PRAGMA journal_mode=WAL")
         self._lock = threading.Lock()
         with self._lock:
             self._conn.execute(_CREATE_TABLE_SQL)
