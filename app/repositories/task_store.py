@@ -87,6 +87,7 @@ class TaskStore:
                 "ALTER TABLE tasks ADD COLUMN review_count INTEGER DEFAULT 0",
                 "ALTER TABLE tasks ADD COLUMN review_opinion TEXT",
                 "ALTER TABLE tasks ADD COLUMN verified INTEGER DEFAULT 0",
+                "ALTER TABLE tasks ADD COLUMN parent_task_id TEXT",
             ]:
                 try:
                     self._conn.execute(alter_sql)
@@ -94,11 +95,12 @@ class TaskStore:
                     pass  # 列已存在，忽略
             self._conn.commit()
 
-    def create_task(self, raw_log_path: str) -> str:
+    def create_task(self, raw_log_path: str, parent_task_id: str | None = None) -> str:
         """创建新任务，返回任务 ID。
 
         Args:
             raw_log_path: 上传的日志文件路径。
+            parent_task_id: 父任务 ID（重跑场景下指向原任务），可选。
 
         Returns:
             新创建的任务 ID（UUID 字符串）。
@@ -106,8 +108,8 @@ class TaskStore:
         task_id = str(uuid.uuid4())
         with self._lock:
             self._conn.execute(
-                "INSERT INTO tasks (id, status, raw_log_path, created_at) VALUES (?, ?, ?, ?)",
-                (task_id, STATUS_PENDING, raw_log_path, _now_iso()),
+                "INSERT INTO tasks (id, status, raw_log_path, parent_task_id, created_at) VALUES (?, ?, ?, ?, ?)",
+                (task_id, STATUS_PENDING, raw_log_path, parent_task_id, _now_iso()),
             )
             self._conn.commit()
         return task_id

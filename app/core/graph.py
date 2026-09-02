@@ -36,11 +36,13 @@ from app.core.state import AgentState
 # 初始状态构建
 # ---------------------------------------------------------------------------
 
-def create_initial_state(raw_log_path: str) -> AgentState:
+def create_initial_state(raw_log_path: str, initial_messages: list | None = None) -> AgentState:
     """构建图的初始状态，所有字段填默认值。
 
     Args:
         raw_log_path: 原始崩溃日志文件路径。
+        initial_messages: 初始消息列表（重跑时带入原任务的中期记忆提示），
+            为 None 时初始化为空列表。
 
     Returns:
         完整的 AgentState 字典，可直接传入 graph.invoke()。
@@ -50,7 +52,7 @@ def create_initial_state(raw_log_path: str) -> AgentState:
         "parsed_log": None,
         "fault_category": None,
         "classify_reason": None,
-        "messages": [],
+        "messages": initial_messages or [],
         "retrieved_cases": [],
         "root_cause": None,
         "fix_suggestion": None,

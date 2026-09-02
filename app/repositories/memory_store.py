@@ -95,6 +95,21 @@ class MemoryStore:
         rows = self._conn.execute(sql, params).fetchall()
         return [dict(row) for row in rows]
 
+    def list_by_task(self, task_id: str) -> list[dict]:
+        """按 task_id 精确查询该任务产生的所有中期记忆。
+
+        Args:
+            task_id: 任务 ID。
+
+        Returns:
+            记忆列表，按 created_at 倒序。
+        """
+        rows = self._conn.execute(
+            "SELECT * FROM working_memory WHERE task_id = ? ORDER BY created_at DESC",
+            (task_id,),
+        ).fetchall()
+        return [dict(row) for row in rows]
+
     def close(self) -> None:
         """关闭数据库连接。"""
         self._conn.close()
