@@ -121,8 +121,9 @@ def build_react_system_prompt(state: dict) -> str:
 1. 先阅读下方的结构化日志、分类结果和预检索案例。
 2. 如果现有信息足够，直接输出最终结论。
 3. 如果需要更多相似案例，可以调用 search_similar_cases 工具追加检索。
-4. 检索工具可以多次调用，每次可以换不同的查询角度。
-5. 如果结构化日志信息不足，可以调用 read_log_snippet 工具读取原始日志的指定行范围。
+4. 如果想参考历史分析经验（有效检索词、排除方向、踩坑记录），可以调用 search_memory 工具。
+5. 检索工具可以多次调用，每次可以换不同的查询角度。
+6. 如果结构化日志信息不足，可以调用 read_log_snippet 工具读取原始日志的指定行范围。
 
 ## 故障分类结果（前置节点给出，供参考）
 - 分类: {fault_category}
@@ -142,6 +143,26 @@ def build_react_system_prompt(state: dict) -> str:
 - 前 10 条堆栈帧
 
 查询词建议：用自然语言描述你想找的相似故障场景，例如 "NullPointerException at plugin load" 或 "WorldEdit version mismatch"。工具会返回最相似的案例及其修复方案。
+
+## 中期记忆工具使用说明
+你有两个记忆检索工具，用途不同，不要混淆：
+
+- search_similar_cases：找外部案例的修复方案（别人怎么修的），向量相似度检索，只读
+- search_memory：找本系统历史分析经验（之前分析类似问题时踩过什么坑、什么检索词有效），关键词匹配，可读可写
+
+### 什么时候调用 search_memory（三个节点主动搜）
+1. 分析开始时：按当前异常类型或插件名搜一下，看有没有历史分析经验或已知排除方向
+2. RAG 检索结果差时：搜 retrieval_tip 类型，看之前有没有总结过更好的检索词
+3. 准备排除某个方向时：搜 excluded_direction 类型，避免重复排除已经验证过无关的方向
+
+### 什么时候调用 save_memory
+分析过程中有价值的经验随时存：
+- 发现某个检索词效果特别好 → save_memory("retrieval_tip:{{异常类型}}", "检索词XXX效果好")
+- 验证某个方向无关 → save_memory("excluded_direction:{{对象}}", "已验证XXX无关，因为...")
+- 得出待验证的中间结论 → save_memory("intermediate_conclusion:{{类别}}", "初步判断...")
+- 踩了坑 → save_memory("pitfall:{{对象}}", "不要XXX，会导致...")
+
+保存和检索是对等的，只存不搜记忆库会变成坟墓，只搜不存经验无法积累。
 
 ## 日志读取工具使用说明
 read_log_snippet 工具用于按需读取原始崩溃日志的指定行范围，避免将全文塞入上下文。

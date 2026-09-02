@@ -81,6 +81,9 @@ def _run_analysis(task_id: str, raw_log_path: str) -> None:
     """
     store = get_task_store()
     try:
+        # 设置中期记忆的当前任务 ID，用于 save_memory 溯源
+        from app.core.tools.memory_tool import set_current_task_id
+        set_current_task_id(task_id)
         store.update_status(task_id, STATUS_RUNNING)
         result = graph.invoke(create_initial_state(raw_log_path))
         store.complete_task(task_id, result)
