@@ -153,6 +153,93 @@ class CaseStore:
         """
         return self._collection.count()
 
+    def _metadata_to_case(self, case_id: str, meta: dict, doc: str) -> dict:
+        """将 Chroma 返回的 metadata + document 转换为统一的 case dict。
+
+        list_all 和 get_by_id 都调用此方法，避免重复代码。
+
+        Args:
+            case_id: 案例 ID。
+            meta: Chroma metadata 字典。
+            doc: Chroma document（即 embedding_text）。
+
+        Returns:
+            结构化案例 dict，包含 id、反序列化后的 plugins 列表、embedding_text，
+            以及其余 metadata 字段原样保留。
+        """
+        case = {"id": case_id}
+        case.update(meta)
+        # 反序列化 plugins 字段（add_cases 时 list 被 json.dumps 成字符串）
+        plugins = case.get("plugins")
+        if isinstance(plugins, str):
+            try:
+                case["plugins"] = json.loads(plugins)
+            except (json.JSONDecodeError, TypeError):
+                # 反序列化失败保持原字符串
+                pass
+        # 把 embedding_text 从 document 注入
+        case["embedding_text"] = doc
+        return case
+
+    def list_all(self, limit: int = 20, offset: int = 0) -> list[dict]:
+        """分页获取所有案例。
+
+        注意：Chroma 没有直接的分页 API，这里全量 get 后在 Python 层面切片。
+        全量 get 会拉取每条案例的 raw_log 大字段（user_confirmed 案例的 metadata
+        里存了崩溃日志全文）。MVP 阶段案例数几百条，内存占用可接受；后续案例量大
+        了需要改成分页查询或去掉 raw_log。
+
+        Args:
+            limit: 返回数量上限。
+            offset: 偏移量。
+
+        Returns:
+            案例列表，每条为结构化 dict。空库返回空列表。
+        """
+        result = self._collection.get(include=["metadatas", "documents"])
+        ids = result.get("ids", [])
+        metadatas = result.get("metadatas", [])
+        documents = result.get("documents", [])
+
+        cases = []
+        end = min(offset + limit, len(ids))
+        for i in range(offset, end):
+            cases.append(self._metadata_to_case(ids[i], metadatas[i] or {}, documents[i] or ""))
+        return cases
+
+    def get_by_id(self, case_id: str) -> dict | None:
+        """按 ID 查询单个案例。
+
+        Args:
+            case_id: 案例 ID。
+
+        Returns:
+            案例 dict，不存在时返回 None。
+        """
+        result = self._collection.get(ids=[case_id], include=["metadatas", "documents"])
+        ids = result.get("ids", [])
+        if not ids:
+            return None
+        metadatas = result.get("metadatas", [])
+        documents = result.get("documents", [])
+        return self._metadata_to_case(ids[0], metadatas[0] or {}, documents[0] or "")
+
+    def delete(self, case_id: str) -> bool:
+        """按 ID 删除案例。
+
+        注意：先查后删不是原子操作，并发删除可能有竞态。MVP 管理接口并发低，可接受。
+
+        Args:
+            case_id: 案例 ID。
+
+        Returns:
+            删除成功返回 True，案例不存在返回 False。
+        """
+        if self.get_by_id(case_id) is None:
+            return False
+        self._collection.delete(ids=[case_id])
+        return True
+
 
 def get_case_store() -> CaseStore:
     """获取 CaseStore 单例。

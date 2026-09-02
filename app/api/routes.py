@@ -458,3 +458,82 @@ async def rerun_task(task_id: str) -> TaskResponse:
 
     new_task = store.get_task(new_task_id)
     return TaskResponse(**new_task)
+
+
+# ---------------------------------------------------------------------------
+# 管理接口：知识库案例 CRUD + 系统配置查看
+# ---------------------------------------------------------------------------
+
+@router.get("/cases")
+async def list_cases(limit: int = 20, offset: int = 0) -> dict:
+    """案例列表（分页）。
+
+    Args:
+        limit: 返回数量上限，超过 100 截断为 100，小于 1 设为 1。
+        offset: 偏移量，负数修正为 0。
+
+    Returns:
+        {"total": ..., "limit": ..., "offset": ..., "cases": [...]}
+    """
+    limit = max(1, min(limit, 100))
+    offset = max(0, offset)
+    store = get_case_store()
+    cases = store.list_all(limit=limit, offset=offset)
+    total = store.count()
+    return {"total": total, "limit": limit, "offset": offset, "cases": cases}
+
+
+@router.get("/cases/{case_id}")
+async def get_case(case_id: str) -> dict:
+    """案例详情。
+
+    Args:
+        case_id: 案例 ID。
+
+    Returns:
+        案例 dict。
+
+    Raises:
+        HTTPException: 案例不存在时返回 404。
+    """
+    case = get_case_store().get_by_id(case_id)
+    if case is None:
+        raise HTTPException(status_code=404, detail=f"案例 {case_id} 不存在")
+    return case
+
+
+@router.delete("/cases/{case_id}")
+async def delete_case(case_id: str) -> dict:
+    """删除案例（幂等，不存在也返回 200）。
+
+    Args:
+        case_id: 案例 ID。
+
+    Returns:
+        {"deleted": True/False, "case_id": ...}
+    """
+    deleted = get_case_store().delete(case_id)
+    return {"deleted": deleted, "case_id": case_id}
+
+
+@router.get("/config")
+async def get_config() -> dict:
+    """查看系统配置（白名单，不返回 API key 等敏感信息）。
+
+    Returns:
+        非敏感配置项 dict。
+    """
+    return {
+        "max_react_loops": settings.MAX_REACT_LOOPS,
+        "llm_model": settings.LLM_MODEL,
+        "embedding_model": settings.EMBEDDING_MODEL,
+        "agent_temperature": 0.1,
+        "review_temperature": 0.3,
+        "sqlite_path": settings.SQLITE_PATH,
+        "chroma_path": settings.CHROMA_PATH,
+        "raw_log_dir": settings.RAW_LOG_DIR,
+        "max_upload_size_mb": 10,
+        "thread_pool_workers": 10,
+        "case_count": get_case_store().count(),
+        "review_fail_open": True,
+    }
